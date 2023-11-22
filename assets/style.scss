@@ -1,0 +1,1980 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Finlandica";
+  src: url("chrome-extension://__MSG_@@extension_id__/assets/Finlandica.ttf") format("truetype");
+}
+
+$dark-0: #0a0c11; // 950
+$dark-1: #12151b; // 925
+$dark-2: #1f2127; // 900
+$dark-3: #272a30; // 800
+$hightlight: #3c414a; // 700
+$text-primary: #d1d5db; // 300
+$text-secondary: #a2a8b1; // 400
+
+$purple-0: hsl(265, 50%, 20%);
+$purple-1: hsl(270, 50%, 45%);
+$purple-2: hsl(275, 75%, 60%);
+
+// #region Mixins
+
+@mixin shadow {
+  box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
+}
+@mixin card {
+  @apply bg-gray-925 rounded-lg border-2 border-gray-900 #{!important};
+}
+@mixin cell {
+  @apply border-2 border-gray-950 #{!important};
+  // RED
+  &[style*="\#FF3300"] {
+    @apply bg-purple-500/20 relative hover:bg-purple-500/50 #{!important};
+    // HOURGLASS
+    &[style*="sandglass"] {
+      @apply relative bg-none #{!important};
+      &::after {
+        @apply content-["⏳"] absolute flex items-center justify-center inset-0 pointer-events-none #{!important};
+        animation: hourglass 4s infinite normal ease-in-out;
+        @keyframes hourglass {
+          0%,
+          25% {
+            rotate: 0deg;
+          }
+          25%,
+          50% {
+            rotate: 180deg;
+          }
+          50%,
+          75% {
+            rotate: 180deg;
+          }
+          75%,
+          100% {
+            rotate: 360deg;
+          }
+        }
+      }
+    }
+  }
+  // YELLOW
+  &[style*="\#F7FE2E"] {
+    @apply bg-purple-500 relative overflow-hidden opacity-[0.85] duration-100 #{!important};
+    &::after {
+      animation: yellowCell 2s infinite alternate ease-in-out;
+      @apply content-[""] absolute left-0 right-0 top-0 h-[20%] pointer-events-none bg-purple-500 #{!important};
+      @keyframes yellowCell {
+        0% {
+          filter: opacity(0.3);
+        }
+        100% {
+          filter: opacity(1);
+        }
+      }
+    }
+  }
+  // GREEN
+  &[style*="\#33CC00"] {
+    @apply relative bg-purple-500 bg-none #{!important};
+    &[style*="up\.png"] {
+      &::after {
+        @apply content-["👍"] absolute flex items-center justify-center inset-0 pointer-events-none #{!important};
+      }
+    }
+    &[style*="down\.png"] {
+      &::after {
+        @apply content-["👎"] absolute flex items-center justify-center inset-0 pointer-events-none #{!important};
+      }
+    }
+  }
+  // GRAY / FORUMS
+  &[style*="#CCCCCC"] {
+    @apply bg-gray-900 border-2 border-gray-950 #{!important};
+  }
+  a {
+    @apply rounded-sm outline-purple-500 #{!important};
+    &.highlighted {
+      @apply outline-2 #{!important};
+    }
+  }
+}
+@mixin importantButton {
+  @apply bg-gray-900 border-2 border-gray-800 px-6 h-12 flex items-center justify-center #{!important};
+  &:is(:hover, :focus, :active) {
+    background-color: $dark-3 !important;
+  }
+}
+@mixin linkAnchor {
+  @include card;
+  @apply py-1 px-2 font-medium text-gray-200 hover:brightness-125 #{!important};
+  &::before {
+    @apply mr-1 h-full aspect-square content-["🔗"] #{!important};
+  }
+}
+@mixin smoothAppearAnim($move: true) {
+  animation: smoothAppear 0.1s ease-in-out;
+  @keyframes smoothAppear {
+    0% {
+      opacity: 0;
+      @if #{$move} {
+        translate: 0 -1rem;
+      }
+    }
+    100% {
+      opacity: 1;
+      @if #{$move} {
+        translate: 0 0;
+      }
+    }
+  }
+}
+@mixin pulseAnim {
+  animation: pulse 1s infinite alternate ease-in-out;
+  @keyframes pulse {
+    0% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+@mixin prettyMarkdown {
+  h1,
+  h2,
+  h3 {
+    @apply text-gray-200 mb-8 mt-12 font-medium #{!important};
+    * {
+      @apply text-xl #{!important};
+    }
+  }
+  a[href] {
+    @include linkAnchor;
+  }
+  pre {
+    @apply bg-gray-950 p-4 font-mono font-medium text-gray-400 #{!important};
+  }
+  table {
+    @include card;
+    @apply bg-gray-950 mb-4 #{!important};
+    thead {
+      @apply bg-gray-800 #{!important};
+    }
+    th,
+    td {
+      @apply p-2 #{!important};
+    }
+  }
+  .contentwithoutlink,
+  .mod-indent-outer,
+  .img-text,
+  .summary {
+    @apply m-0 p-0 #{!important};
+  }
+}
+
+// #endregion
+
+body {
+  @apply bg-gray-950 font-["Finlandica"] text-gray-400 #{!important};
+}
+/* APPLY FONT SO ICONS DO NOT BREAK */
+footer#page-footer {
+  @apply bg-black #{!important};
+}
+/* SLIDER */
+::-webkit-scrollbar {
+  @apply w-3 h-3 rounded-lg #{!important};
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-900 rounded-lg #{!important};
+}
+::-webkit-scrollbar-corner {
+  @apply hidden #{!important};
+}
+*,
+*:active,
+*:focus {
+  @apply text-base border-0 border-solid outline-0 outline #{!important};
+}
+::selection {
+  @apply bg-black text-gray-200 #{!important};
+}
+*:focus-visible:not(input) {
+  @apply outline outline-4 outline-purple-500 duration-100 rounded-[inherit];
+}
+header#page-header {
+  display: none !important;
+}
+section {
+  &.block {
+    overflow: hidden !important;
+    border-radius: 0.5rem !important;
+  }
+  &.block_mycourses {
+    outline: none !important;
+  }
+  // OUTER LINKS / SPRAVKA ZACHETKA
+  &.block_html:has(a[href*="spravka"]) {
+    * {
+      margin: 0 !important;
+    }
+    .no-overflow {
+      overflow: visible !important;
+      h4 {
+        @apply flex flex-wrap gap-3 #{!important};
+        a {
+          @include linkAnchor;
+        }
+      }
+    }
+  }
+  // MY TEACHERS
+  &.block_myteachers {
+    div:has(> img, > a) {
+      @apply #{!important};
+      @apply flex flex-nowrap gap-1 items-center #{!important};
+      * {
+        @apply m-0 #{!important};
+      }
+      > img {
+        @apply rounded-full w-6 h-6 #{!important};
+      }
+      > a {
+        @apply px-1 py-2 #{!important};
+      }
+    }
+  }
+  // ONLINE USERS
+  &.block_online_users {
+    ul {
+      > li {
+        @apply flex gap-1 items-center #{!important};
+        > .user {
+          @apply flex #{!important};
+          > a {
+            @apply py-1 px-2 #{!important};
+          }
+        }
+        > .message {
+          margin: 0 !important;
+          > a {
+            padding: 0.25rem !important;
+            &:hover,
+            &:focus,
+            &:active {
+              background-color: transparent !important;
+              > i::before {
+                color: $text-secondary !important;
+              }
+            }
+            > i {
+              margin: 0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  // ACTIVITY / COURSE ELEMENTS
+  &.block_activity_modules {
+    ul {
+      @apply flex flex-col gap-2 #{!important};
+      li div {
+        @apply flex #{!important};
+        display: flex !important;
+        a {
+          @apply h-10 flex px-3 hover:brightness-125 items-center gap-2 border-2 border-gray-800 #{!important};
+        }
+      }
+    }
+  }
+}
+/* DROPDOWN MENUS */
+div.dropdown-menu,
+ul.dropdown-menu {
+  @include card;
+  @include shadow;
+  @include smoothAppearAnim;
+  li a {
+    @apply rounded-lg p-1 #{!important};
+  }
+  .show {
+    @apply bg-gray-950 rounded-lg p-2 #{!important};
+  }
+}
+div.popover-region-container {
+  @include card;
+  @include shadow;
+  @include smoothAppearAnim;
+  background-color: $dark-0 !important;
+  padding: 0.5rem !important;
+}
+// BELL BUTTON / ICON
+div.popover-region-toggle.nav-link {
+  border-radius: 0.5rem !important;
+  box-shadow: none !important;
+  &:focus {
+    @include pulseAnim;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    > i {
+      color: $text-secondary !important;
+    }
+  }
+  &::after,
+  &::before {
+    display: none !important;
+  }
+  > i {
+    color: $text-primary !important;
+  }
+}
+#page-wrapper {
+  // POPUP NAV LEFT / COMPACT NAVBAR
+  > #nav-drawer {
+    @apply bg-gray-950 inset-y-0 #{!important};
+  }
+  // NAVBAR
+  > nav.navbar.fixed-top {
+    @apply bg-transparent relative flex items-center pt-12 pr-8 pl-8 shadow-none max-h-[initial] #{!important};
+    // LEFT HAMBURGER
+    button:has(i.fa-bars) {
+      @apply flex items-center text-gray-200 hover:text-gray-300 #{!important};
+    }
+    a.navbar-brand,
+    span.site-name,
+    ul li a {
+      @apply text-gray-400 hover:text-gray-200 #{!important};
+    }
+    a.navbar-brand {
+      mask: url("chrome-extension://__MSG_@@extension_id__/assets/home.svg");
+      @apply w-7 h-7 relative bg-gray-200 hover:bg-gray-300 #{!important};
+      > span {
+        @apply hidden #{!important};
+      }
+    }
+    ul:nth-child(3) {
+      @media (max-width: 1140px) {
+        @apply hidden #{!important};
+      }
+    }
+    // PROFILE IN NAV
+    .nav.usernav {
+      @apply flex-nowrap #{!important};
+      a#action-menu-toggle-1 {
+        @apply p-0 #{!important};
+        &[aria-expanded="true"] .usertext::after {
+          @apply rotate-180 #{!important};
+        }
+        &:hover .userbutton .usertext {
+          @apply text-gray-200 #{!important};
+        }
+        .userbutton {
+          @include card;
+          @apply flex flex-row-reverse items-center gap-3 px-3 h-12 hover:border-gray-800 #{!important};
+          > .avatars img {
+            @apply m-0 shrink-0 w-8 h-8 #{!important};
+          }
+          .usertext {
+            @apply text-gray-300 items-center m-0 #{!important};
+            &::after {
+              @apply content-["▾"] ml-2 text-gray-400 text-2xl duration-200 ease-out #{!important};
+            }
+          }
+        }
+        .caret,
+        &::after {
+          @apply hidden #{!important};
+        }
+      }
+      // NEW MESSAGES OR NOTIFICATIONS NUMBER
+      .count-container {
+        @include pulseAnim;
+        background-color: $purple-2 !important;
+        color: white !important;
+        border-radius: 50% !important;
+        width: 1rem !important;
+        aspect-ratio: 1 !important;
+        text-align: center !important;
+        margin-left: 0.2rem !important;
+      }
+    }
+  }
+}
+/* POPUP MESSENGER / COMPACT MESSENGER */
+/* BACKGROUND */
+[data-origin^="message-drawer-toggle"],
+[data-origin^="message-user-button"] {
+  transition: transform 0s !important;
+  &.bg-white {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: hsla(0, 0%, 0%, 0.5) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 1031 !important;
+    @include smoothAppearAnim;
+  }
+  /* MESSAGE APP AS POPUP ON DARK BACKGROUND*/
+  & .message-app {
+    height: calc(100% - 2rem) !important;
+    width: calc(80% - 2rem) !important;
+    display: flex !important;
+  }
+  & .closewidget {
+    display: flex !important;
+    justify-content: flex-end !important;
+    background-color: transparent !important;
+    /* CLOSE POPUP MESSENGER BUTTON */
+    & a {
+      align-self: flex-end !important;
+      margin: 0 !important;
+      background-color: transparent !important;
+      height: 2rem !important;
+      width: 2rem !important;
+      & i {
+        width: 100% !important;
+        height: 100% !important;
+        position: relative !important;
+        /* CLOSE POPUP MESSENGER X ICON*/
+        &::before {
+          content: "\2573" !important;
+          position: absolute !important;
+          top: 50% !important;
+          left: 50% !important;
+          translate: -50% -50% !important;
+          color: $text-secondary !important;
+        }
+      }
+    }
+  }
+}
+// PARTICIPANTS
+div[data-table-region^="user-index-participants"] {
+  @include card;
+  @include shadow;
+  padding: 1rem !important;
+  & .border-radius.bg-white {
+    border: none !important;
+    background-color: $dark-2 !important;
+    border-radius: 0.5rem !important;
+    padding: 1rem !important;
+  }
+}
+/* BUTTONS AND LINKS / SELECT */
+button.nav-link.float-sm-left.bg-gray {
+  background-color: transparent !important;
+  &:hover {
+    filter: brightness(120%) !important;
+  }
+}
+button,
+a {
+  @apply bg-transparent rounded-md shadow-none [text-decoration:none] focus-visible:outline-2 outline-purple-500 text-gray-300 hover:text-gray-200 #{!important};
+  &:disabled,
+  &.page-link {
+    background-color: transparent !important;
+  }
+  i.icon.text-info {
+    color: $purple-1 !important;
+    margin: 0 !important;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $purple-2 !important;
+    }
+  }
+}
+select {
+  @include card;
+  background-color: $dark-0 !important;
+  padding: 0.5rem 2rem !important;
+  border-radius: 0.5rem !important;
+  box-shadow: none !important;
+  color: $text-primary !important;
+  &:focus {
+    outline: 0.2rem solid $hightlight !important;
+  }
+}
+.aalink.focus,
+#page-footer a:not([class]).focus,
+.arrow_link.focus,
+a:not([class]).focus,
+.activityinstance > a.focus,
+.aalink:focus,
+#page-footer a:not([class]):focus,
+.arrow_link:focus,
+a:not([class]):focus,
+.activityinstance > a:focus {
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+.card {
+  @include shadow;
+  @include card;
+}
+//GO TO TOP BUTTON
+div#goto-top-link > a {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-right: 1rem !important;
+  background-color: $dark-1 !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 50% !important;
+  outline: 0.1rem solid $dark-3 !important;
+  opacity: 0.5 !important;
+  padding: 0 !important;
+  &:is(:hover, :focus, :active) {
+    opacity: 1 !important;
+  }
+  > i {
+    margin: 0 !important;
+  }
+}
+// TABLES
+table.generaltable:not(.course-box),
+.course-content table,
+table.preference-table {
+  background-color: $dark-0 !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden !important;
+  > tbody {
+    tr:nth-child(odd) {
+      background-color: hsla(0, 0%, 0%, 0.15) !important;
+    }
+  }
+  & th,
+  & td {
+    padding: 0.75rem !important;
+  }
+  & * {
+    background-color: transparent !important;
+    color: $text-secondary !important;
+  }
+  & a {
+    color: $text-primary !important;
+    &:hover {
+      color: $text-secondary !important;
+    }
+  }
+}
+// MARKDOWN HTML TEXT ANSWER
+[class*="assignsubmission_onlinetext"]:has(> .no-overflow) {
+  @include card;
+  background-color: transparent !important;
+  padding: 1rem !important;
+  > .no-overflow {
+    @include prettyMarkdown;
+    overflow: visible !important;
+    margin-top: 1rem !important;
+  }
+}
+// INPUT / SEARCH / SUBMIT
+input {
+  @apply bg-gray-950 py-3 px-4 shadow-none text-gray-200 focus:outline-2 outline-gray-700 #{!important};
+  &.form-control {
+    @apply bg-gray-950 #{!important};
+  }
+  &[type="checkbox"],
+  &[type="radio"] {
+    @apply w-4 h-4 #{!important};
+  }
+}
+// DIV WITH CHECKBOX AND LABEL / RADIO AND LABEL
+div:has(> input[type="checkbox"]):has(> label[for]),
+div:has(> label) {
+  @apply flex flex-nowrap gap-2 items-center #{!important};
+  > label {
+    @apply text-gray-200 cursor-pointer #{!important};
+    &:has(> input) {
+      @apply flex flex-nowrap gap-2 items-center #{!important};
+    }
+  }
+  * {
+    @apply m-0 #{!important};
+  }
+}
+button.btn,
+input.btn {
+  @apply font-medium rounded-lg hover:brightness-125 #{!important};
+}
+button.btn-primary,
+input.btn-primary {
+  @apply py-3 px-6 bg-purple-500 text-white #{!important};
+}
+button.btn-secondary,
+input.btn-secondary {
+  @apply bg-gray-900 py-3 px-6 text-gray-400 #{!important};
+}
+button.btn-submit {
+  @apply bg-transparent #{!important};
+}
+// TEXT EDITOR
+textarea,
+#id_assignfeedbackcomments_editoreditable,
+#id_onlinetext_editoreditable {
+  @include prettyMarkdown;
+  @apply bg-gray-950 rounded-lg p-1 text-gray-200 shadow-none focus:outline-2 active:outline-2 outline-purple-500 #{!important};
+  &.bg-light {
+    @apply bg-inherit border-inherit #{!important};
+  }
+}
+// PROFILE TREE / ABOUT
+/* TEXT EDITOR */
+div.editor_atto_wrap {
+  @apply bg-gray-950 p-2 rounded-lg #{!important};
+}
+/* RECENTLY ADDED COURSES */
+div.block-recentlyaccessedcourses div.one-row > div {
+  overflow: hidden !important;
+  border-radius: 0.5rem !important;
+}
+// POPOVER (CALENDER)
+div.popover {
+  @include card;
+  @include shadow;
+  @include smoothAppearAnim;
+  transition: transform 0s !important;
+  div::after,
+  div::before {
+    display: none !important;
+  }
+}
+// CALENDER
+td.hasevent {
+  background-color: $dark-2 !important;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $dark-3 !important;
+  }
+  a {
+    border-radius: 0 !important;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent !important;
+    }
+  }
+}
+// SUBJECTS AND COURSES TABLES
+.card-text.content {
+  > .customtitle,
+  > .legend-box {
+    display: none !important;
+  }
+  // EACH SUBJECT OR COURSE
+  > div:has(table.course-box) {
+    @apply mt-8 #{!important};
+    // SUBJECT NAME
+    > h3 > a {
+      @apply flex py-2 hover:brightness-125 hover:text-gray-200 font-medium text-lg #{!important};
+    }
+    & .course-box {
+      @apply overflow-hidden rounded-lg #{!important};
+      & > tbody {
+        @apply w-auto bg-gray-950 #{!important};
+        .activeness {
+          @apply hidden #{!important};
+        }
+        // CELLS BACKGROUND
+        & > tr > td {
+          @apply p-4 bg-transparent #{!important};
+        }
+        .progressbox {
+          .progressbar {
+            // EACH CELL
+            & td.cm {
+              @include cell;
+            }
+            & tbody tr span {
+              display: none;
+            }
+          }
+          .generalinfobox {
+            @apply hidden #{!important};
+          }
+          // GO TO TEST / TASK / FORUM
+          .cminfobox {
+            margin-top: 0.5rem !important;
+            span.cminfoboxcontent {
+              display: flex !important;
+              width: fit-content !important;
+              height: fit-content !important;
+              padding: 0.25rem 0.5rem !important;
+              background-color: $dark-2 !important;
+              border-radius: 0.5rem !important;
+              @include smoothAppearAnim(false);
+              &:hover {
+                background-color: $dark-3 !important;
+              }
+              a {
+                font-size: 0.75rem !important;
+                &:hover {
+                  background-color: transparent !important;
+                }
+              }
+            }
+            a.closeinfobox {
+              text-align: center !important;
+              height: 1.5rem !important;
+              aspect-ratio: 1 !important;
+            }
+          }
+        }
+      }
+      // TEACHER COURSE WITH STUDENTS GROUPS // OR WITHOUT GROUPS
+      &:has(.group-box),
+      & td:has(> :last-child:nth-child(4)) {
+        // COURSE NAME
+        .course-info {
+          a.course-name {
+            text-decoration: none !important;
+          }
+        }
+        // EACH GROUP OF STUDENTS
+        .group-box {
+          padding: 0.5rem !important;
+          border-radius: 0.5rem !important;
+          outline: 0.1rem solid $dark-2 !important;
+          > .group-completion-box {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+            flex-wrap: nowrap !important;
+            // TOP
+            > :nth-child(1) {
+              display: flex !important;
+              flex-direction: row !important;
+              gap: 0.5rem !important;
+              > * {
+                padding: 0 !important;
+              }
+              // GROUP NAME
+              > :nth-child(1) {
+                margin-right: auto !important;
+              }
+              a {
+                > img {
+                  display: none !important;
+                }
+              }
+              a[href*="delete"] {
+                color: $text-secondary !important;
+              }
+            }
+            // COMPLETION SLIDER // GROUP COMPLETED TASK SLIDER
+            > :nth-child(2) {
+              > .bar-frame {
+                background-color: $purple-0 !important;
+                border-radius: 0.5rem !important;
+                overflow: hidden !important;
+                > .bar-fill {
+                  position: relative !important;
+                  background-color: $purple-1 !important;
+                  overflow: hidden !important;
+                  &::after {
+                    $width: 5rem;
+                    content: "";
+                    position: absolute;
+                    background-color: $purple-2;
+                    filter: blur($width * 0.2);
+                    width: $width;
+                    height: $width;
+                    border-radius: 50%;
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                    animation: glare 5s infinite forwards linear;
+                    @keyframes glare {
+                      0% {
+                        left: calc(0% - $width);
+                      }
+                      100% {
+                        left: calc(100% + $width);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            // BOTTOM
+            > :nth-child(3) {
+              display: flex !important;
+              flex-direction: row !important;
+              gap: 0.5rem !important;
+              > * {
+                padding: 0 !important;
+              }
+              // SEND MESSAGE TO GROUP
+              span,
+              a[href*="message"] {
+                > img {
+                  display: none !important;
+                }
+              }
+            }
+          }
+        }
+        // BOTTOM
+        a {
+          // ADD GROUP
+          &:has(> img[src$="group"]) {
+            > img {
+              display: none !important;
+            }
+          }
+          // ADD SINGLE STUDENT
+          &:has(> img[src$="user"]) {
+            > img {
+              display: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// MAIN BLOCK / SUBJECTS / SUBJECT PAGE
+
+body {
+  // LOGIN
+  &#page-login-index {
+    section#region-main {
+      background: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+      .card {
+        @include card;
+        background: $dark-0 !important;
+        box-shadow: none !important;
+        padding: 1rem !important;
+        h1.card-header {
+          color: $text-primary !important;
+        }
+      }
+    }
+    button#loginbtn {
+      @include importantButton;
+      color: $text-primary !important;
+    }
+    .forgetpass a {
+      padding: 0.5rem !important;
+    }
+  }
+  &#page-mod-assign-view,
+  &#page-mod-assign-editsubmission {
+    [role="main"] {
+      > h2 {
+        @apply text-lg text-gray-200 #{!important};
+      }
+      #intro {
+        @include prettyMarkdown;
+      }
+    }
+    // FILE ATTACHED (AUDIO)
+    [id*="assign_files_tree"] {
+      td:has(> .ygtvspacer) {
+        @apply hidden #{!important};
+      }
+      .fileuploadsubmission {
+        @apply flex items-center gap-2 #{!important};
+        img {
+          @apply m-1 #{!important};
+        }
+      }
+      .fileuploadsubmissiontime {
+        @apply text-sm #{!important};
+      }
+    }
+  }
+  &:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main {
+    @include shadow;
+    @include card;
+    span#maincontent {
+      display: none !important;
+    }
+    .course-content {
+      @include prettyMarkdown;
+      .no-overflow {
+        @apply overflow-visible #{!important};
+      }
+      a.aalink {
+        @include linkAnchor;
+        @apply flex items-center gap-2 [text-indent:0] #{!important};
+        img {
+          @apply w-8 h-auto p-1 aspect-square #{!important};
+        }
+      }
+    }
+  }
+  // USER PROFILE / YOU OR SOMEBODY ELSE
+  &#page-user-profile {
+    .userprofile {
+      //TOP PICTURE AND BUTTONS ADD TO CONTACTS AND WRITE A MESSAGE
+      .page-context-header {
+        display: inline-flex !important;
+        padding: 0 !important;
+        margin-bottom: 1rem !important;
+        gap: 1rem !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        .page-header-image {
+          margin: 0 !important;
+          img.userpicture {
+            margin: 0 !important;
+          }
+        }
+        .page-header-headings {
+          display: inline-flex !important;
+          & > h2 {
+            margin: 0 !important;
+          }
+        }
+        .header-button-group {
+          display: inline-flex !important;
+          flex-wrap: nowrap !important;
+          gap: 1rem !important;
+          & > a {
+            @include importantButton;
+          }
+        }
+      }
+      .profile_tree {
+        a[href*="user\/edit"] {
+          @include importantButton;
+        }
+        a[href*="mailto"] {
+          @include linkAnchor;
+          display: flex !important;
+          margin-top: 1rem !important;
+        }
+        a {
+          padding: 0.5rem 0.5rem !important;
+        }
+        ul {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 0.1rem !important;
+          &.inline-list {
+            display: inline-flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+          }
+          li {
+            display: flex !important;
+            span {
+              display: flex !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  // USER PREFERENCES
+  &#page-user-preferences {
+    [role="main"] {
+      .card {
+        display: flex !important;
+        width: fit-content !important;
+        .card-body:has(> h4, > div) {
+          display: flex !important;
+          flex-direction: column !important;
+          width: fit-content !important;
+          > div {
+            width: fit-content !important;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr 1fr !important;
+            @media (max-width: 768px) {
+              grid-template-columns: 1fr 1fr !important;
+            }
+            > div {
+              display: flex !important;
+              > a {
+                white-space: nowrap !important;
+                padding: 0.5rem 1rem !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // CONFIRM TEST
+  &#page-mod-quiz-summary {
+    .moodle-dialogue {
+      .moodle-dialogue-wrap {
+        width: fit-content !important;
+        .moodle-dialogue-bd {
+          width: fit-content !important;
+          .confirmation-dialogue {
+            display: flex !important;
+            flex-direction: column !important;
+            width: fit-content !important;
+            align-items: center !important;
+            gap: 1rem !important;
+            .confirmation-buttons {
+              display: flex !important;
+              flex-direction: row-reverse !important;
+              gap: 1rem !important;
+              align-self: flex-end !important;
+              width: auto !important;
+              flex-wrap: nowrap !important;
+              align-items: center !important;
+              input {
+                width: fit-content !important;
+                padding: 0.75rem 2rem !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //TEACHER REVIEWS STDENTS TEST / WORK
+  &#page-mod-quiz-review {
+    [id*="question"] {
+      .answer {
+        td.control {
+          display: flex !important;
+          align-items: center !important;
+          gap: 1rem !important;
+          > * {
+            margin: 0 !important;
+          }
+        }
+      }
+      .history {
+        border: none !important;
+      }
+    }
+  }
+  // TEACHER STUDENTS GROUPS OVERVIEW // LIST OF STUDENTS IN A GROUP
+  &#page-blocks-mygroups-overview {
+    .controls {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+      > .pix-box {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 0.5rem !important;
+        > a {
+          padding: 0 !important;
+          > img {
+            display: none !important;
+          }
+        }
+      }
+    }
+    .legend-box {
+      display: none !important;
+    }
+    table#group-overview {
+      td.c0 {
+        // STUDENT PROFILE PICTURE
+        > a {
+          > img {
+            margin: 0 !important;
+          }
+        }
+        // WRITE MESSAGE / GRADES
+        > :nth-child(2) {
+          @include card;
+          background-color: transparent !important;
+          display: flex !important;
+          margin-top: 0.5rem;
+          > a {
+            height: 2rem !important;
+            width: 2rem !important;
+            position: relative !important;
+            &:is(:hover, :focus, :active) {
+              &::after {
+                background-color: $text-secondary;
+              }
+            }
+            > img,
+            > i {
+              display: none !important;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              translate: -50% -50%;
+              width: 1rem;
+              height: 1rem;
+              background-color: $text-primary;
+            }
+            &[href*="message"] {
+              &::after {
+                mask: url("chrome-extension://__MSG_@@extension_id__/assets/comment-solid.svg");
+              }
+            }
+            &[href*="grade"] {
+              &::after {
+                mask: url("chrome-extension://__MSG_@@extension_id__/assets/table-solid.svg");
+              }
+            }
+          }
+        }
+      }
+      // CELLS
+      .progressbox {
+        td {
+          padding: 0 !important;
+        }
+        tr:has(> td.cm) {
+          > td {
+            @include cell;
+          }
+        }
+      }
+      // COMPLETED PERCENTAGE
+      td.c3 {
+        @apply font-bold px-8 #{!important};
+      }
+    }
+  }
+  // TEACHER GRADING THE WORK OF A STUDENT
+  &#page-mod-assign-grader {
+    #page {
+      height: 100% !important;
+      > #page-content {
+        height: 100% !important;
+        > [role="main"] {
+          @apply flex flex-col h-full #{!important};
+          // TOP
+          [data-region="grading-navigation-panel"] {
+            @apply flex h-fit relative #{!important};
+            .container-fluid {
+              @apply p-0 flex h-fit justify-center #{!important};
+              [data-region="grading-navigation"] {
+                @apply p-4 bg-gray-925 flex h-fit items-center w-full #{!important};
+                [data-region="user-info"] {
+                  @apply flex h-fit #{!important};
+                  > h4 {
+                    @apply text-ellipsis m-0 #{!important};
+                    a {
+                      em {
+                        @apply hidden #{!important};
+                      }
+                    }
+                  }
+                }
+                [data-region="user-selector"] {
+                  ul.form-autocomplete-suggestions {
+                    @include card;
+                    @include shadow;
+                    @include smoothAppearAnim;
+                  }
+                }
+              }
+            }
+          }
+          // MAIN
+          [data-region="grade-panel"] {
+            position: relative !important;
+            top: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            overflow-y: scroll !important;
+            flex-grow: 1 !important;
+            padding: 1rem !important;
+            width: auto !important;
+            [data-region="grade"] {
+              padding: 0 !important;
+              max-width: 1024px !important;
+              align-self: center !important;
+              // STUDENT ANSWER
+              > .submissionstatustable {
+                > .assignsubmission {
+                  margin-top: 1rem !important;
+                }
+                > .latesubmission {
+                  color: crimson !important;
+                }
+              }
+              // TEACHER GRADE INPUT
+              [id="fitem_id_grade"] {
+                @include card;
+                padding: 1rem !important;
+              }
+              [id="fitem_id_currentgrade"] {
+                @include card;
+                margin-top: 1rem !important;
+                background-color: transparent !important;
+                padding: 1rem !important;
+              }
+              [id="fitem_id_assignfeedbackcomments_editor"] {
+                padding: 0 !important;
+                margin-top: 1rem !important;
+                // WHEN OPENED FULL
+                &.popout {
+                  @include card;
+                  @include shadow;
+                  @include smoothAppearAnim;
+                  padding: 1rem !important;
+                }
+                [data-fieldtype="editor"] {
+                  @include card;
+                  background-color: transparent !important;
+                }
+              }
+            }
+          }
+          // REVIEW CANVAS / USELESS / DESTROY
+          [data-region="review-panel"] {
+            display: none !important;
+          }
+          // BOTTOM
+          [data-region="grade-actions-panel"] {
+            position: relative !important;
+            height: fit-content !important;
+            background-color: $dark-1 !important;
+            padding-block: 0.5rem !important;
+            // ALIGN BUTTONS
+            .collapse-buttons {
+              display: none !important;
+            }
+            form {
+              button[name="savechanges"] {
+                margin-left: 1.5rem !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // TEACHER SEES STUDENTS GROUPS IN A COURSE IN THE SIDE SECTION
+  section.block_mygroups {
+    div:has(> .course-group-box) {
+      display: flex !important;
+      gap: 1rem !important;
+      flex-wrap: wrap !important;
+      > .title {
+        display: none !important;
+      }
+      > .course-group-box {
+        @include card;
+        background-color: transparent !important;
+        display: flex !important;
+        flex-direction: column !important;
+        margin: 0 !important;
+        padding: 0.5rem !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+        > * {
+          margin: 0 !important;
+        }
+        > .group-completeness {
+          display: flex !important;
+          flex-wrap: nowrap !important;
+          gap: 0.5rem !important;
+          align-items: center !important;
+          margin: 0 !important;
+          // PERCENTAGE
+          > .completeness-value {
+            width: 4rem !important;
+            text-align: center !important;
+          }
+          // SLIDER CONTAINER
+          > .group-completion-bar-box {
+            margin: 0 !important;
+            flex-grow: 1 !important;
+          }
+        }
+      }
+      > div:has(> a) {
+        display: inline-flex !important;
+        margin: 0 !important;
+        width: fit-content !important;
+        > a {
+          margin: 0 !important;
+          > img {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+}
+.bar-frame {
+  background-color: $purple-0 !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden !important;
+  > .bar-fill {
+    position: relative !important;
+    background-color: $purple-1 !important;
+    overflow: hidden !important;
+    &::after {
+      $width: 5rem;
+      content: "";
+      position: absolute;
+      background-color: $purple-2;
+      filter: blur($width * 0.2);
+      width: $width;
+      height: $width;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      animation: glare 5s infinite forwards linear;
+      @keyframes glare {
+        0% {
+          left: calc(0% - $width);
+        }
+        100% {
+          left: calc(100% + $width);
+        }
+      }
+    }
+  }
+}
+// MODAL
+.yui3-widget.yui3-panel,
+.moodle-dialogue,
+.yui3-widget-modal,
+.modal-dialog {
+  @include card;
+  transition: transform 0s !important;
+  @include smoothAppearAnim;
+  @include shadow;
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  translate: -50% -50% !important;
+  width: calc(100vw - 2rem) !important;
+  max-width: fit-content !important;
+  height: fit-content !important;
+  background-color: $dark-1 !important;
+  padding: 1rem !important;
+  .moodle-dialogue-bd {
+    overflow: auto !important;
+  }
+}
+// UPLOAD FILE FORM BLOCK
+div.filemanager {
+  @include card;
+  @apply p-4 flex flex-col gap-4 border-2 border-gray-900 #{!important};
+  .filemanager-container,
+  .card {
+    @apply outline-none shadow-none overflow-visible #{!important};
+    .fm-empty-container {
+      @include card;
+      @apply bg-gray-950 relative inset-0 p-4 #{!important};
+      .dndupload-message {
+        @apply h-[30rem] #{!important};
+        .dndupload-arrow {
+          animation: file 1s infinite alternate ease-in-out;
+          @apply bg-[url(https://imgur.com/cYYJ8OG.png)] bg-contain relative inset-0 mb-4 cursor-pointer #{!important};
+          @keyframes file {
+            from {
+              translate: 0 0;
+              opacity: 1;
+            }
+            to {
+              translate: 0 0.5rem;
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+    // ON FILE DRAG AND DROP INTO THE BOX
+    &.dndupload-over .fm-empty-container {
+      outline: 0.1rem solid $purple-2 !important;
+    }
+    .dndupload-target {
+      display: none !important;
+    }
+    .fp-upload-form {
+      input,
+      div {
+        background-color: $dark-0 !important;
+        padding: 0.75rem 2rem !important;
+        border-radius: 0.5rem !important;
+      }
+    }
+  }
+}
+// UPLOAD FILE POPUP
+.moodle-dialogue.filepicker {
+  @media (max-width: 768px) {
+    min-width: calc(100vw - 2rem) !important;
+  }
+  div.fp-repo-items {
+    padding: 0.5rem !important;
+    .card {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    // CHOOSE FILE INPUT
+    .fp-file div:nth-child(2) {
+      padding: 0 !important;
+      input {
+        width: 100% !important;
+        padding: 1rem !important;
+        @include pulseAnim;
+        &::-webkit-file-upload-button {
+          display: none !important;
+        }
+        &:hover {
+          cursor: pointer !important;
+        }
+      }
+    }
+    .fp-upload-btn {
+      background-color: $dark-2 !important;
+      padding: 0.75rem 2rem !important;
+      &:hover {
+        background-color: $dark-3 !important;
+      }
+    }
+  }
+}
+// GRADES
+.submissionsummarytable table,
+.submissionstatustable {
+  // NOT GRADED
+  .submissionnotgraded {
+    color: $text-primary !important;
+    font-weight: bold !important;
+  }
+  // GRADED
+  .submissiongraded {
+    color: hsl(80, 100%, 40%) !important;
+    font-weight: bold !important;
+  }
+  // COMMENT
+  .comment-area {
+    @include card;
+    background-color: transparent !important;
+    padding: 0.5rem !important;
+    margin: 1rem 0 0 0 !important;
+  }
+}
+// JUMP TO ACTIVITY
+// SUBMIT / RESUBMIT
+div.submissionaction button {
+  @include importantButton;
+}
+// MESSENGER
+.message-app,
+.message-app.bg-light {
+  @include card;
+  @include shadow;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
+  background-color: $dark-1 !important;
+  border: none !important;
+  padding: 1rem !important;
+  // BADGES / NEW MESSAGES COUNT / REQUESTES
+  [data-region="contact-request-count"]:not(.hidden),
+  [data-region*="unread-count"]:not(.hidden) {
+    display: inline-block !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    text-align: center !important;
+    line-height: normal !important;
+    border-radius: 50% !important;
+    background-color: $purple-1 !important;
+    color: $text-primary !important;
+  }
+  textarea {
+    @include card;
+    background-color: $dark-0 !important;
+    padding: 0.5rem !important;
+    flex: 1 !important;
+  }
+  button[data-action="send-message"] {
+    margin: 0 !important;
+    margin-left: 0.5rem !important;
+    justify-self: center !important;
+    flex: 1 !important;
+  }
+  // TWO SIDES MESSENGER
+  .container-fluid {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    padding: 0 !important;
+    height: 100% !important;
+    > div:nth-child(1) {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 1rem !important;
+      > div {
+        padding: 0 !important;
+      }
+      // LEFT SIDE
+      > div:nth-child(1) {
+        > div:nth-child(1) {
+          display: flex !important;
+          flex-direction: column !important;
+          flex-wrap: nowrap !important;
+          gap: 1rem !important;
+        }
+      }
+      // RIGHT SIDE
+      > div:nth-child(2) {
+        display: flex !important;
+        flex: 1 !important;
+        gap: 0.5rem !important;
+      }
+    }
+  }
+  // CHAT HEADER
+  [class*="header-container"] {
+    [data-region="view-overview"] {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      padding: 0 !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+      > div:nth-child(1) {
+        display: flex !important;
+        align-items: center !important;
+        flex: 1 !important;
+        gap: 0.5rem !important;
+        // SEARCH USER ICON
+        span {
+          display: flex !important;
+          align-items: center !important;
+        }
+        // MESSENGER SETTINGS BUTTON
+        a[data-route="view-settings"] {
+          width: 2rem !important;
+          height: 2rem !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+      }
+      *:not(.hidden) {
+        display: inline-flex !important;
+        margin: 0 !important;
+      }
+      a[data-route="view-contacts"] {
+        @include importantButton;
+        align-items: center !important;
+        gap: 0.25rem !important;
+        > span.badge:not(.hidden) {
+          display: inline-block !important;
+          margin-left: 0.5rem !important;
+        }
+      }
+    }
+    > [data-region="view-conversation"] {
+      > [data-region="header-content"] {
+        > div:nth-child(1) {
+          display: flex !important;
+          gap: 1rem !important;
+          // START / FAVOURITE CONTACT
+          span[data-region="favourite-icon-container"] {
+            color: $purple-2 !important;
+          }
+          // BUTTON BACK IN CHAT
+          > div:nth-child(1) {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            a[data-route-back] {
+              width: 2rem !important;
+              height: 2rem !important;
+              margin: 0 !important;
+              position: relative !important;
+              i {
+                position: absolute !important;
+                top: 50% !important;
+                left: 50% !important;
+                translate: -50% -50% !important;
+                width: 1rem !important;
+                height: 1rem !important;
+                color: $text-primary !important;
+              }
+              &:is(:hover, :focus, :active) {
+                i {
+                  color: $text-secondary !important;
+                }
+              }
+            }
+          }
+          // PERSON IN CHAT IN HEADER
+          a[data-action="view-contact"] {
+            padding: 0.5rem !important;
+          }
+        }
+      }
+    }
+  }
+  [class*="body-container"] {
+    overflow: visible !important;
+    [class*="view-overview-body"] {
+      overflow: visible !important;
+      [id*="message-drawer-view-overview-container"] {
+        @include card;
+        background-color: $dark-0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        overflow: visible !important;
+        padding: 0.5rem !important;
+        .section.card {
+          background: none !important;
+          box-shadow: none !important;
+          outline: none !important;
+        }
+        // // UNREAD MESSAGES COUNTER
+        // span.badge[data-region*=unread-count] {
+        //   width: 1.25rem !important;
+        //   height: 1.25rem !important;
+        //   text-align: center !important;
+        //   line-height: normal !important;
+        //   border-radius: 50% !important;
+        //   background-color: $purple-1 !important;
+        //   color: $text-primary !important;
+        // }
+      }
+    }
+    // CHAT INSIDE MESSENGER
+    [data-region="view-conversation"] {
+      padding: 0 !important;
+      // MESSAGES CONTAINER
+      .content-message-container {
+        padding: 0rem !important;
+        // EACH DAY IN CHAT
+        [data-region="day-container"] {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          // DATE
+          > h6 {
+            margin-block: 1rem !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 9999px !important;
+            outline: 0.1rem solid $dark-2 !important;
+            width: fit-content !important;
+          }
+          // MESSAGES DURING DAY
+          > div {
+            background-color: $dark-0 !important;
+            border-radius: 0.5rem !important;
+            align-self: stretch !important;
+            // EACH MESSAGE
+            .message {
+              margin: 0 !important;
+              padding: 1rem !important;
+              &:is(:hover, :focus, :active) {
+                filter: none !important;
+              }
+              &.received {
+                background-color: $dark-1 !important;
+                * {
+                  color: $text-primary !important;
+                }
+              }
+            }
+          }
+        }
+      }
+      // WHITE BACKGROUND IN CHAT WHILE LOADING / DIALOGUE PLACEHOLDER IN CHAT
+      [data-region="content-placeholder"] {
+        display: none !important;
+      }
+      // CONFIRM DIALOGUE ADD TO CONTACTS
+      [data-region="confirm-dialogue"] {
+        @include card;
+        @include shadow;
+        @include smoothAppearAnim;
+        button {
+          @include importantButton;
+        }
+      }
+    }
+    // CONTACTS AND REQUESTS TAB
+    &.body-container:has([data-region="view-contacts"]:not([aria-hidden="true"])) {
+      [data-region="view-contacts"] {
+        overflow: visible !important;
+        > div:nth-child(1) {
+          @include card;
+          overflow: hidden !important;
+          // CONTANTS AND REQUESTS BUTTONS
+          div:has(> ul) {
+            padding: 0 !important;
+            > ul {
+              display: flex !important;
+              flex-wrap: nowrap !important;
+              margin: 0 !important;
+              > li {
+                flex: 1 !important;
+                > a {
+                  background-color: $dark-1 !important;
+                  border-radius: 0 !important;
+                  &:hover,
+                  &:focus,
+                  &:active {
+                    background-color: $dark-2 !important;
+                  }
+                }
+              }
+            }
+          }
+          // CONTANTS LIST
+          .tab-content {
+            background-color: $dark-0 !important;
+            // CONTANTS
+            .list-group[data-region="content-container"] {
+              > a {
+                border-radius: 0 !important;
+                padding: 0.75rem !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  *,
+  *[class*="border"] {
+    border: none !important;
+  }
+  .bg-white {
+    background-color: transparent !important;
+  }
+}
+// QUIZ / TESTS / ATTEMPTS / QUESTION STATUS BUTTONS / FINISH TEST
+// QUESTION STATUS BUTTONS
+div.qn_buttons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+.othernav {
+  a {
+    width: fit-content !important;
+    padding: 0.5rem !important;
+  }
+  a.endtestlink,
+  a.mod_quiz-next-nav {
+    @include importantButton;
+  }
+}
+a.qnbutton {
+  background-color: $dark-0 !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden !important;
+  &:hover {
+    filter: brightness(120%) !important;
+  }
+  &.thispage {
+    outline: 0.1rem solid $dark-3 !important;
+  }
+  &.answersaved {
+    background-color: $dark-3 !important;
+  }
+  &.incorrect {
+    outline: 0.1rem solid hsl(20, 100%, 40%) !important;
+  }
+}
+div.quizattempt button {
+  @include importantButton;
+}
+// QUIZ TIME LIMITED / WARNING
+form#mod_quiz_preflight_form {
+  padding: 1rem !important;
+  fieldset[id="id_honestycheckheader"] {
+    margin: 0 !important;
+    & > :nth-child(1) {
+      padding: 0 !important;
+    }
+  }
+  div[id="fitem_id_honestycheckmessage"] {
+    margin: 0 !important;
+    // EMPTY BLOCK WTF???
+    & > div:nth-child(1) {
+      display: none !important;
+    }
+    & > div:nth-child(2) {
+      padding: 0 !important;
+      max-width: unset !important;
+      flex: unset !important;
+    }
+  }
+  div[id="fgroup_id_buttonar"] {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    padding: 0 !important;
+    margin-top: 2rem !important;
+    // EMPTY BLOCK WTF???
+    & > :nth-child(1) {
+      display: none !important;
+    }
+    // BUTTONS
+    & > :nth-child(2) {
+      padding: 0 !important;
+      max-width: unset !important;
+      flex: unset !important;
+      width: fit-content !important;
+      .d-flex.flex-wrap.align-items-center {
+        flex-wrap: nowrap !important;
+        gap: 0.5rem !important;
+        .form-group {
+          margin: 0 !important;
+        }
+      }
+    }
+  }
+}
+// TEST
+.formulation {
+  .ablock {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    // ANSWER IN TEST
+    .answer {
+      @include card;
+      @include shadow;
+      overflow: hidden !important;
+      // IF TABLE
+      > tbody {
+        > tr {
+          &:first-child {
+            > td {
+              padding-top: 1rem !important;
+            }
+          }
+          &:last-child {
+            > td {
+              padding-bottom: 1rem !important;
+            }
+          }
+          > td {
+            padding: 0.5rem 1rem !important;
+            p {
+              margin: 0 !important;
+            }
+          }
+        }
+      }
+      // CHECKBOX / RADIO BUTTON LEFTSIDE ANSWER
+      input[type="radio"],
+      input[type="checkbox"] {
+        display: none !important;
+      }
+      // EACH ANSWER OPTION
+      & > div {
+        margin: 0 !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: $dark-2 !important;
+        }
+        &:has(input:checked) {
+          background-color: $dark-3 !important;
+          // ANSWER TEXT
+          [data-region="answer-label"] {
+            // TEXT INSIDE
+            * {
+              color: $text-primary !important;
+            }
+          }
+          label {
+            color: $text-primary !important;
+            flex: 1 !important;
+          }
+        }
+        div[data-region="answer-label"],
+        label {
+          display: flex !important;
+          align-items: center !important;
+          padding: 0.5rem 2rem !important;
+          cursor: pointer !important;
+          margin: 0 !important;
+          * {
+            margin: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
+// FINISH TEST / RETURN TO TEST / CONFIRM TEST / REVIEW QUIZ TEST
+div.submitbtns {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+  gap: 1rem !important;
+  height: auto !important;
+  width: auto !important;
+  button,
+  a {
+    @include importantButton;
+  }
+}
+table.quizattemptsummary {
+  a[title^="Просмотр"] {
+    @include importantButton;
+  }
+}
+// TEST REVIEW / RESULTS
+form[action*="review"] {
+  // CORRENT AND INCORRECT ICONS
+  i {
+    margin: 0.5rem !important;
+  }
+  table.answer {
+    * {
+      margin: 0 !important;
+    }
+    td {
+      padding: 0.5rem 1rem !important;
+
+      &.control {
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: 1rem !important;
+      }
+    }
+  }
+  .form-inline {
+    align-items: flex-start !important;
+    & > label {
+      display: inline-flex !important;
+      gap: 1rem !important;
+      span.answer {
+        display: inline-flex !important;
+        width: fit-content !important;
+        input {
+          width: 10rem !important;
+        }
+      }
+    }
+  }
+}

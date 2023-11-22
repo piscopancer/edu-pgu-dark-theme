@@ -1,0 +1,14 @@
+{
+  "important": {
+    "prefix": "!!",
+    "scope": "scss",
+    "body": ["#{!important}${1}"],
+    "description": "SCSS Tailwind important rule."
+  },
+  "apply": {
+    "prefix": ["A"],
+    "scope": "scss",
+    "body": ["@apply ${1} #{!important};"],
+    "description": "@apply"
+  }
+}

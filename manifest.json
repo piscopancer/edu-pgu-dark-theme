@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "EDU PGU Dark Theme",
+  "description": "ЕДУ ПГУ | Тёмная тема",
+  "version": "1.0",
+  "icons": { "128": "assets/project.png" },
+  "action": { "icons": { "128": "assets/project.png" } },
+  "content_scripts": [
+    {
+      "matches": ["https://edu.pgu.ru/*"],
+      "run_at": "document_start",
+
+      "css": ["build/style.css"]
+    }
+  ],
+  "web_accessible_resources": [{ "resources": ["*"], "matches": ["https://edu.pgu.ru/*"] }]
+}
