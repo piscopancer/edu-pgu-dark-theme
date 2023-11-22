@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin')
 const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
@@ -22,5 +23,16 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.grid-stack': {
+          'grid-template-areas': '"stack"',
+        },
+        '.stack': {
+          'grid-area': 'stack',
+        },
+      })
+    }),
+  ],
 }

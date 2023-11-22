@@ -36,8 +36,8 @@ $purple-2: hsl(275, 75%, 60%);
     &[style*="sandglass"] {
       @apply relative bg-none #{!important};
       &::after {
-        @apply content-["⏳"] absolute flex items-center justify-center inset-0 pointer-events-none #{!important};
         animation: hourglass 4s infinite normal ease-in-out;
+        @apply content-["⏳"] absolute flex items-center justify-center inset-0 pointer-events-none #{!important};
         @keyframes hourglass {
           0%,
           25% {
@@ -61,16 +61,19 @@ $purple-2: hsl(275, 75%, 60%);
   }
   // YELLOW
   &[style*="\#F7FE2E"] {
-    @apply bg-purple-500 relative overflow-hidden opacity-[0.85] duration-100 #{!important};
+    @apply relative bg-purple-500/20 duration-100 hover:bg-purple-500/50 #{!important};
+    a {
+      @apply stack #{!important};
+    }
     &::after {
       animation: yellowCell 2s infinite alternate ease-in-out;
-      @apply content-[""] absolute left-0 right-0 top-0 h-[20%] pointer-events-none bg-purple-500 #{!important};
+      @apply absolute inset-x-0 bottom-0 content-[""] h-[20%] pointer-events-none bg-purple-500 #{!important};
       @keyframes yellowCell {
         0% {
           filter: opacity(0.3);
         }
         100% {
-          filter: opacity(1);
+          filter: opacity(0.85);
         }
       }
     }
@@ -312,28 +315,6 @@ div.popover-region-container {
   background-color: $dark-0 !important;
   padding: 0.5rem !important;
 }
-// BELL BUTTON / ICON
-div.popover-region-toggle.nav-link {
-  border-radius: 0.5rem !important;
-  box-shadow: none !important;
-  &:focus {
-    @include pulseAnim;
-  }
-  &:hover,
-  &:focus,
-  &:active {
-    > i {
-      color: $text-secondary !important;
-    }
-  }
-  &::after,
-  &::before {
-    display: none !important;
-  }
-  > i {
-    color: $text-primary !important;
-  }
-}
 #page-wrapper {
   // POPUP NAV LEFT / COMPACT NAVBAR
   > #nav-drawer {
@@ -343,8 +324,17 @@ div.popover-region-toggle.nav-link {
   > nav.navbar.fixed-top {
     @apply bg-transparent relative flex items-center pt-12 pr-8 pl-8 shadow-none max-h-[initial] #{!important};
     // LEFT HAMBURGER
-    button:has(i.fa-bars) {
-      @apply flex items-center text-gray-200 hover:text-gray-300 #{!important};
+    [data-region="drawer-toggle"] {
+      @apply w-8 h-8 bg-gray-900 rounded-lg mr-6 #{!important};
+      button:has(i.fa-bars) {
+        @apply flex p-0 h-full aspect-square justify-center items-center text-gray-400 hover:text-gray-200 m-0 #{!important};
+        i {
+          @apply flex w-full h-full items-center justify-center #{!important};
+          &::before {
+            @apply #{!important};
+          }
+        }
+      }
     }
     a.navbar-brand,
     span.site-name,
@@ -353,7 +343,7 @@ div.popover-region-toggle.nav-link {
     }
     a.navbar-brand {
       mask: url("chrome-extension://__MSG_@@extension_id__/assets/home.svg");
-      @apply w-7 h-7 relative bg-gray-200 hover:bg-gray-300 #{!important};
+      @apply w-7 h-7 relative bg-gray-400 hover:bg-gray-200 #{!important};
       > span {
         @apply hidden #{!important};
       }
@@ -365,7 +355,11 @@ div.popover-region-toggle.nav-link {
     }
     // PROFILE IN NAV
     .nav.usernav {
-      @apply flex-nowrap #{!important};
+      @apply flex-nowrap items-center #{!important};
+      // BELL BUTTON / ICON
+      div.popover-region-toggle.nav-link {
+        @apply shadow-none text-gray-400 hover:text-gray-200 after:hidden before:hidden #{!important};
+      }
       a#action-menu-toggle-1 {
         @apply p-0 #{!important};
         &[aria-expanded="true"] .usertext::after {
@@ -395,13 +389,7 @@ div.popover-region-toggle.nav-link {
       // NEW MESSAGES OR NOTIFICATIONS NUMBER
       .count-container {
         @include pulseAnim;
-        background-color: $purple-2 !important;
-        color: white !important;
-        border-radius: 50% !important;
-        width: 1rem !important;
-        aspect-ratio: 1 !important;
-        text-align: center !important;
-        margin-left: 0.2rem !important;
+        @apply bg-purple-500 text-white rounded-full w-4 h-4 items-center ml-1 #{!important};
       }
     }
   }
@@ -412,49 +400,23 @@ div.popover-region-toggle.nav-link {
 [data-origin^="message-user-button"] {
   transition: transform 0s !important;
   &.bg-white {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background-color: hsla(0, 0%, 0%, 0.5) !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    z-index: 1031 !important;
     @include smoothAppearAnim;
+    @apply fixed inset-0 w-full h-full bg-black/50 flex items-center justify-center z-[1031] #{!important};
   }
   /* MESSAGE APP AS POPUP ON DARK BACKGROUND*/
   & .message-app {
-    height: calc(100% - 2rem) !important;
-    width: calc(80% - 2rem) !important;
-    display: flex !important;
+    @apply h-[calc(100%-2rem)] w-[calc(80%-2rem)] flex #{!important};
   }
   & .closewidget {
-    display: flex !important;
-    justify-content: flex-end !important;
-    background-color: transparent !important;
+    @apply bg-transparent justify-end flex #{!important};
     /* CLOSE POPUP MESSENGER BUTTON */
     & a {
-      align-self: flex-end !important;
-      margin: 0 !important;
-      background-color: transparent !important;
-      height: 2rem !important;
-      width: 2rem !important;
+      @apply self-end m-0 bg-transparent h-8 w-8 #{!important};
       & i {
-        width: 100% !important;
-        height: 100% !important;
-        position: relative !important;
+        @apply w-full h-full grid grid-stack #{!important};
         /* CLOSE POPUP MESSENGER X ICON*/
         &::before {
-          content: "\2573" !important;
-          position: absolute !important;
-          top: 50% !important;
-          left: 50% !important;
-          translate: -50% -50% !important;
-          color: $text-secondary !important;
+          @apply stack place-self-center text-gray-300 content-["\2573"] #{!important};
         }
       }
     }
@@ -464,20 +426,14 @@ div.popover-region-toggle.nav-link {
 div[data-table-region^="user-index-participants"] {
   @include card;
   @include shadow;
-  padding: 1rem !important;
+  @apply p-4 #{!important};
   & .border-radius.bg-white {
-    border: none !important;
-    background-color: $dark-2 !important;
-    border-radius: 0.5rem !important;
-    padding: 1rem !important;
+    @apply border-none bg-gray-900 rounded-lg p-4 #{!important};
   }
 }
 /* BUTTONS AND LINKS / SELECT */
 button.nav-link.float-sm-left.bg-gray {
-  background-color: transparent !important;
-  &:hover {
-    filter: brightness(120%) !important;
-  }
+  @apply bg-transparent hover:brightness-125 #{!important};
 }
 button,
 a {
@@ -497,15 +453,7 @@ a {
   }
 }
 select {
-  @include card;
-  background-color: $dark-0 !important;
-  padding: 0.5rem 2rem !important;
-  border-radius: 0.5rem !important;
-  box-shadow: none !important;
-  color: $text-primary !important;
-  &:focus {
-    outline: 0.2rem solid $hightlight !important;
-  }
+  @apply h-12 flex items-center px-3 rounded-lg text-gray-200 bg-gray-900 shadow-none focus-visible:outline-2 outline-purple-500 #{!important};
 }
 .aalink.focus,
 #page-footer a:not([class]).focus,
@@ -584,9 +532,9 @@ table.preference-table {
 }
 // INPUT / SEARCH / SUBMIT
 input {
-  @apply bg-gray-950 py-3 px-4 shadow-none text-gray-200 focus:outline-2 outline-gray-700 #{!important};
+  @apply bg-gray-900 py-3 px-4 shadow-none text-gray-200 focus:outline-2 outline-gray-700 rounded-lg accent-purple-500 #{!important};
   &.form-control {
-    @apply bg-gray-950 #{!important};
+    @apply bg-gray-900 #{!important};
   }
   &[type="checkbox"],
   &[type="radio"] {
@@ -632,22 +580,40 @@ textarea,
     @apply bg-inherit border-inherit #{!important};
   }
 }
-// PROFILE TREE / ABOUT
-/* TEXT EDITOR */
-div.editor_atto_wrap {
+.editor_atto_wrap {
   @apply bg-gray-950 p-2 rounded-lg #{!important};
+  .editor_atto {
+    .editor_atto_toolbar {
+      @apply bg-transparent #{!important};
+      .atto_group {
+        @apply bg-transparent rounded-lg overflow-hidden #{!important};
+        button {
+          @apply bg-gray-900 rounded-none hover:bg-gray-800 [background-image:none] #{!important};
+          i {
+            @apply text-gray-400 #{!important};
+          }
+        }
+      }
+    }
+    .editor_atto_content_wrap {
+      @apply bg-transparent #{!important};
+    }
+  }
 }
 /* RECENTLY ADDED COURSES */
 div.block-recentlyaccessedcourses div.one-row > div {
   overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
-// POPOVER (CALENDER)
+// POPOVER / POPUP
 div.popover {
   @include card;
   @include shadow;
   @include smoothAppearAnim;
   transition: transform 0s !important;
+  * {
+    @apply text-gray-300 #{!important};
+  }
   div::after,
   div::before {
     display: none !important;
@@ -855,29 +821,29 @@ body {
   // LOGIN
   &#page-login-index {
     section#region-main {
-      background: none !important;
-      box-shadow: none !important;
-      outline: none !important;
+      @apply bg-none shadow-none outline-none #{!important};
       .card {
-        @include card;
-        background: $dark-0 !important;
-        box-shadow: none !important;
-        padding: 1rem !important;
+        @apply bg-gray-925 p-4 rounded-md #{!important};
         h1.card-header {
-          color: $text-primary !important;
+          @apply text-gray-300 font-medium #{!important};
         }
       }
     }
     button#loginbtn {
       @include importantButton;
-      color: $text-primary !important;
     }
-    .forgetpass a {
-      padding: 0.5rem !important;
+    .forgetpass {
+      a {
+        @apply [text-inset:0] px-3 py-1 text-sm border-2 border-gray-800 block w-fit #{!important};
+      }
+      & + div {
+        @apply text-sm #{!important};
+      }
     }
   }
   &#page-mod-assign-view,
-  &#page-mod-assign-editsubmission {
+  &#page-mod-assign-editsubmission,
+  &#page-mod-quiz-view {
     [role="main"] {
       > h2 {
         @apply text-lg text-gray-200 #{!important};
@@ -899,6 +865,13 @@ body {
       }
       .fileuploadsubmissiontime {
         @apply text-sm #{!important};
+      }
+    }
+    .activity-navigation {
+      @apply mx-0 mb-0 mt-8 p-0 #{!important};
+      #prev-activity-link,
+      #next-activity-link {
+        @apply text-sm text-gray-300 hover:text-gray-200 p-1 [text-wrap:balance] #{!important};
       }
     }
   }
@@ -1015,29 +988,35 @@ body {
     }
   }
   // CONFIRM TEST
-  &#page-mod-quiz-summary {
+  &#page-mod-quiz-summary,
+  &#page-mod-quiz-view,
+  &#page-user-edit {
     .moodle-dialogue {
-      .moodle-dialogue-wrap {
-        width: fit-content !important;
+      [role="dialog"] {
+        @apply bg-transparent p-3 #{!important};
+        // HEADER
+        [class*="hd"] {
+          @apply text-gray-300 font-medium p-0 #{!important};
+          h1 {
+            @apply font-medium #{!important};
+          }
+          button {
+            &::after {
+              @apply text-xl #{!important};
+            }
+          }
+        }
+        .moodle-dialogue-wrap {
+          @apply w-fit #{!important};
+        }
         .moodle-dialogue-bd {
-          width: fit-content !important;
+          @apply w-fit p-0 #{!important};
           .confirmation-dialogue {
-            display: flex !important;
-            flex-direction: column !important;
-            width: fit-content !important;
-            align-items: center !important;
-            gap: 1rem !important;
+            @apply flex flex-col w-fit items-center gap-4 #{!important};
             .confirmation-buttons {
-              display: flex !important;
-              flex-direction: row-reverse !important;
-              gap: 1rem !important;
-              align-self: flex-end !important;
-              width: auto !important;
-              flex-wrap: nowrap !important;
-              align-items: center !important;
+              @apply flex flex-row-reverse mt-4 justify-end gap-4 self-end w-auto flex-nowrap items-center #{!important};
               input {
-                width: fit-content !important;
-                padding: 0.75rem 2rem !important;
+                @apply w-fit py-3 px-6 #{!important};
               }
             }
           }
@@ -1050,16 +1029,14 @@ body {
     [id*="question"] {
       .answer {
         td.control {
-          display: flex !important;
-          align-items: center !important;
-          gap: 1rem !important;
+          @apply gap-4 flex items-center #{!important};
           > * {
-            margin: 0 !important;
+            @apply m-0 #{!important};
           }
         }
       }
       .history {
-        border: none !important;
+        @apply border-none #{!important};
       }
     }
   }
@@ -1354,20 +1331,11 @@ body {
 .yui3-widget-modal,
 .modal-dialog {
   @include card;
-  transition: transform 0s !important;
   @include smoothAppearAnim;
   @include shadow;
-  position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  translate: -50% -50% !important;
-  width: calc(100vw - 2rem) !important;
-  max-width: fit-content !important;
-  height: fit-content !important;
-  background-color: $dark-1 !important;
-  padding: 1rem !important;
+  @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-fit h-fit bg-gray-925 p-4 #{!important};
   .moodle-dialogue-bd {
-    overflow: auto !important;
+    @apply overflow-auto #{!important};
   }
 }
 // UPLOAD FILE FORM BLOCK
@@ -1597,27 +1565,11 @@ div.submissionaction button {
           }
           // BUTTON BACK IN CHAT
           > div:nth-child(1) {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
+            @apply flex justify-center items-center #{!important};
             a[data-route-back] {
-              width: 2rem !important;
-              height: 2rem !important;
-              margin: 0 !important;
-              position: relative !important;
+              @apply w-8 h-8 grid grid-stack m-0 #{!important};
               i {
-                position: absolute !important;
-                top: 50% !important;
-                left: 50% !important;
-                translate: -50% -50% !important;
-                width: 1rem !important;
-                height: 1rem !important;
-                color: $text-primary !important;
-              }
-              &:is(:hover, :focus, :active) {
-                i {
-                  color: $text-secondary !important;
-                }
+                @apply stack place-self-center w-4 h-4 text-gray-300 hover:text-gray-200 #{!important};
               }
             }
           }
@@ -1635,16 +1587,9 @@ div.submissionaction button {
       overflow: visible !important;
       [id*="message-drawer-view-overview-container"] {
         @include card;
-        background-color: $dark-0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        flex-wrap: nowrap !important;
-        overflow: visible !important;
-        padding: 0.5rem !important;
+        @apply bg-gray-950 flex flex-col flex-nowrap overflow-visible p-2 #{!important};
         .section.card {
-          background: none !important;
-          box-shadow: none !important;
-          outline: none !important;
+          @apply bg-none shadow-none outline-none #{!important};
         }
         // // UNREAD MESSAGES COUNTER
         // span.badge[data-region*=unread-count] {
@@ -1660,32 +1605,23 @@ div.submissionaction button {
     }
     // CHAT INSIDE MESSENGER
     [data-region="view-conversation"] {
-      padding: 0 !important;
+      @apply p-0 #{!important};
       // MESSAGES CONTAINER
       .content-message-container {
-        padding: 0rem !important;
+        @apply p-0 #{!important};
         // EACH DAY IN CHAT
         [data-region="day-container"] {
-          display: flex !important;
-          flex-direction: column !important;
-          align-items: center !important;
+          @apply flex flex-col items-center #{!important};
           // DATE
           > h6 {
-            margin-block: 1rem !important;
-            padding: 0.5rem 1rem !important;
-            border-radius: 9999px !important;
-            outline: 0.1rem solid $dark-2 !important;
-            width: fit-content !important;
+            @apply mx-4 py-2 px-4 rounded-full outline-2 outline-gray-900 w-fit #{!important};
           }
           // MESSAGES DURING DAY
           > div {
-            background-color: $dark-0 !important;
-            border-radius: 0.5rem !important;
-            align-self: stretch !important;
+            @apply bg-gray-950 rounded-lg self-stretch #{!important};
             // EACH MESSAGE
             .message {
-              margin: 0 !important;
-              padding: 1rem !important;
+              @apply p-4 m-0 #{!important};
               &:is(:hover, :focus, :active) {
                 filter: none !important;
               }
@@ -1767,8 +1703,26 @@ div.submissionaction button {
 // QUIZ / TESTS / ATTEMPTS / QUESTION STATUS BUTTONS / FINISH TEST
 // QUESTION STATUS BUTTONS
 div.qn_buttons {
-  display: flex !important;
-  flex-wrap: wrap !important;
+  @apply flex flex-wrap #{!important};
+  a.qnbutton {
+    @apply rounded-lg overflow-hidden bg-gray-950 hover:brightness-125 #{!important};
+    &.thispage {
+      outline: 0.1rem solid $dark-3 !important;
+    }
+    &.notyetanswered {
+      .trafficlight {
+        @apply bg-transparent #{!important};
+      }
+    }
+    &.answersaved {
+      .trafficlight {
+        @apply bg-gray-800 #{!important};
+      }
+    }
+    &.incorrect {
+      outline: 0.1rem solid hsl(20, 100%, 40%) !important;
+    }
+  }
 }
 .othernav {
   a {
@@ -1780,27 +1734,11 @@ div.qn_buttons {
     @include importantButton;
   }
 }
-a.qnbutton {
-  background-color: $dark-0 !important;
-  border-radius: 0.5rem !important;
-  overflow: hidden !important;
-  &:hover {
-    filter: brightness(120%) !important;
-  }
-  &.thispage {
-    outline: 0.1rem solid $dark-3 !important;
-  }
-  &.answersaved {
-    background-color: $dark-3 !important;
-  }
-  &.incorrect {
-    outline: 0.1rem solid hsl(20, 100%, 40%) !important;
-  }
-}
+
 div.quizattempt button {
   @include importantButton;
 }
-// QUIZ TIME LIMITED / WARNING
+// MODAL POPUP START TEST/QUIZ TIME LIMITED WARNING
 form#mod_quiz_preflight_form {
   padding: 1rem !important;
   fieldset[id="id_honestycheckheader"] {
@@ -1822,103 +1760,111 @@ form#mod_quiz_preflight_form {
     }
   }
   div[id="fgroup_id_buttonar"] {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: flex-end !important;
-    padding: 0 !important;
-    margin-top: 2rem !important;
+    @apply flex flex-row justify-end p-0 mt-8 #{!important};
     // EMPTY BLOCK WTF???
     & > :nth-child(1) {
       display: none !important;
     }
     // BUTTONS
     & > :nth-child(2) {
-      padding: 0 !important;
-      max-width: unset !important;
-      flex: unset !important;
-      width: fit-content !important;
+      @apply p-0 max-w-[unset] flex-[unset] w-fit #{!important};
       .d-flex.flex-wrap.align-items-center {
-        flex-wrap: nowrap !important;
-        gap: 0.5rem !important;
+        @apply flex-nowrap gap-2 #{!important};
         .form-group {
-          margin: 0 !important;
+          @apply m-0 #{!important};
         }
       }
     }
   }
 }
 // TEST
-.formulation {
-  .ablock {
-    display: inline-flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
-    // ANSWER IN TEST
-    .answer {
-      @include card;
-      @include shadow;
-      overflow: hidden !important;
-      // IF TABLE
-      > tbody {
-        > tr {
-          &:first-child {
-            > td {
-              padding-top: 1rem !important;
+#quiztimer {
+  @apply bg-gray-925 h-12 rounded-lg flex items-center px-3 text-gray-400 #{!important};
+  #quiz-time-left {
+    @apply text-gray-200 font-medium #{!important};
+  }
+}
+[id*="question"] {
+  .info {
+    @apply bg-transparent #{!important};
+    .no {
+      @apply font-medium text-gray-300 #{!important};
+    }
+    .state,
+    .grade {
+      @apply text-sm #{!important};
+    }
+    .questionflag {
+      @apply hidden #{!important};
+    }
+  }
+  .formulation {
+    @apply p-4 bg-transparent text-gray-400 rounded-lg bg-gray-950 #{!important};
+    .ablock {
+      @apply inline-flex flex-col gap-4 #{!important};
+      // ANSWER IN TEST
+      .answer {
+        @include card;
+        @include shadow;
+        @apply w-fit overflow-hidden #{!important};
+        // IF TABLE
+        > tbody {
+          > tr {
+            &:first-child {
+              > td {
+                padding-top: 1rem !important;
+              }
             }
-          }
-          &:last-child {
-            > td {
-              padding-bottom: 1rem !important;
+            &:last-child {
+              > td {
+                padding-bottom: 1rem !important;
+              }
             }
-          }
-          > td {
-            padding: 0.5rem 1rem !important;
-            p {
-              margin: 0 !important;
+            > td {
+              padding: 0.5rem 1rem !important;
+              p {
+                margin: 0 !important;
+              }
             }
           }
         }
-      }
-      // CHECKBOX / RADIO BUTTON LEFTSIDE ANSWER
-      input[type="radio"],
-      input[type="checkbox"] {
-        display: none !important;
-      }
-      // EACH ANSWER OPTION
-      & > div {
-        margin: 0 !important;
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-        &:hover,
-        &:active,
-        &:focus {
-          background-color: $dark-2 !important;
+        // CHECKBOX / RADIO BUTTON LEFTSIDE ANSWER
+        input[type="radio"],
+        input[type="checkbox"] {
+          display: none !important;
         }
-        &:has(input:checked) {
-          background-color: $dark-3 !important;
-          // ANSWER TEXT
-          [data-region="answer-label"] {
-            // TEXT INSIDE
-            * {
+        // EACH ANSWER OPTION
+        & > div {
+          @apply m-0 flex flex-nowrap items-center hover:bg-gray-900 text-gray-400 #{!important};
+          &:has(input:checked) {
+            @apply bg-gray-800 #{!important};
+            // ANSWER TEXT
+            [data-region="answer-label"] {
+              // TEXT INSIDE
+              * {
+                @apply text-gray-200 #{!important};
+              }
+            }
+            label {
               color: $text-primary !important;
+              flex: 1 !important;
             }
           }
+          div[data-region="answer-label"],
           label {
-            color: $text-primary !important;
-            flex: 1 !important;
+            @apply flex items-center pr-8 pl-3 py-2 cursor-pointer m-0 #{!important};
+            * {
+              @apply m-0 #{!important};
+            }
           }
         }
-        div[data-region="answer-label"],
-        label {
-          display: flex !important;
-          align-items: center !important;
-          padding: 0.5rem 2rem !important;
-          cursor: pointer !important;
-          margin: 0 !important;
-          * {
-            margin: 0 !important;
-          }
+      }
+      [id*="clearchoice"] {
+        input {
+          @apply hidden #{!important};
+        }
+        a {
+          @apply m-0 rounded-lg border-2 border-gray-900 hover:border-gray-800 #{!important};
         }
       }
     }
