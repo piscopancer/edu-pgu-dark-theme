@@ -26,6 +26,9 @@ $purple-2: hsl(275, 75%, 60%);
 }
 @mixin card {
   @apply bg-gray-925 rounded-lg border-2 border-gray-900 #{!important};
+  &.rounded {
+    @apply rounded-lg #{!important};
+  }
 }
 @mixin cell {
   @apply border-2 border-gray-950 #{!important};
@@ -496,12 +499,10 @@ div#goto-top-link > a {
 table.generaltable:not(.course-box),
 .course-content table,
 table.preference-table {
-  background-color: $dark-0 !important;
-  border-radius: 0.5rem !important;
-  overflow: hidden !important;
+  @apply bg-gray-925 overflow-hidden rounded-lg outline-2 outline-gray-800 #{!important};
   > tbody {
     tr:nth-child(odd) {
-      background-color: hsla(0, 0%, 0%, 0.15) !important;
+      @apply bg-gray-900/50 #{!important};
     }
   }
   & th,
@@ -606,13 +607,20 @@ div.block-recentlyaccessedcourses div.one-row > div {
   border-radius: 0.5rem !important;
 }
 // POPOVER / POPUP
-div.popover {
+.popover {
   @include card;
   @include shadow;
   @include smoothAppearAnim;
   transition: transform 0s !important;
   * {
-    @apply text-gray-300 #{!important};
+    @apply text-gray-300 bg-transparent font-["Finlandica"] #{!important};
+  }
+  .popover-header {
+    @apply bg-gray-900 rounded-t-lg text-sm #{!important};
+  }
+  .popover-body,
+  .popover-body * {
+    @apply text-sm #{!important};
   }
   div::after,
   div::before {
@@ -829,6 +837,9 @@ body {
         }
       }
     }
+    .alert-danger {
+      @apply bg-rose-500/10 rounded-lg text-center text-rose-500 #{!important};
+    }
     button#loginbtn {
       @include importantButton;
     }
@@ -1038,6 +1049,12 @@ body {
       .history {
         @apply border-none #{!important};
       }
+    }
+  }
+  // CALENDAR PAGE
+  &#page-calendar-view {
+    [data-type="event"] .calendar_event_course {
+      @apply bg-rose-500/10 text-rose-500 rounded-t-lg border-none #{!important};
     }
   }
   // TEACHER STUDENTS GROUPS OVERVIEW // LIST OF STUDENTS IN A GROUP

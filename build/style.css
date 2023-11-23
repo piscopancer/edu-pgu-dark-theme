@@ -560,6 +560,9 @@ section.block_html:has(a[href*=spravka]) .no-overflow h4 a:hover{
   --tw-brightness: brightness(1.25) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
+section.block_html:has(a[href*=spravka]) .no-overflow h4 a.rounded{
+  border-radius: 0.5rem !important;
+}
 section.block_html:has(a[href*=spravka]) .no-overflow h4 a::before{
   margin-right: 0.25rem !important;
   aspect-ratio: 1 / 1 !important;
@@ -652,6 +655,10 @@ ul.dropdown-menu{
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   animation: smoothAppear 0.1s ease-in-out;
 }
+div.dropdown-menu.rounded,
+ul.dropdown-menu.rounded{
+  border-radius: 0.5rem !important;
+}
 @keyframes smoothAppear {
   0% {
     opacity: 0;
@@ -686,6 +693,9 @@ div.popover-region-container{
   animation: smoothAppear 0.1s ease-in-out;
   background-color: #0a0c11 !important;
   padding: 0.5rem !important;
+}
+div.popover-region-container.rounded{
+  border-radius: 0.5rem !important;
 }
 @keyframes smoothAppear {
   0% {
@@ -879,6 +889,9 @@ div.popover-region-container{
   --tw-border-opacity: 1 !important;
   border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
+#page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .userbutton.rounded{
+  border-radius: 0.5rem !important;
+}
 #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .userbutton > .avatars img{
   margin: 0px !important;
   height: 2rem !important;
@@ -1033,6 +1046,9 @@ div[data-table-region^=user-index-participants]{
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   padding: 1rem !important;
 }
+div[data-table-region^=user-index-participants].rounded{
+  border-radius: 0.5rem !important;
+}
 div[data-table-region^=user-index-participants] .border-radius.bg-white{
   border-radius: 0.5rem !important;
   border-style: none !important;
@@ -1134,6 +1150,9 @@ a:not([class]):focus,
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
+.card.rounded{
+  border-radius: 0.5rem !important;
+}
 
 div#goto-top-link > a {
   display: flex !important;
@@ -1157,15 +1176,18 @@ div#goto-top-link > a > i {
 
 table.generaltable:not(.course-box),
 .course-content table,
-table.preference-table {
-  background-color: #0a0c11 !important;
-  border-radius: 0.5rem !important;
+table.preference-table{
   overflow: hidden !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+  outline-width: 2px !important;
+  outline-color: #272a30 !important;
 }
 table.generaltable:not(.course-box) > tbody tr:nth-child(odd),
 .course-content table > tbody tr:nth-child(odd),
-table.preference-table > tbody tr:nth-child(odd) {
-  background-color: hsla(0, 0%, 0%, 0.15) !important;
+table.preference-table > tbody tr:nth-child(odd){
+  background-color: rgb(31 33 39 / 0.5) !important;
 }
 table.generaltable:not(.course-box) th, table.generaltable:not(.course-box) td,
 .course-content table th,
@@ -1200,6 +1222,9 @@ table.preference-table a:hover {
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   background-color: transparent !important;
   padding: 1rem !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow).rounded{
+  border-radius: 0.5rem !important;
 }
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow {
   overflow: visible !important;
@@ -1239,6 +1264,9 @@ table.preference-table a:hover {
   --tw-brightness: brightness(1.25) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow a[href].rounded{
+  border-radius: 0.5rem !important;
+}
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow a[href]::before{
   margin-right: 0.25rem !important;
   aspect-ratio: 1 / 1 !important;
@@ -1264,6 +1292,9 @@ table.preference-table a:hover {
   margin-bottom: 1rem !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table.rounded{
+  border-radius: 0.5rem !important;
 }
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table thead{
   --tw-bg-opacity: 1 !important;
@@ -1451,6 +1482,11 @@ textarea a[href]:hover,
   --tw-brightness: brightness(1.25) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
+textarea a[href].rounded,
+#id_assignfeedbackcomments_editoreditable a[href].rounded,
+#id_onlinetext_editoreditable a[href].rounded{
+  border-radius: 0.5rem !important;
+}
 textarea a[href]::before,
 #id_assignfeedbackcomments_editoreditable a[href]::before,
 #id_onlinetext_editoreditable a[href]::before{
@@ -1482,6 +1518,11 @@ textarea table,
   margin-bottom: 1rem !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
+}
+textarea table.rounded,
+#id_assignfeedbackcomments_editoreditable table.rounded,
+#id_onlinetext_editoreditable table.rounded{
+  border-radius: 0.5rem !important;
 }
 textarea table thead,
 #id_assignfeedbackcomments_editoreditable table thead,
@@ -1557,7 +1598,7 @@ div.block-recentlyaccessedcourses div.one-row > div {
   border-radius: 0.5rem !important;
 }
 
-div.popover{
+.popover{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -1567,6 +1608,9 @@ div.popover{
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   animation: smoothAppear 0.1s ease-in-out;
   transition: transform 0s !important;
+}
+.popover.rounded{
+  border-radius: 0.5rem !important;
 }
 @keyframes smoothAppear {
   0% {
@@ -1578,12 +1622,27 @@ div.popover{
     translate: 0 0;
   }
 }
-div.popover *{
+.popover *{
+  background-color: transparent !important;
+  font-family: "Finlandica" !important;
   --tw-text-opacity: 1 !important;
   color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
 }
-div.popover div::after,
-div.popover div::before {
+.popover .popover-header{
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+.popover .popover-body,
+.popover .popover-body *{
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+.popover div::after,
+.popover div::before {
   display: none !important;
 }
 
@@ -1941,6 +2000,13 @@ body#page-login-index section#region-main .card h1.card-header{
   --tw-text-opacity: 1 !important;
   color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
 }
+body#page-login-index .alert-danger{
+  border-radius: 0.5rem !important;
+  background-color: rgb(244 63 94 / 0.1) !important;
+  text-align: center !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(244 63 94 / var(--tw-text-opacity)) !important;
+}
 body#page-login-index button#loginbtn{
   display: flex !important;
   height: 3rem !important;
@@ -2028,6 +2094,9 @@ body#page-mod-assign-view [role=main] #intro a[href]:hover, body#page-mod-assign
   --tw-brightness: brightness(1.25) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
+body#page-mod-assign-view [role=main] #intro a[href].rounded, body#page-mod-assign-editsubmission [role=main] #intro a[href].rounded, body#page-mod-quiz-view [role=main] #intro a[href].rounded{
+  border-radius: 0.5rem !important;
+}
 body#page-mod-assign-view [role=main] #intro a[href]::before, body#page-mod-assign-editsubmission [role=main] #intro a[href]::before, body#page-mod-quiz-view [role=main] #intro a[href]::before{
   margin-right: 0.25rem !important;
   aspect-ratio: 1 / 1 !important;
@@ -2053,6 +2122,9 @@ body#page-mod-assign-view [role=main] #intro table, body#page-mod-assign-editsub
   margin-bottom: 1rem !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
+}
+body#page-mod-assign-view [role=main] #intro table.rounded, body#page-mod-assign-editsubmission [role=main] #intro table.rounded, body#page-mod-quiz-view [role=main] #intro table.rounded{
+  border-radius: 0.5rem !important;
 }
 body#page-mod-assign-view [role=main] #intro table thead, body#page-mod-assign-editsubmission [role=main] #intro table thead, body#page-mod-quiz-view [role=main] #intro table thead{
   --tw-bg-opacity: 1 !important;
@@ -2159,6 +2231,9 @@ body:not(#page-login-index, #page-my-index) div#region-main-box > section#region
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main.rounded{
+  border-radius: 0.5rem !important;
+}
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main span#maincontent {
   display: none !important;
 }
@@ -2196,6 +2271,9 @@ body:not(#page-login-index, #page-my-index) div#region-main-box > section#region
   --tw-brightness: brightness(1.25) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a[href].rounded{
+  border-radius: 0.5rem !important;
+}
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a[href]::before{
   margin-right: 0.25rem !important;
   aspect-ratio: 1 / 1 !important;
@@ -2221,6 +2299,9 @@ body:not(#page-login-index, #page-my-index) div#region-main-box > section#region
   margin-bottom: 1rem !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table.rounded{
+  border-radius: 0.5rem !important;
 }
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table thead{
   --tw-bg-opacity: 1 !important;
@@ -2264,6 +2345,9 @@ body:not(#page-login-index, #page-my-index) div#region-main-box > section#region
   align-items: center !important;
   gap: 0.5rem !important;
   text-indent: 0 !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a.aalink.rounded{
+  border-radius: 0.5rem !important;
 }
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a.aalink::before{
   margin-right: 0.25rem !important;
@@ -2357,6 +2441,9 @@ body#page-user-profile .userprofile .profile_tree a[href*=mailto]:hover{
 body#page-user-profile .userprofile .profile_tree a[href*=mailto] {
   display: flex !important;
   margin-top: 1rem !important;
+}
+body#page-user-profile .userprofile .profile_tree a[href*=mailto].rounded{
+  border-radius: 0.5rem !important;
 }
 body#page-user-profile .userprofile .profile_tree a[href*=mailto]::before{
   margin-right: 0.25rem !important;
@@ -2477,6 +2564,14 @@ body#page-mod-quiz-review [id*=question] .answer td.control > *{
 body#page-mod-quiz-review [id*=question] .history{
   border-style: none !important;
 }
+body#page-calendar-view [data-type=event] .calendar_event_course{
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+  border-style: none !important;
+  background-color: rgb(244 63 94 / 0.1) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(244 63 94 / var(--tw-text-opacity)) !important;
+}
 body#page-blocks-mygroups-overview .controls {
   display: flex !important;
   align-items: center !important;
@@ -2509,6 +2604,9 @@ body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2){
   background-color: transparent !important;
   display: flex !important;
   margin-top: 0.5rem;
+}
+body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2).rounded{
+  border-radius: 0.5rem !important;
 }
 body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a {
   height: 2rem !important;
@@ -2740,6 +2838,9 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   animation: smoothAppear 0.1s ease-in-out;
 }
+body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] ul.form-autocomplete-suggestions.rounded{
+  border-radius: 0.5rem !important;
+}
 @keyframes smoothAppear {
   0% {
     opacity: 0;
@@ -2781,6 +2882,9 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
 }
+body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_grade].rounded{
+  border-radius: 0.5rem !important;
+}
 body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_currentgrade]{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
@@ -2791,6 +2895,9 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   margin-top: 1rem !important;
   background-color: transparent !important;
   padding: 1rem !important;
+}
+body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_currentgrade].rounded{
+  border-radius: 0.5rem !important;
 }
 body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] {
   padding: 0 !important;
@@ -2806,6 +2913,9 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   animation: smoothAppear 0.1s ease-in-out;
   padding: 1rem !important;
+}
+body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor].popout.rounded{
+  border-radius: 0.5rem !important;
 }
 @keyframes smoothAppear {
   0% {
@@ -2825,6 +2935,9 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   background-color: transparent !important;
+}
+body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] [data-fieldtype=editor].rounded{
+  border-radius: 0.5rem !important;
 }
 body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=review-panel] {
   display: none !important;
@@ -2864,6 +2977,9 @@ body section.block_mygroups div:has(> .course-group-box) > .course-group-box{
   padding: 0.5rem !important;
   gap: 0.5rem !important;
   width: 100% !important;
+}
+body section.block_mygroups div:has(> .course-group-box) > .course-group-box.rounded{
+  border-radius: 0.5rem !important;
 }
 body section.block_mygroups div:has(> .course-group-box) > .course-group-box > * {
   margin: 0 !important;
@@ -2953,6 +3069,12 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
 }
+.yui3-widget.yui3-panel.rounded,
+.moodle-dialogue.rounded,
+.yui3-widget-modal.rounded,
+.modal-dialog.rounded{
+  border-radius: 0.5rem !important;
+}
 @keyframes smoothAppear {
   0% {
     opacity: 0;
@@ -2982,6 +3104,9 @@ div.filemanager{
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
   padding: 1rem !important;
 }
+div.filemanager.rounded{
+  border-radius: 0.5rem !important;
+}
 div.filemanager .filemanager-container,
 div.filemanager .card{
   overflow: visible !important;
@@ -3003,6 +3128,10 @@ div.filemanager .card .fm-empty-container{
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
+}
+div.filemanager .filemanager-container .fm-empty-container.rounded,
+div.filemanager .card .fm-empty-container.rounded{
+  border-radius: 0.5rem !important;
 }
 div.filemanager .filemanager-container .fm-empty-container .dndupload-message,
 div.filemanager .card .fm-empty-container .dndupload-message{
@@ -3109,6 +3238,10 @@ div.filemanager .card .fp-upload-form div {
   padding: 0.5rem !important;
   margin: 1rem 0 0 0 !important;
 }
+.submissionsummarytable table .comment-area.rounded,
+.submissionstatustable .comment-area.rounded{
+  border-radius: 0.5rem !important;
+}
 
 div.submissionaction button{
   display: flex !important;
@@ -3144,6 +3277,10 @@ div.submissionaction button:is(:hover, :focus, :active) {
   border: none !important;
   padding: 1rem !important;
 }
+.message-app.rounded,
+.message-app.bg-light.rounded{
+  border-radius: 0.5rem !important;
+}
 .message-app [data-region=contact-request-count]:not(.hidden),
 .message-app [data-region*=unread-count]:not(.hidden),
 .message-app.bg-light [data-region=contact-request-count]:not(.hidden),
@@ -3168,6 +3305,10 @@ div.submissionaction button:is(:hover, :focus, :active) {
   background-color: #0a0c11 !important;
   padding: 0.5rem !important;
   flex: 1 !important;
+}
+.message-app textarea.rounded,
+.message-app.bg-light textarea.rounded{
+  border-radius: 0.5rem !important;
 }
 .message-app button[data-action=send-message],
 .message-app.bg-light button[data-action=send-message] {
@@ -3330,6 +3471,10 @@ div.submissionaction button:is(:hover, :focus, :active) {
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
   padding: 0.5rem !important;
 }
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container].rounded,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container].rounded{
+  border-radius: 0.5rem !important;
+}
 .message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card,
 .message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card{
   background-image: none !important;
@@ -3406,6 +3551,10 @@ div.submissionaction button:is(:hover, :focus, :active) {
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   animation: smoothAppear 0.1s ease-in-out;
 }
+.message-app [class*=body-container] [data-region=view-conversation] [data-region=confirm-dialogue].rounded,
+.message-app.bg-light [class*=body-container] [data-region=view-conversation] [data-region=confirm-dialogue].rounded{
+  border-radius: 0.5rem !important;
+}
 @keyframes smoothAppear {
   0% {
     opacity: 0;
@@ -3447,6 +3596,10 @@ div.submissionaction button:is(:hover, :focus, :active) {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   overflow: hidden !important;
+}
+.message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1).rounded,
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1).rounded{
+  border-radius: 0.5rem !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul),
 .message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) {
@@ -3698,6 +3851,9 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   width: -moz-fit-content !important;
   width: fit-content !important;
   overflow: hidden !important;
+}
+[id*=question] .formulation .ablock .answer.rounded{
+  border-radius: 0.5rem !important;
 }
 [id*=question] .formulation .ablock .answer > tbody > tr:first-child > td {
   padding-top: 1rem !important;
