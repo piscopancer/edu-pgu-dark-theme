@@ -30,6 +30,12 @@ $purple-2: hsl(275, 75%, 60%);
     @apply rounded-lg #{!important};
   }
 }
+@mixin notificationBadge {
+  @apply bg-purple-500 text-white rounded-full top-0 w-5 h-5 items-center justify-center text-xs text-center #{!important};
+  &[class*="hidden"] {
+    @apply hidden #{!important};
+  }
+}
 @mixin cell {
   @apply border-2 border-gray-950 #{!important};
   // RED
@@ -183,8 +189,11 @@ $purple-2: hsl(275, 75%, 60%);
 
 // #endregion
 
+html {
+  @apply [scrollbar-gutter:stable] #{!important};
+}
 body {
-  @apply bg-gray-950 font-["Finlandica"] text-gray-400 #{!important};
+  @apply bg-gray-950 font-["Finlandica"] text-gray-400 max-w-none #{!important};
 }
 /* APPLY FONT SO ICONS DO NOT BREAK */
 footer#page-footer {
@@ -216,11 +225,10 @@ header#page-header {
 }
 section {
   &.block {
-    overflow: hidden !important;
-    border-radius: 0.5rem !important;
+    @apply overflow-hidden rounded-lg #{!important};
   }
   &.block_mycourses {
-    outline: none !important;
+    @apply outline-none #{!important};
   }
   // OUTER LINKS / SPRAVKA ZACHETKA
   &.block_html:has(a[href*="spravka"]) {
@@ -299,8 +307,7 @@ section {
   }
 }
 /* DROPDOWN MENUS */
-div.dropdown-menu,
-ul.dropdown-menu {
+.dropdown-menu {
   @include card;
   @include shadow;
   @include smoothAppearAnim;
@@ -311,12 +318,25 @@ ul.dropdown-menu {
     @apply bg-gray-950 rounded-lg p-2 #{!important};
   }
 }
-div.popover-region-container {
+.popover-region-container {
   @include card;
   @include shadow;
   @include smoothAppearAnim;
   background-color: $dark-0 !important;
   padding: 0.5rem !important;
+}
+.icon {
+  @apply w-auto h-auto #{!important};
+}
+// Placeholders while the content is loading.
+[data-region="placeholder-container"],
+[data-region="header-placeholder"] {
+  > * {
+    @apply bg-transparent #{!important};
+    .bg-pulse-grey {
+      @apply bg-gray-900 animate-pulse #{!important};
+    }
+  }
 }
 #page-wrapper {
   // POPUP NAV LEFT / COMPACT NAVBAR
@@ -359,9 +379,37 @@ div.popover-region-container {
     // PROFILE IN NAV
     .nav.usernav {
       @apply flex-nowrap items-center #{!important};
-      // BELL BUTTON / ICON
-      div.popover-region-toggle.nav-link {
-        @apply shadow-none text-gray-400 hover:text-gray-200 after:hidden before:hidden #{!important};
+      #nav-notification-popover-container {
+        // BELL BUTTON / ICON
+        .popover-region-toggle.nav-link {
+          @apply shadow-none text-gray-400 hover:text-gray-200 after:hidden before:hidden #{!important};
+        }
+        // Notifications popover.
+        .popover-region-container {
+          @apply flex flex-col top-10 #{!important};
+          .popover-region-header-container {
+            @apply p-0 flex items-center h-auto #{!important};
+            .popover-region-header-actions {
+              @apply ml-auto flex gap-2 #{!important};
+              a {
+                @apply m-0 p-0 h-8 w-8 flex items-center justify-center bg-gray-900 hover:bg-gray-800 #{!important};
+                i {
+                  @apply m-0 #{!important};
+                }
+              }
+            }
+          }
+          // List of notifications.
+          .popover-region-content-container {
+            @apply h-auto flex-1 #{!important};
+          }
+          a.see-all-link {
+            @apply bg-gray-900 rounded-lg block hover:bg-gray-800 #{!important};
+            > div {
+              @apply bg-transparent #{!important};
+            }
+          }
+        }
       }
       a#action-menu-toggle-1 {
         @apply p-0 #{!important};
@@ -392,34 +440,29 @@ div.popover-region-container {
       // NEW MESSAGES OR NOTIFICATIONS NUMBER
       .count-container {
         @include pulseAnim;
-        @apply bg-purple-500 text-white rounded-full w-4 h-4 items-center ml-1 #{!important};
+        @include notificationBadge;
       }
     }
   }
 }
-/* POPUP MESSENGER / COMPACT MESSENGER */
-/* BACKGROUND */
+// Modal messenger, compact messenger.
 [data-origin^="message-drawer-toggle"],
 [data-origin^="message-user-button"] {
-  transition: transform 0s !important;
   &.bg-white {
     @include smoothAppearAnim;
-    @apply fixed inset-0 w-full h-full bg-black/50 flex items-center justify-center z-[1031] #{!important};
+    @apply fixed inset-0 w-full h-full bg-black/50 backdrop-blur-[2px] flex items-center justify-center z-[1031] #{!important};
   }
-  /* MESSAGE APP AS POPUP ON DARK BACKGROUND*/
   & .message-app {
-    @apply h-[calc(100%-2rem)] w-[calc(80%-2rem)] flex #{!important};
+    @apply h-[calc(100%-2rem)] w-[calc(100vw-2rem)] max-w-screen-md flex #{!important};
   }
   & .closewidget {
     @apply bg-transparent justify-end flex #{!important};
-    /* CLOSE POPUP MESSENGER BUTTON */
-    & a {
-      @apply self-end m-0 bg-transparent h-8 w-8 #{!important};
+    & a[data-action="closedrawer"] {
+      @apply self-end m-0 bg-transparent h-10 w-10 border-2 border-solid border-gray-900 hover:border-gray-800 rounded-lg #{!important};
       & i {
-        @apply w-full h-full grid grid-stack #{!important};
-        /* CLOSE POPUP MESSENGER X ICON*/
+        @apply w-full h-full flex items-center justify-center #{!important};
         &::before {
-          @apply stack place-self-center text-gray-300 content-["\2573"] #{!important};
+          @apply text-gray-300 content-["\2573"] #{!important};
         }
       }
     }
@@ -477,22 +520,9 @@ a:not([class]):focus,
 }
 //GO TO TOP BUTTON
 div#goto-top-link > a {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin-right: 1rem !important;
-  background-color: $dark-1 !important;
-  width: 3rem !important;
-  height: 3rem !important;
-  border-radius: 50% !important;
-  outline: 0.1rem solid $dark-3 !important;
-  opacity: 0.5 !important;
-  padding: 0 !important;
-  &:is(:hover, :focus, :active) {
-    opacity: 1 !important;
-  }
+  @apply flex justify-center items-center mr-4 bg-gray-925 w-12 h-12 rounded-full outline-2 outline-gray-800 opacity-50 hover:opacity-100 p-0 #{!important};
   > i {
-    margin: 0 !important;
+    @apply m-0 w-auto h-auto #{!important};
   }
 }
 // TABLES
@@ -629,19 +659,9 @@ div.block-recentlyaccessedcourses div.one-row > div {
 }
 // CALENDER
 td.hasevent {
-  background-color: $dark-2 !important;
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: $dark-3 !important;
-  }
+  @apply bg-gray-925 hover:bg-gray-900 #{!important};
   a {
-    border-radius: 0 !important;
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: transparent !important;
-    }
+    @apply rounded-none hover:bg-transparent #{!important};
   }
 }
 // SUBJECTS AND COURSES TABLES
@@ -685,27 +705,14 @@ td.hasevent {
           .cminfobox {
             margin-top: 0.5rem !important;
             span.cminfoboxcontent {
-              display: flex !important;
-              width: fit-content !important;
-              height: fit-content !important;
-              padding: 0.25rem 0.5rem !important;
-              background-color: $dark-2 !important;
-              border-radius: 0.5rem !important;
               @include smoothAppearAnim(false);
-              &:hover {
-                background-color: $dark-3 !important;
-              }
+              @apply flex w-fit h-fit py-1 px-2 bg-gray-900 rounded-lg hover:bg-gray-925 #{!important};
               a {
-                font-size: 0.75rem !important;
-                &:hover {
-                  background-color: transparent !important;
-                }
+                @apply text-sm hover:bg-transparent #{!important};
               }
             }
             a.closeinfobox {
-              text-align: center !important;
-              height: 1.5rem !important;
-              aspect-ratio: 1 !important;
+              @apply h-6 text-center aspect-square #{!important};
             }
           }
         }
@@ -999,42 +1006,43 @@ body {
     }
   }
   // CONFIRM TEST
-  &#page-mod-quiz-summary,
-  &#page-mod-quiz-view,
-  &#page-user-edit {
-    .moodle-dialogue {
-      [role="dialog"] {
-        @apply bg-transparent p-3 #{!important};
-        // HEADER
-        [class*="hd"] {
-          @apply text-gray-300 font-medium p-0 #{!important};
-          h1 {
-            @apply font-medium #{!important};
-          }
-          button {
-            &::after {
-              @apply text-xl #{!important};
-            }
-          }
+  // &#page-mod-quiz-summary,
+  // &#page-mod-quiz-view,
+  // &#page-user-edit,
+  // &#page-mod-assign-editsubmission {
+  .moodle-dialogue {
+    // HEADER
+    [class*="hd"] {
+      @apply text-gray-300 font-medium p-0 #{!important};
+      h1 {
+        @apply font-medium #{!important};
+      }
+      button {
+        &::after {
+          @apply text-xl #{!important};
         }
-        .moodle-dialogue-wrap {
-          @apply w-fit #{!important};
+      }
+    }
+    .moodle-dialogue-wrap {
+      @apply bg-transparent #{!important};
+    }
+    .moodle-dialogue-bd {
+      @apply w-auto p-0 #{!important};
+      .confirmation-dialogue {
+        @apply flex flex-col gap-4 #{!important};
+        .confirmation-message {
+          @apply m-0 #{!important};
         }
-        .moodle-dialogue-bd {
-          @apply w-fit p-0 #{!important};
-          .confirmation-dialogue {
-            @apply flex flex-col w-fit items-center gap-4 #{!important};
-            .confirmation-buttons {
-              @apply flex flex-row-reverse mt-4 justify-end gap-4 self-end w-auto flex-nowrap items-center #{!important};
-              input {
-                @apply w-fit py-3 px-6 #{!important};
-              }
-            }
+        .confirmation-buttons {
+          @apply flex flex-row-reverse mt-4 justify-end gap-4 self-end w-auto items-center #{!important};
+          input {
+            @apply w-fit py-3 px-6 #{!important};
           }
         }
       }
     }
   }
+  // }
   //TEACHER REVIEWS STDENTS TEST / WORK
   &#page-mod-quiz-review {
     [id*="question"] {
@@ -1350,13 +1358,28 @@ body {
   @include card;
   @include smoothAppearAnim;
   @include shadow;
-  @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-fit h-fit bg-gray-925 p-4 #{!important};
-  .moodle-dialogue-bd {
-    @apply overflow-auto #{!important};
+  @apply fixed max-h-[calc(100vh-4rem)] overflow-y-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-screen-md w-[calc(100vw-2rem)] h-fit bg-gray-925 p-4 #{!important};
+  [role="dialog"].moodle-dialogue-content {
+    @apply bg-transparent p-0 relative #{!important};
+    .moodle-dialogue-hd {
+      @apply flex items-center min-h-0 #{!important};
+      h3 {
+        @apply m-0 #{!important};
+      }
+      button.closebutton {
+        @apply p-0 w-10 h-10 m-0 border-gray-900 border-2 rounded-lg flex items-center justify-center #{!important};
+        &::after {
+          @apply text-2xl #{!important};
+        }
+      }
+    }
+    .moodle-dialogue-bd {
+      @apply overflow-auto mt-4 #{!important};
+    }
   }
 }
-// UPLOAD FILE FORM BLOCK
-div.filemanager {
+// UPLOAD FILE FORM BLOCK (NOT MODAL)
+.filemanager {
   @include card;
   @apply p-4 flex flex-col gap-4 border-2 border-gray-900 #{!important};
   .filemanager-container,
@@ -1400,37 +1423,60 @@ div.filemanager {
     }
   }
 }
-// UPLOAD FILE POPUP
+// UPLOAD FILE MODAL
 .moodle-dialogue.filepicker {
-  @media (max-width: 768px) {
-    min-width: calc(100vw - 2rem) !important;
+  .col-md-9 {
+    @apply flex-auto #{!important};
   }
-  div.fp-repo-items {
-    padding: 0.5rem !important;
-    .card {
-      outline: none !important;
-      box-shadow: none !important;
-    }
-    // CHOOSE FILE INPUT
-    .fp-file div:nth-child(2) {
-      padding: 0 !important;
-      input {
-        width: 100% !important;
-        padding: 1rem !important;
-        @include pulseAnim;
-        &::-webkit-file-upload-button {
-          display: none !important;
+  .moodle-dialogue-bd {
+    .container {
+      @apply p-0 w-auto m-0 max-w-none #{!important};
+      .file-picker.fp-generallayout {
+        @apply p-0 flex m-0 gap-4 flex-nowrap max-md:flex-col #{!important};
+        .fp-repo-area {
+          @apply gap-2 p-0 bg-transparent min-w-[20ch] #{!important};
+          .nav-link {
+            @apply px-2 py-1 rounded-lg bg-gray-900 #{!important};
+            &.active {
+              @apply bg-gray-800 #{!important};
+            }
+            img {
+              @apply hidden #{!important};
+            }
+          }
         }
-        &:hover {
-          cursor: pointer !important;
+        .fp-repo-items {
+          .fp-navbar {
+            @apply hidden #{!important};
+          }
+          .fp-content.card {
+            @apply p-4 shadow-none h-auto outline-none #{!important};
+            .fp-formset {
+              @apply p-0 #{!important};
+              .form-group {
+                @apply flex-col items-start #{!important};
+              }
+            }
+          }
+          // CHOOSE FILE INPUT
+          .fp-file div:nth-child(2) {
+            padding: 0 !important;
+            input {
+              width: 100% !important;
+              padding: 1rem !important;
+              @include pulseAnim;
+              &::-webkit-file-upload-button {
+                display: none !important;
+              }
+              &:hover {
+                cursor: pointer !important;
+              }
+            }
+          }
+          .fp-upload-btn {
+            @include importantButton;
+          }
         }
-      }
-    }
-    .fp-upload-btn {
-      background-color: $dark-2 !important;
-      padding: 0.75rem 2rem !important;
-      &:hover {
-        background-color: $dark-3 !important;
       }
     }
   }
@@ -1461,143 +1507,129 @@ div.filemanager {
 div.submissionaction button {
   @include importantButton;
 }
-// MESSENGER
+// Messenger.
 .message-app,
 .message-app.bg-light {
   @include card;
   @include shadow;
-  display: flex !important;
-  flex-direction: column !important;
-  flex-wrap: nowrap !important;
-  gap: 0.5rem !important;
-  background-color: $dark-1 !important;
-  border: none !important;
-  padding: 1rem !important;
-  // BADGES / NEW MESSAGES COUNT / REQUESTES
-  [data-region="contact-request-count"]:not(.hidden),
-  [data-region*="unread-count"]:not(.hidden) {
-    display: inline-block !important;
-    width: 1.25rem !important;
-    height: 1.25rem !important;
-    text-align: center !important;
-    line-height: normal !important;
-    border-radius: 50% !important;
-    background-color: $purple-1 !important;
-    color: $text-primary !important;
+  @apply flex flex-col flex-nowrap gap-2 bg-gray-925 border-none p-4 #{!important};
+  // Bandges, new messages, new contacts requests.
+  [data-region="contact-request-count"],
+  [data-region*="unread-count"] {
+    @include notificationBadge;
   }
-  textarea {
-    @include card;
-    background-color: $dark-0 !important;
-    padding: 0.5rem !important;
-    flex: 1 !important;
-  }
-  button[data-action="send-message"] {
-    margin: 0 !important;
-    margin-left: 0.5rem !important;
-    justify-self: center !important;
-    flex: 1 !important;
+  // Textarea, write a message.
+  [data-region="content-messages-footer-container"] {
+    @apply p-0 #{!important};
+    > :nth-child(1) {
+      @apply m-0 #{!important};
+      textarea {
+        @include card;
+        @apply bg-gray-950 p-2 flex-1 #{!important};
+      }
+      button[data-action="send-message"] {
+        @apply m-0 ml-2 justify-self-center flex-1 #{!important};
+      }
+    }
   }
   // TWO SIDES MESSENGER
   .container-fluid {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-wrap: nowrap !important;
-    padding: 0 !important;
-    height: 100% !important;
+    @apply flex h-full p-0 flex-nowrap flex-col #{!important};
     > div:nth-child(1) {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: nowrap !important;
-      gap: 1rem !important;
+      @apply flex flex-row flex-nowrap gap-4 #{!important};
       > div {
-        padding: 0 !important;
+        @apply p-0 #{!important};
       }
       // LEFT SIDE
       > div:nth-child(1) {
         > div:nth-child(1) {
-          display: flex !important;
-          flex-direction: column !important;
-          flex-wrap: nowrap !important;
-          gap: 1rem !important;
+          @apply flex flex-col flex-nowrap gap-4 #{!important};
         }
       }
       // RIGHT SIDE
       > div:nth-child(2) {
-        display: flex !important;
-        flex: 1 !important;
-        gap: 0.5rem !important;
+        @apply flex flex-1 gap-2 #{!important};
       }
     }
   }
-  // CHAT HEADER
+  // Messenger header.
   [class*="header-container"] {
     [data-region="view-overview"] {
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: wrap !important;
-      padding: 0 !important;
-      align-items: center !important;
-      gap: 0.5rem !important;
-      > div:nth-child(1) {
-        display: flex !important;
-        align-items: center !important;
-        flex: 1 !important;
-        gap: 0.5rem !important;
-        // SEARCH USER ICON
-        span {
-          display: flex !important;
-          align-items: center !important;
+      @apply flex flex-row flex-wrap p-0 items-center gap-2 #{!important};
+      > :nth-child(1) {
+        @apply flex items-center flex-1 gap-2 #{!important};
+        .input-group.simplesearchform {
+          // Search user icon.
+          .input-group-append {
+            @apply hidden #{!important};
+          }
         }
-        // MESSENGER SETTINGS BUTTON
-        a[data-route="view-settings"] {
-          width: 2rem !important;
-          height: 2rem !important;
-          display: flex !important;
-          justify-content: center !important;
-          align-items: center !important;
+        // Messenger settings button.
+        > :nth-child(2) {
+          @apply m-0 #{!important};
+          a[data-route="view-settings"] {
+            @apply w-10 h-10 bg-gray-900 hover:bg-gray-800 flex items-center justify-center #{!important};
+          }
         }
       }
-      *:not(.hidden) {
-        display: inline-flex !important;
-        margin: 0 !important;
-      }
-      a[data-route="view-contacts"] {
-        @include importantButton;
-        align-items: center !important;
-        gap: 0.25rem !important;
-        > span.badge:not(.hidden) {
-          display: inline-block !important;
-          margin-left: 0.5rem !important;
+      > :nth-child(2) {
+        @apply m-0 #{!important};
+        // See contacts list button.
+        a[data-route="view-contacts"] {
+          @include importantButton;
+          @apply gap-4 h-10 #{!important};
         }
       }
     }
+    // Current chat toolbar.
     > [data-region="view-conversation"] {
+      @apply p-0 mb-2 #{!important};
       > [data-region="header-content"] {
         > div:nth-child(1) {
-          display: flex !important;
-          gap: 1rem !important;
-          // START / FAVOURITE CONTACT
+          @apply flex gap-4 #{!important};
+          // Favourite contact star.
           span[data-region="favourite-icon-container"] {
-            color: $purple-2 !important;
+            @apply text-purple-500 #{!important};
           }
-          // BUTTON BACK IN CHAT
+          // Button back in messenger while the chat is open.
           > div:nth-child(1) {
-            @apply flex justify-center items-center #{!important};
+            @apply flex justify-center items-center w-10 h-10 #{!important};
             a[data-route-back] {
-              @apply w-8 h-8 grid grid-stack m-0 #{!important};
+              @apply w-10 h-10 flex items-center justify-center m-0 border-2 border-gray-900 hover:border-gray-800 border-solid #{!important};
               i {
-                @apply stack place-self-center w-4 h-4 text-gray-300 hover:text-gray-200 #{!important};
+                @apply text-gray-300 hover:text-gray-200 #{!important};
               }
             }
           }
-          // PERSON IN CHAT IN HEADER
+          // Person in the messenger header.
           a[data-action="view-contact"] {
-            padding: 0.5rem !important;
+            @apply flex items-center #{!important};
+            // Profile picture.
+            > :nth-child(1) {
+              @apply w-10 h-10 #{!important};
+              img {
+                @apply h-auto w-auto #{!important};
+              }
+            }
+            // Name, surname, middlename.
+            > :nth-child(2) {
+              @apply ml-4 font-["Finlandica"] font-normal #{!important};
+              * {
+                @apply font-[inherit] #{!important};
+              }
+            }
+          }
+          // Button more options in the chat.
+          > div:nth-child(3) {
+            button {
+              @apply border-2 w-10 h-10 border-solid border-gray-900 hover:border-gray-800 rounded-lg flex items-center justify-center #{!important};
+            }
           }
         }
       }
     }
   }
+  // Contacts groups in the messenger menu.
   [class*="body-container"] {
     overflow: visible !important;
     [class*="view-overview-body"] {
@@ -1608,19 +1640,22 @@ div.submissionaction button {
         .section.card {
           @apply bg-none shadow-none outline-none #{!important};
         }
-        // // UNREAD MESSAGES COUNTER
-        // span.badge[data-region*=unread-count] {
-        //   width: 1.25rem !important;
-        //   height: 1.25rem !important;
-        //   text-align: center !important;
-        //   line-height: normal !important;
-        //   border-radius: 50% !important;
-        //   background-color: $purple-1 !important;
-        //   color: $text-primary !important;
-        // }
+        button[data-toggle="collapse"] {
+          .collapsed-icon-container,
+          .expanded-icon-container {
+            @apply text-gray-500 w-2 text-center #{!important};
+          }
+          // Group name.
+          > :nth-child(3) {
+            @apply ml-2 #{!important};
+          }
+          small {
+            @apply ml-2 text-gray-500 #{!important};
+          }
+        }
       }
     }
-    // CHAT INSIDE MESSENGER
+    // Chat in messenger.
     [data-region="view-conversation"] {
       @apply p-0 #{!important};
       // MESSAGES CONTAINER
@@ -1631,22 +1666,22 @@ div.submissionaction button {
           @apply flex flex-col items-center #{!important};
           // DATE
           > h6 {
-            @apply mx-4 py-2 px-4 rounded-full outline-2 outline-gray-900 w-fit #{!important};
+            @apply mx-4 py-1 px-4 text-sm rounded-full outline-2 outline-gray-800 w-fit text-gray-400 #{!important};
           }
-          // MESSAGES DURING DAY
+          // List of messages during the day.
           > div {
-            @apply bg-gray-950 rounded-lg self-stretch #{!important};
-            // EACH MESSAGE
+            @apply rounded-lg self-stretch gap-2 #{!important};
+            // Each message.
             .message {
-              @apply p-4 m-0 #{!important};
-              &:is(:hover, :focus, :active) {
-                filter: none !important;
-              }
+              @apply p-2 text-sm m-0 rounded-lg #{!important};
               &.received {
-                background-color: $dark-1 !important;
-                * {
-                  color: $text-primary !important;
-                }
+                @apply bg-gray-900 text-gray-200 #{!important};
+              }
+              &.send {
+                @apply bg-transparent border-2 border-solid border-gray-800 text-gray-400 #{!important};
+              }
+              .time {
+                @apply text-sm text-gray-500 #{!important};
               }
             }
           }
@@ -1675,21 +1710,13 @@ div.submissionaction button {
           overflow: hidden !important;
           // CONTANTS AND REQUESTS BUTTONS
           div:has(> ul) {
-            padding: 0 !important;
+            @apply p-0 #{!important};
             > ul {
-              display: flex !important;
-              flex-wrap: nowrap !important;
-              margin: 0 !important;
+              @apply flex flex-nowrap m-0 #{!important};
               > li {
-                flex: 1 !important;
+                @apply flex-1 #{!important};
                 > a {
-                  background-color: $dark-1 !important;
-                  border-radius: 0 !important;
-                  &:hover,
-                  &:focus,
-                  &:active {
-                    background-color: $dark-2 !important;
-                  }
+                  @apply bg-gray-925 rounded-none hover:bg-gray-900 #{!important};
                 }
               }
             }
@@ -1889,12 +1916,7 @@ form#mod_quiz_preflight_form {
 }
 // FINISH TEST / RETURN TO TEST / CONFIRM TEST / REVIEW QUIZ TEST
 div.submitbtns {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: flex-end !important;
-  gap: 1rem !important;
-  height: auto !important;
-  width: auto !important;
+  @apply flex flex-row justify-end gap-4 h-auto w-auto #{!important};
   button,
   a {
     @include importantButton;

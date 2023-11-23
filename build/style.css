@@ -422,7 +422,12 @@ video {
   font-family: "Finlandica";
   src: url("chrome-extension://__MSG_@@extension_id__/assets/Finlandica.ttf") format("truetype");
 }
+html{
+  scrollbar-gutter: stable !important;
+}
+
 body{
+  max-width: none !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
   font-family: "Finlandica" !important;
@@ -451,32 +456,6 @@ footer#page-footer{
 
 ::-webkit-scrollbar-corner{
   display: none !important;
-}
-
-.message-app [data-region=contact-request-count]:not()::-webkit-scrollbar-corner,
-.message-app [data-region*=unread-count]:not()::-webkit-scrollbar-corner,
-.message-app.bg-light [data-region=contact-request-count]:not()::-webkit-scrollbar-corner,
-.message-app.bg-light [data-region*=unread-count]:not()::-webkit-scrollbar-corner {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-
-.message-app [class*=header-container] [data-region=view-overview] *:not()::-webkit-scrollbar-corner,
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not()::-webkit-scrollbar-corner {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not()::-webkit-scrollbar-corner,
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not()::-webkit-scrollbar-corner {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
 }
 
 *,
@@ -516,12 +495,13 @@ header#page-header {
   display: none !important;
 }
 
-section.block {
+section.block{
   overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
-section.block_mycourses {
-  outline: none !important;
+section.block_mycourses{
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
 }
 section.block_html:has(a[href*=spravka]) * {
   margin: 0 !important;
@@ -644,8 +624,7 @@ section.block_activity_modules ul li div a:hover{
 }
 
 /* DROPDOWN MENUS */
-div.dropdown-menu,
-ul.dropdown-menu{
+.dropdown-menu{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -655,8 +634,7 @@ ul.dropdown-menu{
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   animation: smoothAppear 0.1s ease-in-out;
 }
-div.dropdown-menu.rounded,
-ul.dropdown-menu.rounded{
+.dropdown-menu.rounded{
   border-radius: 0.5rem !important;
 }
 @keyframes smoothAppear {
@@ -669,20 +647,18 @@ ul.dropdown-menu.rounded{
     translate: 0 0;
   }
 }
-div.dropdown-menu li a,
-ul.dropdown-menu li a{
+.dropdown-menu li a{
   border-radius: 0.5rem !important;
   padding: 0.25rem !important;
 }
-div.dropdown-menu .show,
-ul.dropdown-menu .show{
+.dropdown-menu .show{
   border-radius: 0.5rem !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
   padding: 0.5rem !important;
 }
 
-div.popover-region-container{
+.popover-region-container{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -694,7 +670,7 @@ div.popover-region-container{
   background-color: #0a0c11 !important;
   padding: 0.5rem !important;
 }
-div.popover-region-container.rounded{
+.popover-region-container.rounded{
   border-radius: 0.5rem !important;
 }
 @keyframes smoothAppear {
@@ -706,6 +682,27 @@ div.popover-region-container.rounded{
     opacity: 1;
     translate: 0 0;
   }
+}
+
+.icon{
+  height: auto !important;
+  width: auto !important;
+}
+
+[data-region=placeholder-container] > *,
+[data-region=header-placeholder] > *{
+  background-color: transparent !important;
+}
+@keyframes pulse{
+  50%{
+    opacity: .5;
+  }
+}
+[data-region=placeholder-container] > * .bg-pulse-grey,
+[data-region=header-placeholder] > * .bg-pulse-grey{
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
 }
 
 #page-wrapper > #nav-drawer{
@@ -785,79 +782,88 @@ div.popover-region-container.rounded{
 #page-wrapper > nav.navbar.fixed-top a.navbar-brand > span{
   display: none !important;
 }
-.message-app [data-region=contact-request-count]:not(#page-wrapper > nav.navbar.fixed-top a.navbar-brand > span),
-.message-app [data-region*=unread-count]:not(#page-wrapper > nav.navbar.fixed-top a.navbar-brand > span),
-.message-app.bg-light [data-region=contact-request-count]:not(#page-wrapper > nav.navbar.fixed-top a.navbar-brand > span),
-.message-app.bg-light [data-region*=unread-count]:not(#page-wrapper > nav.navbar.fixed-top a.navbar-brand > span) {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] *:not(#page-wrapper > nav.navbar.fixed-top a.navbar-brand > span),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not(#page-wrapper > nav.navbar.fixed-top a.navbar-brand > span) {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(#page-wrapper > nav.navbar.fixed-top a.navbar-brand > span),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(#page-wrapper > nav.navbar.fixed-top a.navbar-brand > span) {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
-}
 @media (max-width: 1140px) {
   #page-wrapper > nav.navbar.fixed-top ul:nth-child(3){
     display: none !important;
   }
-.message-app [data-region=contact-request-count]:not(#page-wrapper > nav.navbar.fixed-top ul:nth-child(3)),
-.message-app [data-region*=unread-count]:not(#page-wrapper > nav.navbar.fixed-top ul:nth-child(3)),
-.message-app.bg-light [data-region=contact-request-count]:not(#page-wrapper > nav.navbar.fixed-top ul:nth-child(3)),
-.message-app.bg-light [data-region*=unread-count]:not(#page-wrapper > nav.navbar.fixed-top ul:nth-child(3)) {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] *:not(#page-wrapper > nav.navbar.fixed-top ul:nth-child(3)),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not(#page-wrapper > nav.navbar.fixed-top ul:nth-child(3)) {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(#page-wrapper > nav.navbar.fixed-top ul:nth-child(3)),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(#page-wrapper > nav.navbar.fixed-top ul:nth-child(3)) {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
-}
 }
 #page-wrapper > nav.navbar.fixed-top .nav.usernav{
   flex-wrap: nowrap !important;
   align-items: center !important;
 }
-#page-wrapper > nav.navbar.fixed-top .nav.usernav div.popover-region-toggle.nav-link{
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-toggle.nav-link{
   --tw-text-opacity: 1 !important;
   color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
   --tw-shadow: 0 0 #0000 !important;
   --tw-shadow-colored: 0 0 #0000 !important;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
 }
-#page-wrapper > nav.navbar.fixed-top .nav.usernav div.popover-region-toggle.nav-link::before{
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-toggle.nav-link::before{
   content: var(--tw-content) !important;
   display: none !important;
 }
-#page-wrapper > nav.navbar.fixed-top .nav.usernav div.popover-region-toggle.nav-link::after{
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-toggle.nav-link::after{
   content: var(--tw-content) !important;
   display: none !important;
 }
-#page-wrapper > nav.navbar.fixed-top .nav.usernav div.popover-region-toggle.nav-link:hover{
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-toggle.nav-link:hover{
   --tw-text-opacity: 1 !important;
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container{
+  top: 2.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container .popover-region-header-container{
+  display: flex !important;
+  height: auto !important;
+  align-items: center !important;
+  padding: 0px !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container .popover-region-header-container .popover-region-header-actions{
+  margin-left: auto !important;
+  display: flex !important;
+  gap: 0.5rem !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container .popover-region-header-container .popover-region-header-actions a{
+  margin: 0px !important;
+  display: flex !important;
+  height: 2rem !important;
+  width: 2rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  padding: 0px !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container .popover-region-header-container .popover-region-header-actions a:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container .popover-region-header-container .popover-region-header-actions a i{
+  margin: 0px !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container .popover-region-content-container{
+  height: auto !important;
+  flex: 1 1 0% !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container a.see-all-link{
+  display: block !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+}
+section#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container a.see-all-link{
+  overflow: hidden !important;
+  border-radius: 0.5rem !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container a.see-all-link:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container a.see-all-link > div{
+  background-color: transparent !important;
 }
 #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1{
   padding: 0px !important;
@@ -918,43 +924,19 @@ div.popover-region-container.rounded{
 #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .caret, #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1::after{
   display: none !important;
 }
-.message-app [data-region=contact-request-count]:not(#page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .caret),
-.message-app [data-region*=unread-count]:not(#page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .caret),
-.message-app.bg-light [data-region=contact-request-count]:not(#page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .caret),
-.message-app.bg-light [data-region*=unread-count]:not(#page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .caret),.message-app [data-region=contact-request-count]:not( #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1)::after,
-.message-app [data-region*=unread-count]:not( #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1)::after,
-.message-app.bg-light [data-region=contact-request-count]:not( #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1)::after,
-.message-app.bg-light [data-region*=unread-count]:not( #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1)::after {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] *:not(#page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .caret),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not(#page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .caret),.message-app [class*=header-container] [data-region=view-overview] *:not( #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1)::after,
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not( #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1)::after {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(#page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .caret),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(#page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1 .caret),.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not( #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1)::after,
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not( #page-wrapper > nav.navbar.fixed-top .nav.usernav a#action-menu-toggle-1)::after {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
-}
 #page-wrapper > nav.navbar.fixed-top .nav.usernav .count-container {
   animation: pulse 1s infinite alternate ease-in-out;
-  margin-left: 0.25rem !important;
-  height: 1rem !important;
-  width: 1rem !important;
+  top: 0px !important;
+  height: 1.25rem !important;
+  width: 1.25rem !important;
   align-items: center !important;
+  justify-content: center !important;
   border-radius: 9999px !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(168 85 247 / var(--tw-bg-opacity)) !important;
+  text-align: center !important;
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
   --tw-text-opacity: 1 !important;
   color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
 }
@@ -966,14 +948,10 @@ div.popover-region-container.rounded{
     opacity: 1;
   }
 }
-
-/* POPUP MESSENGER / COMPACT MESSENGER */
-/* BACKGROUND */
-[data-origin^=message-drawer-toggle],
-[data-origin^=message-user-button] {
-  transition: transform 0s !important;
-  /* MESSAGE APP AS POPUP ON DARK BACKGROUND*/
+#page-wrapper > nav.navbar.fixed-top .nav.usernav .count-container[class*=hidden]{
+  display: none !important;
 }
+
 [data-origin^=message-drawer-toggle].bg-white,
 [data-origin^=message-user-button].bg-white {
   animation: smoothAppear 0.1s ease-in-out;
@@ -986,6 +964,9 @@ div.popover-region-container.rounded{
   align-items: center !important;
   justify-content: center !important;
   background-color: rgb(0 0 0 / 0.5) !important;
+  --tw-backdrop-blur: blur(2px) !important;
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia) !important;
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia) !important;
 }
 @keyframes smoothAppear {
   0% {
@@ -1001,39 +982,47 @@ div.popover-region-container.rounded{
 [data-origin^=message-user-button] .message-app{
   display: flex !important;
   height: calc(100% - 2rem) !important;
-  width: calc(80% - 2rem) !important;
+  width: calc(100vw - 2rem) !important;
+  max-width: 768px !important;
 }
 [data-origin^=message-drawer-toggle] .closewidget,
 [data-origin^=message-user-button] .closewidget{
   display: flex !important;
   justify-content: flex-end !important;
   background-color: transparent !important;
-  /* CLOSE POPUP MESSENGER BUTTON */
 }
-[data-origin^=message-drawer-toggle] .closewidget a,
-[data-origin^=message-user-button] .closewidget a{
+[data-origin^=message-drawer-toggle] .closewidget a[data-action=closedrawer],
+[data-origin^=message-user-button] .closewidget a[data-action=closedrawer]{
   margin: 0px !important;
-  height: 2rem !important;
-  width: 2rem !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
   align-self: flex-end !important;
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
   background-color: transparent !important;
 }
-[data-origin^=message-drawer-toggle] .closewidget a i,
-[data-origin^=message-user-button] .closewidget a i{
-  display: grid !important;
+[data-origin^=message-drawer-toggle] .closewidget a[data-action=closedrawer]:hover,
+[data-origin^=message-user-button] .closewidget a[data-action=closedrawer]:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+}
+[data-origin^=message-drawer-toggle] .closewidget a[data-action=closedrawer] i,
+[data-origin^=message-user-button] .closewidget a[data-action=closedrawer] i{
+  display: flex !important;
   height: 100% !important;
   width: 100% !important;
-  grid-template-areas: "stack" !important;
-  /* CLOSE POPUP MESSENGER X ICON*/
+  align-items: center !important;
+  justify-content: center !important;
 }
-[data-origin^=message-drawer-toggle] .closewidget a i::before,
-[data-origin^=message-user-button] .closewidget a i::before{
-  place-self: center !important;
+[data-origin^=message-drawer-toggle] .closewidget a[data-action=closedrawer] i::before,
+[data-origin^=message-user-button] .closewidget a[data-action=closedrawer] i::before{
   --tw-text-opacity: 1 !important;
   color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
   --tw-content: "╳" !important;
   content: var(--tw-content) !important;
-  grid-area: stack !important;
 }
 
 div[data-table-region^=user-index-participants]{
@@ -1154,24 +1143,29 @@ a:not([class]):focus,
   border-radius: 0.5rem !important;
 }
 
-div#goto-top-link > a {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+div#goto-top-link > a{
   margin-right: 1rem !important;
-  background-color: #12151b !important;
-  width: 3rem !important;
+  display: flex !important;
   height: 3rem !important;
-  border-radius: 50% !important;
-  outline: 0.1rem solid #272a30 !important;
+  width: 3rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 9999px !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+  padding: 0px !important;
   opacity: 0.5 !important;
-  padding: 0 !important;
+  outline-width: 2px !important;
+  outline-color: #272a30 !important;
 }
-div#goto-top-link > a:is(:hover, :focus, :active) {
+
+div#goto-top-link > a:hover{
   opacity: 1 !important;
 }
-div#goto-top-link > a > i {
-  margin: 0 !important;
+div#goto-top-link > a > i{
+  margin: 0px !important;
+  height: auto !important;
+  width: auto !important;
 }
 
 table.generaltable:not(.course-box),
@@ -1646,16 +1640,19 @@ div.block-recentlyaccessedcourses div.one-row > div {
   display: none !important;
 }
 
-td.hasevent {
-  background-color: #1f2127 !important;
+td.hasevent{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
-td.hasevent:hover, td.hasevent:active, td.hasevent:focus {
-  background-color: #272a30 !important;
+
+td.hasevent:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
 }
-td.hasevent a {
-  border-radius: 0 !important;
+td.hasevent a{
+  border-radius: 0px !important;
 }
-td.hasevent a:hover, td.hasevent a:active, td.hasevent a:focus {
+td.hasevent a:hover{
   background-color: transparent !important;
 }
 
@@ -1691,29 +1688,6 @@ td.hasevent a:hover, td.hasevent a:active, td.hasevent a:focus {
 }
 .card-text.content > div:has(table.course-box) .course-box > tbody .activeness{
   display: none !important;
-}
-.message-app [data-region=contact-request-count]:not(.card-text.content > div:has(table.course-box) .course-box > tbody .activeness),
-.message-app [data-region*=unread-count]:not(.card-text.content > div:has(table.course-box) .course-box > tbody .activeness),
-.message-app.bg-light [data-region=contact-request-count]:not(.card-text.content > div:has(table.course-box) .course-box > tbody .activeness),
-.message-app.bg-light [data-region*=unread-count]:not(.card-text.content > div:has(table.course-box) .course-box > tbody .activeness) {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] *:not(.card-text.content > div:has(table.course-box) .course-box > tbody .activeness),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not(.card-text.content > div:has(table.course-box) .course-box > tbody .activeness) {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(.card-text.content > div:has(table.course-box) .course-box > tbody .activeness),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(.card-text.content > div:has(table.course-box) .course-box > tbody .activeness) {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
 }
 .card-text.content > div:has(table.course-box) .course-box > tbody > tr > td{
   background-color: transparent !important;
@@ -1838,42 +1812,27 @@ td.hasevent a:hover, td.hasevent a:active, td.hasevent a:focus {
 .card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .generalinfobox{
   display: none !important;
 }
-.message-app [data-region=contact-request-count]:not(.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .generalinfobox),
-.message-app [data-region*=unread-count]:not(.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .generalinfobox),
-.message-app.bg-light [data-region=contact-request-count]:not(.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .generalinfobox),
-.message-app.bg-light [data-region*=unread-count]:not(.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .generalinfobox) {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] *:not(.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .generalinfobox),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not(.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .generalinfobox) {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .generalinfobox),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .generalinfobox) {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
-}
 .card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox {
   margin-top: 0.5rem !important;
 }
 .card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox span.cminfoboxcontent {
+  animation: smoothAppear 0.1s ease-in-out;
   display: flex !important;
-  width: -moz-fit-content !important;
-  width: fit-content !important;
   height: -moz-fit-content !important;
   height: fit-content !important;
-  padding: 0.25rem 0.5rem !important;
-  background-color: #1f2127 !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
   border-radius: 0.5rem !important;
-  animation: smoothAppear 0.1s ease-in-out;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox span.cminfoboxcontent:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
 @keyframes smoothAppear {
   0% {
@@ -1885,19 +1844,17 @@ td.hasevent a:hover, td.hasevent a:active, td.hasevent a:focus {
     translate: 0 0;
   }
 }
-.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox span.cminfoboxcontent:hover {
-  background-color: #272a30 !important;
+.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox span.cminfoboxcontent a{
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
 }
-.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox span.cminfoboxcontent a {
-  font-size: 0.75rem !important;
-}
-.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox span.cminfoboxcontent a:hover {
+.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox span.cminfoboxcontent a:hover{
   background-color: transparent !important;
 }
-.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox a.closeinfobox {
-  text-align: center !important;
+.card-text.content > div:has(table.course-box) .course-box > tbody .progressbox .cminfobox a.closeinfobox{
+  aspect-ratio: 1 / 1 !important;
   height: 1.5rem !important;
-  aspect-ratio: 1 !important;
+  text-align: center !important;
 }
 .card-text.content > div:has(table.course-box) .course-box:has(.group-box) .course-info a.course-name, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .course-info a.course-name {
   text-decoration: none !important;
@@ -2038,7 +1995,7 @@ body#page-login-index .forgetpass a{
   line-height: 1.25rem !important;
   text-inset: 0 !important;
 }
-sectionbody#page-login-index .forgetpass a {
+sectionbody#page-login-index .forgetpass a{
   overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
@@ -2151,39 +2108,6 @@ body#page-mod-quiz-view [role=main] #intro .summary{
 }
 body#page-mod-assign-view [id*=assign_files_tree] td:has(> .ygtvspacer), body#page-mod-assign-editsubmission [id*=assign_files_tree] td:has(> .ygtvspacer), body#page-mod-quiz-view [id*=assign_files_tree] td:has(> .ygtvspacer){
   display: none !important;
-}
-.message-app [data-region=contact-request-count]:not(body#page-mod-assign-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app [data-region*=unread-count]:not(body#page-mod-assign-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [data-region=contact-request-count]:not(body#page-mod-assign-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [data-region*=unread-count]:not(body#page-mod-assign-view [id*=assign_files_tree] td:has(> .ygtvspacer)),.message-app [data-region=contact-request-count]:not( body#page-mod-assign-editsubmission [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app [data-region*=unread-count]:not( body#page-mod-assign-editsubmission [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [data-region=contact-request-count]:not( body#page-mod-assign-editsubmission [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [data-region*=unread-count]:not( body#page-mod-assign-editsubmission [id*=assign_files_tree] td:has(> .ygtvspacer)),.message-app [data-region=contact-request-count]:not( body#page-mod-quiz-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app [data-region*=unread-count]:not( body#page-mod-quiz-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [data-region=contact-request-count]:not( body#page-mod-quiz-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [data-region*=unread-count]:not( body#page-mod-quiz-view [id*=assign_files_tree] td:has(> .ygtvspacer)) {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] *:not(body#page-mod-assign-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not(body#page-mod-assign-view [id*=assign_files_tree] td:has(> .ygtvspacer)),.message-app [class*=header-container] [data-region=view-overview] *:not( body#page-mod-assign-editsubmission [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not( body#page-mod-assign-editsubmission [id*=assign_files_tree] td:has(> .ygtvspacer)),.message-app [class*=header-container] [data-region=view-overview] *:not( body#page-mod-quiz-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not( body#page-mod-quiz-view [id*=assign_files_tree] td:has(> .ygtvspacer)) {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(body#page-mod-assign-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(body#page-mod-assign-view [id*=assign_files_tree] td:has(> .ygtvspacer)),.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not( body#page-mod-assign-editsubmission [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not( body#page-mod-assign-editsubmission [id*=assign_files_tree] td:has(> .ygtvspacer)),.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not( body#page-mod-quiz-view [id*=assign_files_tree] td:has(> .ygtvspacer)),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not( body#page-mod-quiz-view [id*=assign_files_tree] td:has(> .ygtvspacer)) {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
 }
 body#page-mod-assign-view [id*=assign_files_tree] .fileuploadsubmission, body#page-mod-assign-editsubmission [id*=assign_files_tree] .fileuploadsubmission, body#page-mod-quiz-view [id*=assign_files_tree] .fileuploadsubmission{
   display: flex !important;
@@ -2500,52 +2424,45 @@ body#page-user-preferences [role=main] .card .card-body:has(> h4, > div) > div >
   white-space: nowrap !important;
   padding: 0.5rem 1rem !important;
 }
-body#page-mod-quiz-summary .moodle-dialogue [role=dialog], body#page-mod-quiz-view .moodle-dialogue [role=dialog], body#page-user-edit .moodle-dialogue [role=dialog]{
-  background-color: transparent !important;
-  padding: 0.75rem !important;
-}
-body#page-mod-quiz-summary .moodle-dialogue [role=dialog] [class*=hd], body#page-mod-quiz-view .moodle-dialogue [role=dialog] [class*=hd], body#page-user-edit .moodle-dialogue [role=dialog] [class*=hd]{
+body .moodle-dialogue [class*=hd]{
   padding: 0px !important;
   font-weight: 500 !important;
   --tw-text-opacity: 1 !important;
   color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
 }
-body#page-mod-quiz-summary .moodle-dialogue [role=dialog] [class*=hd] h1, body#page-mod-quiz-view .moodle-dialogue [role=dialog] [class*=hd] h1, body#page-user-edit .moodle-dialogue [role=dialog] [class*=hd] h1{
+body .moodle-dialogue [class*=hd] h1{
   font-weight: 500 !important;
 }
-body#page-mod-quiz-summary .moodle-dialogue [role=dialog] [class*=hd] button::after, body#page-mod-quiz-view .moodle-dialogue [role=dialog] [class*=hd] button::after, body#page-user-edit .moodle-dialogue [role=dialog] [class*=hd] button::after{
+body .moodle-dialogue [class*=hd] button::after{
   font-size: 1.25rem !important;
   line-height: 1.75rem !important;
 }
-body#page-mod-quiz-summary .moodle-dialogue [role=dialog] .moodle-dialogue-wrap, body#page-mod-quiz-view .moodle-dialogue [role=dialog] .moodle-dialogue-wrap, body#page-user-edit .moodle-dialogue [role=dialog] .moodle-dialogue-wrap{
-  width: -moz-fit-content !important;
-  width: fit-content !important;
+body .moodle-dialogue .moodle-dialogue-wrap{
+  background-color: transparent !important;
 }
-body#page-mod-quiz-summary .moodle-dialogue [role=dialog] .moodle-dialogue-bd, body#page-mod-quiz-view .moodle-dialogue [role=dialog] .moodle-dialogue-bd, body#page-user-edit .moodle-dialogue [role=dialog] .moodle-dialogue-bd{
-  width: -moz-fit-content !important;
-  width: fit-content !important;
+body .moodle-dialogue .moodle-dialogue-bd{
+  width: auto !important;
   padding: 0px !important;
 }
-body#page-mod-quiz-summary .moodle-dialogue [role=dialog] .moodle-dialogue-bd .confirmation-dialogue, body#page-mod-quiz-view .moodle-dialogue [role=dialog] .moodle-dialogue-bd .confirmation-dialogue, body#page-user-edit .moodle-dialogue [role=dialog] .moodle-dialogue-bd .confirmation-dialogue{
+body .moodle-dialogue .moodle-dialogue-bd .confirmation-dialogue{
   display: flex !important;
-  width: -moz-fit-content !important;
-  width: fit-content !important;
   flex-direction: column !important;
-  align-items: center !important;
   gap: 1rem !important;
 }
-body#page-mod-quiz-summary .moodle-dialogue [role=dialog] .moodle-dialogue-bd .confirmation-dialogue .confirmation-buttons, body#page-mod-quiz-view .moodle-dialogue [role=dialog] .moodle-dialogue-bd .confirmation-dialogue .confirmation-buttons, body#page-user-edit .moodle-dialogue [role=dialog] .moodle-dialogue-bd .confirmation-dialogue .confirmation-buttons{
+body .moodle-dialogue .moodle-dialogue-bd .confirmation-dialogue .confirmation-message{
+  margin: 0px !important;
+}
+body .moodle-dialogue .moodle-dialogue-bd .confirmation-dialogue .confirmation-buttons{
   margin-top: 1rem !important;
   display: flex !important;
   width: auto !important;
   flex-direction: row-reverse !important;
-  flex-wrap: nowrap !important;
   align-items: center !important;
   justify-content: flex-end !important;
   gap: 1rem !important;
   align-self: flex-end !important;
 }
-body#page-mod-quiz-summary .moodle-dialogue [role=dialog] .moodle-dialogue-bd .confirmation-dialogue .confirmation-buttons input, body#page-mod-quiz-view .moodle-dialogue [role=dialog] .moodle-dialogue-bd .confirmation-dialogue .confirmation-buttons input, body#page-user-edit .moodle-dialogue [role=dialog] .moodle-dialogue-bd .confirmation-dialogue .confirmation-buttons input{
+body .moodle-dialogue .moodle-dialogue-bd .confirmation-dialogue .confirmation-buttons input{
   width: -moz-fit-content !important;
   width: fit-content !important;
   padding-top: 0.75rem !important;
@@ -2805,29 +2722,6 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
 body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em{
   display: none !important;
 }
-.message-app [data-region=contact-request-count]:not(body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em),
-.message-app [data-region*=unread-count]:not(body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em),
-.message-app.bg-light [data-region=contact-request-count]:not(body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em),
-.message-app.bg-light [data-region*=unread-count]:not(body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em) {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] *:not(body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not(body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em) {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em) {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
-}
 body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] ul.form-autocomplete-suggestions{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
@@ -3059,12 +2953,13 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   left: 50% !important;
   height: -moz-fit-content !important;
   height: fit-content !important;
+  max-height: calc(100vh - 4rem) !important;
   width: calc(100vw - 2rem) !important;
-  max-width: -moz-fit-content !important;
-  max-width: fit-content !important;
+  max-width: 768px !important;
   --tw-translate-x: -50% !important;
   --tw-translate-y: -50% !important;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+  overflow-y: auto !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
@@ -3085,14 +2980,60 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
     translate: 0 0;
   }
 }
-.yui3-widget.yui3-panel .moodle-dialogue-bd,
-.moodle-dialogue .moodle-dialogue-bd,
-.yui3-widget-modal .moodle-dialogue-bd,
-.modal-dialog .moodle-dialogue-bd{
+.yui3-widget.yui3-panel [role=dialog].moodle-dialogue-content,
+.moodle-dialogue [role=dialog].moodle-dialogue-content,
+.yui3-widget-modal [role=dialog].moodle-dialogue-content,
+.modal-dialog [role=dialog].moodle-dialogue-content{
+  position: relative !important;
+  background-color: transparent !important;
+  padding: 0px !important;
+}
+.yui3-widget.yui3-panel [role=dialog].moodle-dialogue-content .moodle-dialogue-hd,
+.moodle-dialogue [role=dialog].moodle-dialogue-content .moodle-dialogue-hd,
+.yui3-widget-modal [role=dialog].moodle-dialogue-content .moodle-dialogue-hd,
+.modal-dialog [role=dialog].moodle-dialogue-content .moodle-dialogue-hd{
+  display: flex !important;
+  min-height: 0px !important;
+  align-items: center !important;
+}
+.yui3-widget.yui3-panel [role=dialog].moodle-dialogue-content .moodle-dialogue-hd h3,
+.moodle-dialogue [role=dialog].moodle-dialogue-content .moodle-dialogue-hd h3,
+.yui3-widget-modal [role=dialog].moodle-dialogue-content .moodle-dialogue-hd h3,
+.modal-dialog [role=dialog].moodle-dialogue-content .moodle-dialogue-hd h3{
+  margin: 0px !important;
+}
+.yui3-widget.yui3-panel [role=dialog].moodle-dialogue-content .moodle-dialogue-hd button.closebutton,
+.moodle-dialogue [role=dialog].moodle-dialogue-content .moodle-dialogue-hd button.closebutton,
+.yui3-widget-modal [role=dialog].moodle-dialogue-content .moodle-dialogue-hd button.closebutton,
+.modal-dialog [role=dialog].moodle-dialogue-content .moodle-dialogue-hd button.closebutton{
+  margin: 0px !important;
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+  padding: 0px !important;
+}
+.yui3-widget.yui3-panel [role=dialog].moodle-dialogue-content .moodle-dialogue-hd button.closebutton::after,
+.moodle-dialogue [role=dialog].moodle-dialogue-content .moodle-dialogue-hd button.closebutton::after,
+.yui3-widget-modal [role=dialog].moodle-dialogue-content .moodle-dialogue-hd button.closebutton::after,
+.modal-dialog [role=dialog].moodle-dialogue-content .moodle-dialogue-hd button.closebutton::after{
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+}
+.yui3-widget.yui3-panel [role=dialog].moodle-dialogue-content .moodle-dialogue-bd,
+.moodle-dialogue [role=dialog].moodle-dialogue-content .moodle-dialogue-bd,
+.yui3-widget-modal [role=dialog].moodle-dialogue-content .moodle-dialogue-bd,
+.modal-dialog [role=dialog].moodle-dialogue-content .moodle-dialogue-bd{
+  margin-top: 1rem !important;
   overflow: auto !important;
 }
 
-div.filemanager{
+.filemanager{
   border-radius: 0.5rem !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
@@ -3104,11 +3045,11 @@ div.filemanager{
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
   padding: 1rem !important;
 }
-div.filemanager.rounded{
+.filemanager.rounded{
   border-radius: 0.5rem !important;
 }
-div.filemanager .filemanager-container,
-div.filemanager .card{
+.filemanager .filemanager-container,
+.filemanager .card{
   overflow: visible !important;
   --tw-shadow: 0 0 #0000 !important;
   --tw-shadow-colored: 0 0 #0000 !important;
@@ -3116,8 +3057,8 @@ div.filemanager .card{
   outline: 2px solid transparent !important;
   outline-offset: 2px !important;
 }
-div.filemanager .filemanager-container .fm-empty-container,
-div.filemanager .card .fm-empty-container{
+.filemanager .filemanager-container .fm-empty-container,
+.filemanager .card .fm-empty-container{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -3129,16 +3070,16 @@ div.filemanager .card .fm-empty-container{
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
 }
-div.filemanager .filemanager-container .fm-empty-container.rounded,
-div.filemanager .card .fm-empty-container.rounded{
+.filemanager .filemanager-container .fm-empty-container.rounded,
+.filemanager .card .fm-empty-container.rounded{
   border-radius: 0.5rem !important;
 }
-div.filemanager .filemanager-container .fm-empty-container .dndupload-message,
-div.filemanager .card .fm-empty-container .dndupload-message{
+.filemanager .filemanager-container .fm-empty-container .dndupload-message,
+.filemanager .card .fm-empty-container .dndupload-message{
   height: 30rem !important;
 }
-div.filemanager .filemanager-container .fm-empty-container .dndupload-message .dndupload-arrow,
-div.filemanager .card .fm-empty-container .dndupload-message .dndupload-arrow {
+.filemanager .filemanager-container .fm-empty-container .dndupload-message .dndupload-arrow,
+.filemanager .card .fm-empty-container .dndupload-message .dndupload-arrow {
   animation: file 1s infinite alternate ease-in-out;
   position: relative !important;
   inset: 0px !important;
@@ -3157,39 +3098,89 @@ div.filemanager .card .fm-empty-container .dndupload-message .dndupload-arrow {
     opacity: 0.5;
   }
 }
-div.filemanager .filemanager-container.dndupload-over .fm-empty-container,
-div.filemanager .card.dndupload-over .fm-empty-container {
+.filemanager .filemanager-container.dndupload-over .fm-empty-container,
+.filemanager .card.dndupload-over .fm-empty-container {
   outline: 0.1rem solid hsl(275, 75%, 60%) !important;
 }
-div.filemanager .filemanager-container .dndupload-target,
-div.filemanager .card .dndupload-target {
+.filemanager .filemanager-container .dndupload-target,
+.filemanager .card .dndupload-target {
   display: none !important;
 }
-div.filemanager .filemanager-container .fp-upload-form input,
-div.filemanager .filemanager-container .fp-upload-form div,
-div.filemanager .card .fp-upload-form input,
-div.filemanager .card .fp-upload-form div {
+.filemanager .filemanager-container .fp-upload-form input,
+.filemanager .filemanager-container .fp-upload-form div,
+.filemanager .card .fp-upload-form input,
+.filemanager .card .fp-upload-form div {
   background-color: #0a0c11 !important;
   padding: 0.75rem 2rem !important;
   border-radius: 0.5rem !important;
 }
 
-@media (max-width: 768px) {
-  .moodle-dialogue.filepicker {
-    min-width: calc(100vw - 2rem) !important;
+.moodle-dialogue.filepicker .col-md-9{
+  flex: 1 1 auto !important;
+}
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container{
+  margin: 0px !important;
+  width: auto !important;
+  max-width: none !important;
+  padding: 0px !important;
+}
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout{
+  margin: 0px !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 1rem !important;
+  padding: 0px !important;
+}
+@media not all and (min-width: 768px){
+  .moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout{
+    flex-direction: column !important;
   }
 }
-.moodle-dialogue.filepicker div.fp-repo-items {
-  padding: 0.5rem !important;
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-area{
+  min-width: 20ch !important;
+  gap: 0.5rem !important;
+  background-color: transparent !important;
+  padding: 0px !important;
 }
-.moodle-dialogue.filepicker div.fp-repo-items .card {
-  outline: none !important;
-  box-shadow: none !important;
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-area .nav-link{
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
 }
-.moodle-dialogue.filepicker div.fp-repo-items .fp-file div:nth-child(2) {
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-area .nav-link.active{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-area .nav-link img{
+  display: none !important;
+}
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-navbar{
+  display: none !important;
+}
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-content.card{
+  height: auto !important;
+  padding: 1rem !important;
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-shadow-colored: 0 0 #0000 !important;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+  outline: 2px solid transparent !important;
+  outline-offset: 2px !important;
+}
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-content.card .fp-formset{
+  padding: 0px !important;
+}
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-content.card .fp-formset .form-group{
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) {
   padding: 0 !important;
 }
-.moodle-dialogue.filepicker div.fp-repo-items .fp-file div:nth-child(2) input {
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) input {
   width: 100% !important;
   padding: 1rem !important;
   animation: pulse 1s infinite alternate ease-in-out;
@@ -3202,17 +3193,26 @@ div.filemanager .card .fp-upload-form div {
     opacity: 1;
   }
 }
-.moodle-dialogue.filepicker div.fp-repo-items .fp-file div:nth-child(2) input::-webkit-file-upload-button {
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) input::-webkit-file-upload-button {
   display: none !important;
 }
-.moodle-dialogue.filepicker div.fp-repo-items .fp-file div:nth-child(2) input:hover {
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) input:hover {
   cursor: pointer !important;
 }
-.moodle-dialogue.filepicker div.fp-repo-items .fp-upload-btn {
-  background-color: #1f2127 !important;
-  padding: 0.75rem 2rem !important;
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-upload-btn{
+  display: flex !important;
+  height: 3rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
 }
-.moodle-dialogue.filepicker div.fp-repo-items .fp-upload-btn:hover {
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-upload-btn:is(:hover, :focus, :active) {
   background-color: #272a30 !important;
 }
 
@@ -3266,127 +3266,163 @@ div.submissionaction button:is(:hover, :focus, :active) {
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   display: flex !important;
   flex-direction: column !important;
   flex-wrap: nowrap !important;
   gap: 0.5rem !important;
-  background-color: #12151b !important;
-  border: none !important;
+  border-style: none !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
 }
 .message-app.rounded,
 .message-app.bg-light.rounded{
   border-radius: 0.5rem !important;
 }
-.message-app [data-region=contact-request-count]:not(.hidden),
-.message-app [data-region*=unread-count]:not(.hidden),
-.message-app.bg-light [data-region=contact-request-count]:not(.hidden),
-.message-app.bg-light [data-region*=unread-count]:not(.hidden) {
-  display: inline-block !important;
-  width: 1.25rem !important;
+.message-app [data-region=contact-request-count],
+.message-app [data-region*=unread-count],
+.message-app.bg-light [data-region=contact-request-count],
+.message-app.bg-light [data-region*=unread-count]{
+  top: 0px !important;
   height: 1.25rem !important;
+  width: 1.25rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 9999px !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(168 85 247 / var(--tw-bg-opacity)) !important;
   text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
 }
-.message-app textarea,
-.message-app.bg-light textarea{
+.message-app [data-region=contact-request-count][class*=hidden],
+.message-app [data-region*=unread-count][class*=hidden],
+.message-app.bg-light [data-region=contact-request-count][class*=hidden],
+.message-app.bg-light [data-region*=unread-count][class*=hidden]{
+  display: none !important;
+}
+.message-app [data-region=content-messages-footer-container],
+.message-app.bg-light [data-region=content-messages-footer-container]{
+  padding: 0px !important;
+}
+.message-app [data-region=content-messages-footer-container] > :nth-child(1),
+.message-app.bg-light [data-region=content-messages-footer-container] > :nth-child(1){
+  margin: 0px !important;
+}
+.message-app [data-region=content-messages-footer-container] > :nth-child(1) textarea,
+.message-app.bg-light [data-region=content-messages-footer-container] > :nth-child(1) textarea{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  background-color: #0a0c11 !important;
+  flex: 1 1 0% !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
   padding: 0.5rem !important;
-  flex: 1 !important;
 }
-.message-app textarea.rounded,
-.message-app.bg-light textarea.rounded{
+.message-app [data-region=content-messages-footer-container] > :nth-child(1) textarea.rounded,
+.message-app.bg-light [data-region=content-messages-footer-container] > :nth-child(1) textarea.rounded{
   border-radius: 0.5rem !important;
 }
-.message-app button[data-action=send-message],
-.message-app.bg-light button[data-action=send-message] {
-  margin: 0 !important;
+.message-app [data-region=content-messages-footer-container] > :nth-child(1) button[data-action=send-message],
+.message-app.bg-light [data-region=content-messages-footer-container] > :nth-child(1) button[data-action=send-message]{
+  margin: 0px !important;
   margin-left: 0.5rem !important;
+  flex: 1 1 0% !important;
   justify-self: center !important;
-  flex: 1 !important;
 }
 .message-app .container-fluid,
-.message-app.bg-light .container-fluid {
+.message-app.bg-light .container-fluid{
   display: flex !important;
+  height: 100% !important;
   flex-direction: column !important;
   flex-wrap: nowrap !important;
-  padding: 0 !important;
-  height: 100% !important;
+  padding: 0px !important;
 }
 .message-app .container-fluid > div:nth-child(1),
-.message-app.bg-light .container-fluid > div:nth-child(1) {
+.message-app.bg-light .container-fluid > div:nth-child(1){
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   gap: 1rem !important;
 }
 .message-app .container-fluid > div:nth-child(1) > div,
-.message-app.bg-light .container-fluid > div:nth-child(1) > div {
-  padding: 0 !important;
+.message-app.bg-light .container-fluid > div:nth-child(1) > div{
+  padding: 0px !important;
 }
 .message-app .container-fluid > div:nth-child(1) > div:nth-child(1) > div:nth-child(1),
-.message-app.bg-light .container-fluid > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
+.message-app.bg-light .container-fluid > div:nth-child(1) > div:nth-child(1) > div:nth-child(1){
   display: flex !important;
   flex-direction: column !important;
   flex-wrap: nowrap !important;
   gap: 1rem !important;
 }
 .message-app .container-fluid > div:nth-child(1) > div:nth-child(2),
-.message-app.bg-light .container-fluid > div:nth-child(1) > div:nth-child(2) {
+.message-app.bg-light .container-fluid > div:nth-child(1) > div:nth-child(2){
   display: flex !important;
-  flex: 1 !important;
+  flex: 1 1 0% !important;
   gap: 0.5rem !important;
 }
 .message-app [class*=header-container] [data-region=view-overview],
-.message-app.bg-light [class*=header-container] [data-region=view-overview] {
+.message-app.bg-light [class*=header-container] [data-region=view-overview]{
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
-  padding: 0 !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0px !important;
+}
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.message-app [class*=header-container] [data-region=view-overview].align-items-center,form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex
+.message-app.bg-light [class*=header-container] [data-region=view-overview].align-items-center{
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
+}
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.message-app [class*=header-container] [data-region=view-overview].align-items-center .form-group,form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex
+.message-app.bg-light [class*=header-container] [data-region=view-overview].align-items-center .form-group{
+  margin: 0px !important;
+}
+.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1),
+.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1){
+  display: flex !important;
+  flex: 1 1 0% !important;
   align-items: center !important;
   gap: 0.5rem !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > div:nth-child(1),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > div:nth-child(1) {
-  display: flex !important;
-  align-items: center !important;
-  flex: 1 !important;
-  gap: 0.5rem !important;
+.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1) .input-group.simplesearchform .input-group-append,
+.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1) .input-group.simplesearchform .input-group-append{
+  display: none !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > div:nth-child(1) span,
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > div:nth-child(1) span {
-  display: flex !important;
-  align-items: center !important;
+.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2),
+.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2){
+  margin: 0px !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > div:nth-child(1) a[data-route=view-settings],
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > div:nth-child(1) a[data-route=view-settings] {
-  width: 2rem !important;
-  height: 2rem !important;
+.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings],
+.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings]{
   display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
   justify-content: center !important;
-  align-items: center !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] *:not(.hidden),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not(.hidden) {
-  display: inline-flex !important;
-  margin: 0 !important;
+.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings]:hover,
+.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings]:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts],
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts]{
+.message-app [class*=header-container] [data-region=view-overview] > :nth-child(2),
+.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(2){
+  margin: 0px !important;
+}
+.message-app [class*=header-container] [data-region=view-overview] > :nth-child(2) a[data-route=view-contacts],
+.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]{
   display: flex !important;
-  height: 3rem !important;
+  align-items: center !important;
   justify-content: center !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -3395,49 +3431,58 @@ div.submissionaction button:is(:hover, :focus, :active) {
   background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
-  align-items: center !important;
-  gap: 0.25rem !important;
+  height: 2.5rem !important;
+  gap: 1rem !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts]:is(:hover, :focus, :active),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts]:is(:hover, :focus, :active) {
+.message-app [class*=header-container] [data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:is(:hover, :focus, :active),
+.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:is(:hover, :focus, :active) {
   background-color: #272a30 !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(.hidden),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not(.hidden) {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
+.message-app [class*=header-container] > [data-region=view-conversation],
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation]{
+  margin-bottom: 0.5rem !important;
+  padding: 0px !important;
 }
 .message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1),
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) {
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1){
   display: flex !important;
   gap: 1rem !important;
 }
 .message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) span[data-region=favourite-icon-container],
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) span[data-region=favourite-icon-container] {
-  color: hsl(275, 75%, 60%) !important;
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) span[data-region=favourite-icon-container]{
+  --tw-text-opacity: 1 !important;
+  color: rgb(168 85 247 / var(--tw-text-opacity)) !important;
 }
 .message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1),
 .message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1){
   display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
   align-items: center !important;
   justify-content: center !important;
 }
 .message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back],
 .message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back]{
   margin: 0px !important;
-  display: grid !important;
-  height: 2rem !important;
-  width: 2rem !important;
-  grid-template-areas: "stack" !important;
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+}
+.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back]:hover,
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back]:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
 .message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back] i,
 .message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back] i{
-  height: 1rem !important;
-  width: 1rem !important;
-  place-self: center !important;
   --tw-text-opacity: 1 !important;
   color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
-  grid-area: stack !important;
 }
 .message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back] i:hover,
 .message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back] i:hover{
@@ -3445,8 +3490,47 @@ div.submissionaction button:is(:hover, :focus, :active) {
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 .message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact],
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] {
-  padding: 0.5rem !important;
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact]{
+  display: flex !important;
+  align-items: center !important;
+}
+.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1),
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1){
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+}
+.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1) img,
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1) img{
+  height: auto !important;
+  width: auto !important;
+}
+.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2),
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2){
+  margin-left: 1rem !important;
+  font-family: "Finlandica" !important;
+  font-weight: 400 !important;
+}
+.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *,
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *{
+  font-family: inherit !important;
+}
+.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button,
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button{
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+}
+.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button:hover,
+.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
 .message-app [class*=body-container],
 .message-app.bg-light [class*=body-container] {
@@ -3484,6 +3568,25 @@ div.submissionaction button:is(:hover, :focus, :active) {
   outline: 2px solid transparent !important;
   outline-offset: 2px !important;
 }
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] .collapsed-icon-container,
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] .expanded-icon-container,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] .collapsed-icon-container,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] .expanded-icon-container{
+  width: 0.5rem !important;
+  text-align: center !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
+}
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] > :nth-child(3),
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] > :nth-child(3){
+  margin-left: 0.5rem !important;
+}
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] small,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] small{
+  margin-left: 0.5rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
+}
 .message-app [class*=body-container] [data-region=view-conversation],
 .message-app.bg-light [class*=body-container] [data-region=view-conversation]{
   padding: 0px !important;
@@ -3505,36 +3608,54 @@ div.submissionaction button:is(:hover, :focus, :active) {
   width: -moz-fit-content !important;
   width: fit-content !important;
   border-radius: 9999px !important;
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
   padding-left: 1rem !important;
   padding-right: 1rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
   outline-width: 2px !important;
-  outline-color: #1f2127 !important;
+  outline-color: #272a30 !important;
 }
 .message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div,
 .message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div{
+  gap: 0.5rem !important;
   align-self: stretch !important;
   border-radius: 0.5rem !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
 }
 .message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message,
 .message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message{
   margin: 0px !important;
-  padding: 1rem !important;
-}
-.message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message:is(:hover, :focus, :active),
-.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message:is(:hover, :focus, :active) {
-  filter: none !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
 }
 .message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.received,
-.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.received {
-  background-color: #12151b !important;
+.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.received{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
-.message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.received *,
-.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.received * {
-  color: #d1d5db !important;
+.message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.send,
+.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.send{
+  border-width: 2px !important;
+  border-style: solid !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+  background-color: transparent !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
+}
+.message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message .time,
+.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message .time{
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
 }
 .message-app [class*=body-container] [data-region=view-conversation] [data-region=content-placeholder],
 .message-app.bg-light [class*=body-container] [data-region=view-conversation] [data-region=content-placeholder] {
@@ -3602,29 +3723,29 @@ div.submissionaction button:is(:hover, :focus, :active) {
   border-radius: 0.5rem !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul),
-.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) {
-  padding: 0 !important;
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul){
+  padding: 0px !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul,
-.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul {
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul{
+  margin: 0px !important;
   display: flex !important;
   flex-wrap: nowrap !important;
-  margin: 0 !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li,
-.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li {
-  flex: 1 !important;
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li{
+  flex: 1 1 0% !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a,
-.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a {
-  background-color: #12151b !important;
-  border-radius: 0 !important;
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a{
+  border-radius: 0px !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
-.message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:hover, .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:focus, .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:active,
-.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:hover,
-.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:focus,
-.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:active {
-  background-color: #1f2127 !important;
+.message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:hover,
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content,
 .message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content {
@@ -3803,29 +3924,6 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
 [id*=question] .info .questionflag{
   display: none !important;
 }
-.message-app [data-region=contact-request-count]:not([id*=question] .info .questionflag),
-.message-app [data-region*=unread-count]:not([id*=question] .info .questionflag),
-.message-app.bg-light [data-region=contact-request-count]:not([id*=question] .info .questionflag),
-.message-app.bg-light [data-region*=unread-count]:not([id*=question] .info .questionflag) {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] *:not([id*=question] .info .questionflag),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not([id*=question] .info .questionflag) {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not([id*=question] .info .questionflag),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not([id*=question] .info .questionflag) {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
-}
 [id*=question] .formulation{
   border-radius: 0.5rem !important;
   background-color: transparent !important;
@@ -3913,29 +4011,6 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
 [id*=question] .formulation .ablock [id*=clearchoice] input{
   display: none !important;
 }
-.message-app [data-region=contact-request-count]:not([id*=question] .formulation .ablock [id*=clearchoice] input),
-.message-app [data-region*=unread-count]:not([id*=question] .formulation .ablock [id*=clearchoice] input),
-.message-app.bg-light [data-region=contact-request-count]:not([id*=question] .formulation .ablock [id*=clearchoice] input),
-.message-app.bg-light [data-region*=unread-count]:not([id*=question] .formulation .ablock [id*=clearchoice] input) {
-  display: inline-block !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  text-align: center !important;
-  line-height: normal !important;
-  border-radius: 50% !important;
-  background-color: hsl(270, 50%, 45%) !important;
-  color: #d1d5db !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] *:not([id*=question] .formulation .ablock [id*=clearchoice] input),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] *:not([id*=question] .formulation .ablock [id*=clearchoice] input) {
-  display: inline-flex !important;
-  margin: 0 !important;
-}
-.message-app [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not([id*=question] .formulation .ablock [id*=clearchoice] input),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] a[data-route=view-contacts] > span.badge:not([id*=question] .formulation .ablock [id*=clearchoice] input) {
-  display: inline-block !important;
-  margin-left: 0.5rem !important;
-}
 [id*=question] .formulation .ablock [id*=clearchoice] a{
   margin: 0px !important;
   border-radius: 0.5rem !important;
@@ -3948,13 +4023,13 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
 
-div.submitbtns {
+div.submitbtns{
   display: flex !important;
+  height: auto !important;
+  width: auto !important;
   flex-direction: row !important;
   justify-content: flex-end !important;
   gap: 1rem !important;
-  height: auto !important;
-  width: auto !important;
 }
 div.submitbtns button,
 div.submitbtns a{
