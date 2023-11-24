@@ -306,6 +306,23 @@ section {
     }
   }
 }
+.alert {
+  @apply rounded-lg text-center #{!important};
+  &-danger {
+    @apply bg-rose-500/10 text-rose-500 #{!important};
+  }
+  &-info {
+    @apply bg-blue-500/10 text-blue-500 #{!important};
+  }
+  &-warning {
+    @apply bg-orange-500/10 text-orange-500 #{!important};
+  }
+}
+.text-danger,
+i.fa-exclamation-circle.text-danger,
+.invalid-feedback {
+  @apply text-rose-500 #{!important};
+}
 /* DROPDOWN MENUS */
 .dropdown-menu {
   @include card;
@@ -717,75 +734,87 @@ td.hasevent {
           }
         }
       }
-      // TEACHER COURSE WITH STUDENTS GROUPS // OR WITHOUT GROUPS
+      // Teacher course with students groups or without groups.
       &:has(.group-box),
       & td:has(> :last-child:nth-child(4)) {
-        // COURSE NAME
-        .course-info {
-          a.course-name {
-            text-decoration: none !important;
+        // If no groups.
+        &:not(:has(> .group-box)) {
+          & > :nth-child(2) {
+            @apply mb-2 #{!important};
           }
         }
-        // EACH GROUP OF STUDENTS
+        // Course name.
+        .course-info {
+          @apply mb-2 #{!important};
+          h3 {
+            @apply mb-2 #{!important};
+            a.course-name {
+              @apply [text-decoration:none] font-medium text-lg #{!important};
+            }
+          }
+          > :nth-child(2) {
+            a {
+              @apply underline underline-offset-2 #{!important};
+            }
+          }
+        }
+        a.manage-link {
+          @apply bg-gray-900 hover:bg-gray-800 px-3 py-1 rounded-lg mr-2 #{!important};
+        }
+        // Each group of students.
         .group-box {
-          padding: 0.5rem !important;
-          border-radius: 0.5rem !important;
-          outline: 0.1rem solid $dark-2 !important;
-          > .group-completion-box {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 0.5rem !important;
-            flex-wrap: nowrap !important;
-            // TOP
-            > :nth-child(1) {
-              display: flex !important;
-              flex-direction: row !important;
-              gap: 0.5rem !important;
-              > * {
-                padding: 0 !important;
+          @apply rounded-lg border-2 border-gray-900 p-2 flex gap-2 #{!important};
+          > .group-status-box {
+            @apply flex w-32 #{!important};
+            .group-status {
+              @apply px-2 flex items-center justify-center flex-col gap-1 rounded-lg flex-1 #{!important};
+              &.group-idle {
+                @apply bg-rose-500/10 text-rose-500 #{!important};
               }
-              // GROUP NAME
-              > :nth-child(1) {
-                margin-right: auto !important;
-              }
-              a {
-                > img {
-                  display: none !important;
+              &.group-completion {
+                @apply bg-gray-925 text-gray-400 #{!important};
+                .group-completion-value {
+                  @apply text-gray-200 font-medium text-lg #{!important};
                 }
               }
+            }
+          }
+          > .group-completion-box {
+            @apply flex flex-col gap-2 flex-nowrap m-0 flex-1 #{!important};
+            // Top.
+            > :nth-child(1) {
+              @apply flex flex-row gap-2 #{!important};
+              > * {
+                @apply p-0 #{!important};
+              }
+              // Group name.
+              > :nth-child(1) {
+                @apply mr-auto #{!important};
+              }
+              a > img {
+                @apply hidden #{!important};
+              }
               a[href*="delete"] {
-                color: $text-secondary !important;
+                @apply text-gray-500 hover:text-rose-700 #{!important};
               }
             }
-            // COMPLETION SLIDER // GROUP COMPLETED TASK SLIDER
+            // Completion slider, group completed task slider.
             > :nth-child(2) {
+              @apply m-0 #{!important};
               > .bar-frame {
-                background-color: $purple-0 !important;
-                border-radius: 0.5rem !important;
-                overflow: hidden !important;
+                @apply bg-purple-500/20 rounded-sm overflow-hidden h-2 #{!important};
                 > .bar-fill {
-                  position: relative !important;
-                  background-color: $purple-1 !important;
-                  overflow: hidden !important;
+                  @apply relative bg-purple-500/50 overflow-hidden #{!important};
                   &::after {
-                    $width: 5rem;
-                    content: "";
-                    position: absolute;
-                    background-color: $purple-2;
-                    filter: blur($width * 0.2);
-                    width: $width;
-                    height: $width;
-                    border-radius: 50%;
-                    top: 50%;
+                    animation: glare 5s infinite forwards linear !important;
                     left: 50%;
-                    translate: -50% -50%;
-                    animation: glare 5s infinite forwards linear;
+                    @apply content-[""] w-20 h-20 top-1/2 -translate-x-1/2 rounded-full blur-[1rem] absolute bg-purple-500 #{!important};
                     @keyframes glare {
                       0% {
-                        left: calc(0% - $width);
+                        left: calc(0% - 5rem) !important;
                       }
                       100% {
-                        left: calc(100% + $width);
+                        left: calc(100% + 5rem) !important;
                       }
                     }
                   }
@@ -843,9 +872,6 @@ body {
           @apply text-gray-300 font-medium #{!important};
         }
       }
-    }
-    .alert-danger {
-      @apply bg-rose-500/10 rounded-lg text-center text-rose-500 #{!important};
     }
     button#loginbtn {
       @include importantButton;
@@ -1005,6 +1031,74 @@ body {
       }
     }
   }
+  // Teacher adds new student to the course page.
+  &#page-enrol-edu-manage {
+    form {
+      .form-group {
+        @apply m-0 mb-4 flex flex-col #{!important};
+        // Required students credentials warnings.
+        > :nth-child(1) {
+          @apply items-center gap-2 p-0 mb-2 #{!important};
+          [class*="label"] {
+            @apply p-0 #{!important};
+          }
+          > :nth-child(2) {
+            @apply m-0 #{!important};
+          }
+        }
+        // Credentials inputs.
+        > :nth-child(2) {
+          @apply m-0 p-0 #{!important};
+          input {
+            &.is-invalid {
+              @apply [background-image:none] #{!important};
+            }
+          }
+        }
+      }
+      .fdescription {
+        @apply mb-4 #{!important};
+      }
+    }
+  }
+  // Teacher adds single student page.
+  &#page-enrol-single-index {
+    form {
+      br {
+        @apply hidden #{!important};
+      }
+      // Fieldsets.
+      > :nth-child(1),
+      > :nth-child(2):not(script) {
+        @apply block #{!important};
+        label {
+          @apply mb-2 #{!important};
+        }
+        input {
+          @apply block #{!important};
+        }
+      }
+      > :nth-child(1) {
+        @apply mb-2 #{!important};
+      }
+      > :nth-child(2) {
+        @apply mb-6 #{!important};
+      }
+      // Next.
+      input[type="submit"] {
+        @include importantButton;
+        @apply h-10 inline-flex py-0 #{!important};
+      }
+      // New search.
+      a[href=""] {
+        @apply h-10 inline-flex items-center px-3 rounded-lg border-2 border-gray-900 hover:border-gray-800 #{!important};
+      }
+      // List of all found students to add.
+      table#users-tmpl-container td.fullname label {
+        @apply flex items-center gap-2 m-0 #{!important};
+      }
+    }
+  }
   // CONFIRM TEST
   // &#page-mod-quiz-summary,
   // &#page-mod-quiz-view,
@@ -1153,26 +1247,35 @@ body {
       }
     }
   }
-  // TEACHER GRADING THE WORK OF A STUDENT
+  // Teacher grading the work of a student.
   &#page-mod-assign-grader {
     #page {
-      height: 100% !important;
-      > #page-content {
-        height: 100% !important;
-        > [role="main"] {
-          @apply flex flex-col h-full #{!important};
-          // TOP
+      #page-content {
+        [role="main"] {
+          @apply h-screen grid grid-cols-[2fr_1fr] grid-rows-[min-content_1fr_min-content] #{!important};
+          #user-notifications,
+          #maincontent {
+            @apply hidden #{!important};
+          }
+          // Top panel.
           [data-region="grading-navigation-panel"] {
-            @apply flex h-fit relative #{!important};
+            @apply flex h-fit relative col-span-2 #{!important};
             .container-fluid {
               @apply p-0 flex h-fit justify-center #{!important};
               [data-region="grading-navigation"] {
                 @apply p-4 bg-gray-925 flex h-fit items-center w-full #{!important};
+                [data-region="assignment-info"] {
+                  @apply p-0 #{!important};
+                }
                 [data-region="user-info"] {
                   @apply flex h-fit #{!important};
                   > h4 {
                     @apply text-ellipsis m-0 #{!important};
                     a {
+                      @apply flex items-center gap-3 #{!important};
+                      img {
+                        @apply w-12 h-1/2 rounded-full m-0 #{!important};
+                      }
                       em {
                         @apply hidden #{!important};
                       }
@@ -1180,30 +1283,70 @@ body {
                   }
                 }
                 [data-region="user-selector"] {
-                  ul.form-autocomplete-suggestions {
-                    @include card;
-                    @include shadow;
-                    @include smoothAppearAnim;
+                  @apply p-0 flex #{!important};
+                  .alignment {
+                    @apply m-0 grid grid-cols-[min-content_1fr_min-content] gap-2 flex-1 #{!important};
+                    br,
+                    select {
+                      @apply hidden #{!important};
+                    }
+                    a[href="#previous"],
+                    a[href="#next"] {
+                      @apply flex m-0 items-center justify-center h-10 w-10 rounded-lg bg-gray-900 hover:bg-gray-800 #{!important};
+                    }
+                    [data-region="input-field"] {
+                      @apply relative #{!important};
+                      div:has(> input.form-control) {
+                        @apply flex m-0 #{!important};
+                        input.form-control {
+                          @apply pr-10 m-0 w-0 grow #{!important};
+                        }
+                        [id*="form_autocomplete_downarrow"] {
+                          @apply top-1/2 right-2 -translate-y-1/2 w-6 h-6 flex items-center justify-center text-gray-500 hover:text-gray-200 rounded-lg #{!important};
+                        }
+                      }
+                    }
+                    [data-region="user-count"] {
+                      @apply col-start-2 flex items-center justify-center #{!important};
+                    }
+                    a[data-region="user-filters"] {
+                      @apply w-10 h-10 flex items-center justify-center border-2 border-gray-900 hover:border-gray-800 #{!important};
+                      i {
+                        @apply m-0 #{!important};
+                      }
+                    }
+                    ul.form-autocomplete-suggestions {
+                      @include card;
+                      @include shadow;
+                      @include smoothAppearAnim;
+                      @apply p-2 m-0 top-full #{!important};
+                      li {
+                        @apply text-gray-400 hover:text-gray-200 shadow-none hover:bg-gray-800 rounded-lg px-2 py-1 #{!important};
+                        &[aria-selected="true"] {
+                          @apply bg-gray-700 pointer-events-none text-gray-200 #{!important};
+                        }
+                        * {
+                          @apply text-sm #{!important};
+                        }
+                      }
+                    }
                   }
                 }
               }
             }
           }
-          // MAIN
+          // Main.
+          // Canvas panel.
+          [data-region="review-panel"] {
+            @apply relative inset-0 overflow-y-auto #{!important};
+            .drawingregion {
+              @apply relative #{!important};
+            }
+          }
+          // Grade panel.
           [data-region="grade-panel"] {
-            position: relative !important;
-            top: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            overflow-y: scroll !important;
-            flex-grow: 1 !important;
-            padding: 1rem !important;
-            width: auto !important;
+            @apply relative w-auto p-4 inset-0 overflow-y-auto #{!important};
             [data-region="grade"] {
-              padding: 0 !important;
-              max-width: 1024px !important;
-              align-self: center !important;
               // STUDENT ANSWER
               > .submissionstatustable {
                 > .assignsubmission {
@@ -1241,17 +1384,10 @@ body {
               }
             }
           }
-          // REVIEW CANVAS / USELESS / DESTROY
-          [data-region="review-panel"] {
-            display: none !important;
-          }
-          // BOTTOM
+          // Bottom panel.
           [data-region="grade-actions-panel"] {
-            position: relative !important;
-            height: fit-content !important;
-            background-color: $dark-1 !important;
-            padding-block: 0.5rem !important;
-            // ALIGN BUTTONS
+            @apply bg-gray-925 px-2 col-span-2 relative #{!important};
+            // Align buttons.
             .collapse-buttons {
               display: none !important;
             }

@@ -623,6 +623,33 @@ section.block_activity_modules ul li div a:hover{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
 
+.alert{
+  border-radius: 0.5rem !important;
+  text-align: center !important;
+}
+.alert-danger{
+  background-color: rgb(244 63 94 / 0.1) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(244 63 94 / var(--tw-text-opacity)) !important;
+}
+.alert-info{
+  background-color: rgb(59 130 246 / 0.1) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
+}
+.alert-warning{
+  background-color: rgb(249 115 22 / 0.1) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(249 115 22 / var(--tw-text-opacity)) !important;
+}
+
+.text-danger,
+i.fa-exclamation-circle.text-danger,
+.invalid-feedback{
+  --tw-text-opacity: 1 !important;
+  color: rgb(244 63 94 / var(--tw-text-opacity)) !important;
+}
+
 /* DROPDOWN MENUS */
 .dropdown-menu{
   border-radius: 0.5rem !important;
@@ -1856,66 +1883,148 @@ td.hasevent a:hover{
   height: 1.5rem !important;
   text-align: center !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .course-info a.course-name, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .course-info a.course-name {
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box):not(:has(> .group-box)) > :nth-child(2), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)):not(:has(> .group-box)) > :nth-child(2){
+  margin-bottom: 0.5rem !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .course-info, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .course-info{
+  margin-bottom: 0.5rem !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .course-info h3, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .course-info h3{
+  margin-bottom: 0.5rem !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .course-info h3 a.course-name, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .course-info h3 a.course-name{
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+  font-weight: 500 !important;
   text-decoration: none !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box {
-  padding: 0.5rem !important;
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .course-info > :nth-child(2) a, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .course-info > :nth-child(2) a{
+  text-decoration-line: underline !important;
+  text-underline-offset: 2px !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) a.manage-link, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) a.manage-link{
+  margin-right: 0.5rem !important;
   border-radius: 0.5rem !important;
-  outline: 0.1rem solid #1f2127 !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box {
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) a.manage-link:hover, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) a.manage-link:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box{
   display: flex !important;
-  flex-direction: column !important;
   gap: 0.5rem !important;
-  flex-wrap: nowrap !important;
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+  padding: 0.5rem !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) {
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-status-box, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-status-box{
+  display: flex !important;
+  width: 8rem !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-status-box .group-status, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-status-box .group-status{
+  display: flex !important;
+  flex: 1 1 0% !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.25rem !important;
+  border-radius: 0.5rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-status-box .group-status.group-idle, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-status-box .group-status.group-idle{
+  background-color: rgb(244 63 94 / 0.1) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(244 63 94 / var(--tw-text-opacity)) !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-status-box .group-status.group-completion, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-status-box .group-status.group-completion{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-status-box .group-status.group-completion .group-completion-value, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-status-box .group-status.group-completion .group-completion-value{
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+  font-weight: 500 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box{
+  margin: 0px !important;
+  display: flex !important;
+  flex: 1 1 0% !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1){
   display: flex !important;
   flex-direction: row !important;
   gap: 0.5rem !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1) > *, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) > * {
-  padding: 0 !important;
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1) > *, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) > *{
+  padding: 0px !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1) > :nth-child(1), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) > :nth-child(1) {
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1) > :nth-child(1), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) > :nth-child(1){
   margin-right: auto !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1) a > img, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) a > img {
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1) a > img, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) a > img{
   display: none !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1) a[href*=delete], .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) a[href*=delete] {
-  color: #a2a8b1 !important;
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1) a[href*=delete], .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) a[href*=delete]{
+  --tw-text-opacity: 1 !important;
+  color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2) > .bar-frame, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2) > .bar-frame {
-  background-color: hsl(265, 50%, 20%) !important;
-  border-radius: 0.5rem !important;
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(1) a[href*=delete]:hover, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(1) a[href*=delete]:hover{
+  --tw-text-opacity: 1 !important;
+  color: rgb(190 18 60 / var(--tw-text-opacity)) !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2){
+  margin: 0px !important;
+}
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2) > .bar-frame, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2) > .bar-frame{
+  height: 0.5rem !important;
   overflow: hidden !important;
+  border-radius: 0.125rem !important;
+  background-color: rgb(168 85 247 / 0.2) !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill {
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill{
   position: relative !important;
-  background-color: hsl(270, 50%, 45%) !important;
   overflow: hidden !important;
+  background-color: rgb(168 85 247 / 0.5) !important;
 }
 .card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill::after, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill::after {
-  content: "";
-  position: absolute;
-  background-color: hsl(275, 75%, 60%);
-  filter: blur(1rem);
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  top: 50%;
+  animation: glare 5s infinite forwards linear !important;
   left: 50%;
-  translate: -50% -50%;
-  animation: glare 5s infinite forwards linear;
+  position: absolute !important;
+  top: 50% !important;
+  height: 5rem !important;
+  width: 5rem !important;
+  --tw-translate-x: -50% !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+  border-radius: 9999px !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(168 85 247 / var(--tw-bg-opacity)) !important;
+  --tw-blur: blur(1rem) !important;
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
+  --tw-content: "" !important;
+  content: var(--tw-content) !important;
 }
 @keyframes glare {
   0% {
-    left: calc(0% - 5rem);
+    left: calc(0% - 5rem) !important;
   }
   100% {
-    left: calc(100% + 5rem);
+    left: calc(100% + 5rem) !important;
   }
 }
 .card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(3), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(3) {
@@ -1956,13 +2065,6 @@ body#page-login-index section#region-main .card h1.card-header{
   font-weight: 500 !important;
   --tw-text-opacity: 1 !important;
   color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
-}
-body#page-login-index .alert-danger{
-  border-radius: 0.5rem !important;
-  background-color: rgb(244 63 94 / 0.1) !important;
-  text-align: center !important;
-  --tw-text-opacity: 1 !important;
-  color: rgb(244 63 94 / var(--tw-text-opacity)) !important;
 }
 body#page-login-index button#loginbtn{
   display: flex !important;
@@ -2424,6 +2526,105 @@ body#page-user-preferences [role=main] .card .card-body:has(> h4, > div) > div >
   white-space: nowrap !important;
   padding: 0.5rem 1rem !important;
 }
+body#page-enrol-edu-manage form .form-group{
+  margin: 0px !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+body#page-enrol-edu-manage form .form-group > :nth-child(1){
+  margin-bottom: 0.5rem !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0px !important;
+}
+body#page-enrol-edu-manage form .form-group > :nth-child(1) [class*=label]{
+  padding: 0px !important;
+}
+body#page-enrol-edu-manage form .form-group > :nth-child(1) > :nth-child(2){
+  margin: 0px !important;
+}
+body#page-enrol-edu-manage form .form-group > :nth-child(2){
+  margin: 0px !important;
+  padding: 0px !important;
+}
+body#page-enrol-edu-manage form .form-group > :nth-child(2) input.is-invalid{
+  background-image: none !important;
+}
+body#page-enrol-edu-manage form .fdescription{
+  margin-bottom: 1rem !important;
+}
+body#page-enrol-single-index form br{
+  display: none !important;
+}
+body#page-enrol-single-index form > :nth-child(1),
+body#page-enrol-single-index form > :nth-child(2):not(script){
+  display: block !important;
+}
+sectionbody#page-enrol-single-index form > :nth-child(1),section
+body#page-enrol-single-index form > :nth-child(2):not(script){
+  overflow: hidden !important;
+  border-radius: 0.5rem !important;
+}
+body#page-enrol-single-index form > :nth-child(1) label,
+body#page-enrol-single-index form > :nth-child(2):not(script) label{
+  margin-bottom: 0.5rem !important;
+}
+body#page-enrol-single-index form > :nth-child(1) input,
+body#page-enrol-single-index form > :nth-child(2):not(script) input{
+  display: block !important;
+}
+sectionbody#page-enrol-single-index form > :nth-child(1) input,section
+body#page-enrol-single-index form > :nth-child(2):not(script) input{
+  overflow: hidden !important;
+  border-radius: 0.5rem !important;
+}
+body#page-enrol-single-index form > :nth-child(1){
+  margin-bottom: 0.5rem !important;
+}
+body#page-enrol-single-index form > :nth-child(2){
+  margin-bottom: 1.5rem !important;
+}
+body#page-enrol-single-index form input[type=submit]{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  display: inline-flex !important;
+  height: 2.5rem !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+body#page-enrol-single-index form input[type=submit]:is(:hover, :focus, :active) {
+  background-color: #272a30 !important;
+}
+body#page-enrol-single-index form a[href=""]{
+  display: inline-flex !important;
+  height: 2.5rem !important;
+  align-items: center !important;
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
+body#page-enrol-single-index form a[href=""]:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+}
+body#page-enrol-single-index form table#users-tmpl-container td.fullname label{
+  margin: 0px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
 body .moodle-dialogue [class*=hd]{
   padding: 0px !important;
   font-weight: 500 !important;
@@ -2676,31 +2877,31 @@ body#page-blocks-mygroups-overview table#group-overview td.c3{
   padding-right: 2rem !important;
   font-weight: 700 !important;
 }
-body#page-mod-assign-grader #page {
-  height: 100% !important;
+body#page-mod-assign-grader #page #page-content [role=main]{
+  display: grid !important;
+  height: 100vh !important;
+  grid-template-columns: 2fr 1fr !important;
+  grid-template-rows: min-content 1fr min-content !important;
 }
-body#page-mod-assign-grader #page > #page-content {
-  height: 100% !important;
+body#page-mod-assign-grader #page #page-content [role=main] #user-notifications,
+body#page-mod-assign-grader #page #page-content [role=main] #maincontent{
+  display: none !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main]{
-  display: flex !important;
-  height: 100% !important;
-  flex-direction: column !important;
-}
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel]{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel]{
   position: relative !important;
+  grid-column: span 2 / span 2 !important;
   display: flex !important;
   height: -moz-fit-content !important;
   height: fit-content !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid{
   display: flex !important;
   height: -moz-fit-content !important;
   height: fit-content !important;
   justify-content: center !important;
   padding: 0px !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation]{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation]{
   display: flex !important;
   height: -moz-fit-content !important;
   height: fit-content !important;
@@ -2710,19 +2911,119 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info]{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=assignment-info]{
+  padding: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info]{
   display: flex !important;
   height: -moz-fit-content !important;
   height: fit-content !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4{
   margin: 0px !important;
   text-overflow: ellipsis !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a{
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a img{
+  margin: 0px !important;
+  height: 50% !important;
+  width: 3rem !important;
+  border-radius: 9999px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em{
   display: none !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] ul.form-autocomplete-suggestions{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector]{
+  display: flex !important;
+  padding: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment{
+  margin: 0px !important;
+  display: grid !important;
+  flex: 1 1 0% !important;
+  grid-template-columns: min-content 1fr min-content !important;
+  gap: 0.5rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment br,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment select{
+  display: none !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment a[href="#previous"],
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment a[href="#next"]{
+  margin: 0px !important;
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment a[href="#previous"]:hover,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment a[href="#next"]:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment [data-region=input-field]{
+  position: relative !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment [data-region=input-field] div:has(> input.form-control){
+  margin: 0px !important;
+  display: flex !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment [data-region=input-field] div:has(> input.form-control) input.form-control{
+  margin: 0px !important;
+  width: 0px !important;
+  flex-grow: 1 !important;
+  padding-right: 2.5rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment [data-region=input-field] div:has(> input.form-control) [id*=form_autocomplete_downarrow]{
+  top: 50% !important;
+  right: 0.5rem !important;
+  display: flex !important;
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+  --tw-translate-y: -50% !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.5rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment [data-region=input-field] div:has(> input.form-control) [id*=form_autocomplete_downarrow]:hover{
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment [data-region=user-count]{
+  grid-column-start: 2 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment a[data-region=user-filters]{
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment a[data-region=user-filters]:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment a[data-region=user-filters] i{
+  margin: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment ul.form-autocomplete-suggestions{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -2731,8 +3032,11 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   animation: smoothAppear 0.1s ease-in-out;
+  top: 100% !important;
+  margin: 0px !important;
+  padding: 0.5rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] ul.form-autocomplete-suggestions.rounded{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment ul.form-autocomplete-suggestions.rounded{
   border-radius: 0.5rem !important;
 }
 @keyframes smoothAppear {
@@ -2745,29 +3049,57 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
     translate: 0 0;
   }
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] {
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment ul.form-autocomplete-suggestions li{
+  border-radius: 0.5rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-shadow-colored: 0 0 #0000 !important;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment ul.form-autocomplete-suggestions li:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment ul.form-autocomplete-suggestions li[aria-selected=true]{
+  pointer-events: none !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(60 65 74 / var(--tw-bg-opacity)) !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment ul.form-autocomplete-suggestions li *{
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel]{
   position: relative !important;
-  top: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  overflow-y: scroll !important;
-  flex-grow: 1 !important;
-  padding: 1rem !important;
+  inset: 0px !important;
+  overflow-y: auto !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .drawingregion{
+  position: relative !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel]{
+  position: relative !important;
+  inset: 0px !important;
   width: auto !important;
+  overflow-y: auto !important;
+  padding: 1rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] {
-  padding: 0 !important;
-  max-width: 1024px !important;
-  align-self: center !important;
-}
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable > .assignsubmission {
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable > .assignsubmission {
   margin-top: 1rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable > .latesubmission {
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable > .latesubmission {
   color: crimson !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_grade]{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_grade]{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -2776,10 +3108,10 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_grade].rounded{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_grade].rounded{
   border-radius: 0.5rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_currentgrade]{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_currentgrade]{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -2790,14 +3122,14 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   background-color: transparent !important;
   padding: 1rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_currentgrade].rounded{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_currentgrade].rounded{
   border-radius: 0.5rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] {
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] {
   padding: 0 !important;
   margin-top: 1rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor].popout{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor].popout{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -2808,7 +3140,7 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   animation: smoothAppear 0.1s ease-in-out;
   padding: 1rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor].popout.rounded{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor].popout.rounded{
   border-radius: 0.5rem !important;
 }
 @keyframes smoothAppear {
@@ -2821,7 +3153,7 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
     translate: 0 0;
   }
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] [data-fieldtype=editor]{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] [data-fieldtype=editor]{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -2830,23 +3162,21 @@ body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=gra
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   background-color: transparent !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] [data-fieldtype=editor].rounded{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] [data-fieldtype=editor].rounded{
   border-radius: 0.5rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=review-panel] {
-  display: none !important;
-}
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-actions-panel] {
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel]{
   position: relative !important;
-  height: -moz-fit-content !important;
-  height: fit-content !important;
-  background-color: #12151b !important;
-  padding-block: 0.5rem !important;
+  grid-column: span 2 / span 2 !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-actions-panel] .collapse-buttons {
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] .collapse-buttons {
   display: none !important;
 }
-body#page-mod-assign-grader #page > #page-content > [role=main] [data-region=grade-actions-panel] form button[name=savechanges] {
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form button[name=savechanges] {
   margin-left: 1.5rem !important;
 }
 body section.block_mygroups div:has(> .course-group-box) {
