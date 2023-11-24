@@ -1084,7 +1084,7 @@ button.nav-link.float-sm-left.bg-gray:hover{
 
 button,
 a{
-  border-radius: 0.375rem !important;
+  border-radius: 0.5rem !important;
   background-color: transparent !important;
   --tw-text-opacity: 1 !important;
   color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
@@ -3942,6 +3942,7 @@ div.submissionaction button:is(:hover, :focus, :active) {
   width: 2.5rem !important;
   align-items: center !important;
   justify-content: center !important;
+  border-radius: 0.5rem !important;
   border-width: 2px !important;
   border-style: solid !important;
   --tw-border-opacity: 1 !important;
@@ -4113,6 +4114,66 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   --tw-border-opacity: 1 !important;
   border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1){
+  padding: 0px !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1) button[data-action=cancel-edit-mode],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1) button[data-action=cancel-edit-mode]{
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1) button[data-action=cancel-edit-mode]:hover,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1) button[data-action=cancel-edit-mode]:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1) button[data-action=cancel-edit-mode] span,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1) button[data-action=cancel-edit-mode] span{
+  display: none !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1) button[data-action=cancel-edit-mode]::after,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] [data-region=header-edit-mode] > :nth-child(1) button[data-action=cancel-edit-mode]::after{
+  --tw-text-opacity: 1 !important;
+  color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
+  --tw-content: "╳" !important;
+  content: var(--tw-content) !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-search] > :nth-child(1),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-search] > :nth-child(1){
+  gap: 0.5rem !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-search] > :nth-child(1) .input-group-append,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-search] > :nth-child(1) .input-group-append{
+  margin-left: 0.5rem !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-search] > :nth-child(1) .input-group-append button[data-action=search],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-search] > :nth-child(1) .input-group-append button[data-action=search]{
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-search] > :nth-child(1) .input-group-append button[data-action=search]:hover,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-search] > :nth-child(1) .input-group-append button[data-action=search]:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+}
 .message-app [class*=body-container],
 .message-app.bg-light [class*=body-container] {
   overflow: visible !important;
@@ -4239,14 +4300,6 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   line-height: 1.25rem !important;
   --tw-text-opacity: 1 !important;
   color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
-}
-.message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message [data-region=text-container],
-.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message [data-region=text-container]{
-  overflow-y: hidden !important;
-}
-.message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message [data-region=text-container] p,
-.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message [data-region=text-container] p{
-  margin-bottom: -3lh !important;
 }
 .message-app [class*=body-container] [data-region=view-conversation] [data-region=content-placeholder],
 .message-app.bg-light [class*=body-container] [data-region=view-conversation] [data-region=content-placeholder] {

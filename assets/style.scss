@@ -500,7 +500,7 @@ button.nav-link.float-sm-left.bg-gray {
 }
 button,
 a {
-  @apply bg-transparent rounded-md shadow-none [text-decoration:none] focus-visible:outline-2 outline-purple-500 text-gray-300 hover:text-gray-200 #{!important};
+  @apply bg-transparent rounded-lg shadow-none [text-decoration:none] focus-visible:outline-2 outline-purple-500 text-gray-300 hover:text-gray-200 #{!important};
   &:disabled,
   &.page-link {
     background-color: transparent !important;
@@ -1794,7 +1794,7 @@ div.submissionaction button {
   [class*="header-container"] {
     [data-route-back],
     [data-route="view-search"] {
-      @apply w-10 h-10 flex items-center justify-center m-0 border-2 border-gray-900 hover:border-gray-800 border-solid #{!important};
+      @apply rounded-lg w-10 h-10 flex items-center justify-center m-0 border-2 border-gray-900 hover:border-gray-800 border-solid #{!important};
       i {
         @apply text-gray-300 hover:text-gray-200 #{!important};
       }
@@ -1874,6 +1874,32 @@ div.submissionaction button {
             }
           }
         }
+        [data-region="header-edit-mode"] {
+          > :nth-child(1) {
+            @apply p-0 #{!important};
+            button[data-action="cancel-edit-mode"] {
+              @apply flex w-10 h-10 font-normal [text-shadow:none] items-center justify-center border-solid opacity-100 border-2 border-gray-900 hover:border-gray-800 #{!important};
+              span {
+                @apply hidden #{!important};
+              }
+              &::after {
+                @apply content-["\2573"] text-gray-300  #{!important};
+              }
+            }
+          }
+        }
+      }
+      // Search users toolbar.
+      &[data-region="view-search"] {
+        > :nth-child(1) {
+          @apply gap-2 #{!important};
+          .input-group-append {
+            @apply ml-2 #{!important};
+            button[data-action="search"] {
+              @apply w-10 h-10 flex items-center justify-center border-2 border-solid border-gray-900 hover:border-gray-800 #{!important};
+            }
+          }
+        }
       }
     }
   }
@@ -1932,12 +1958,15 @@ div.submissionaction button {
                 @apply text-sm text-gray-500 #{!important};
               }
               // Text in every message.
-              [data-region="text-container"] {
-                @apply overflow-y-hidden #{!important};
-                p {
-                  @apply mb-[-3lh] #{!important};
-                }
-              }
+              // [data-region="text-container"]:has(:nth-last-child(2):is(br)) {
+              //   @apply overflow-y-hidden #{!important};
+              //   p {
+              //     @apply mb-[-3lh] #{!important};
+              //   }
+              //   > *:last-child():is(br) {
+              //     @apply hidden #{!important};
+              //   }
+              // }
             }
           }
         }
