@@ -545,7 +545,8 @@ div#goto-top-link > a {
 // TABLES
 table.generaltable:not(.course-box),
 .course-content table,
-table.preference-table {
+table.preference-table,
+table#user-grades {
   @apply bg-gray-925 overflow-hidden rounded-lg outline-2 outline-gray-800 #{!important};
   > tbody {
     tr:nth-child(odd) {
@@ -620,8 +621,10 @@ button.btn-submit {
 }
 // TEXT EDITOR
 textarea,
-#id_assignfeedbackcomments_editoreditable,
-#id_onlinetext_editoreditable {
+// #id_assignfeedbackcomments_editoreditable,
+// #id_onlinetext_editoreditable,
+// #id_description_editoreditable,
+[id*=editoreditable] {
   @include prettyMarkdown;
   @apply bg-gray-950 rounded-lg p-1 text-gray-200 shadow-none focus:outline-2 active:outline-2 outline-purple-500 #{!important};
   &.bg-light {
@@ -1159,6 +1162,15 @@ body {
       @apply bg-rose-500/10 text-rose-500 rounded-t-lg border-none #{!important};
     }
   }
+  // Grades of students overview.
+  &#page-grade-report-grader-index {
+    .gradeparent {
+      @apply grid overflow-x-auto #{!important};
+      > [role="presentation"] {
+        @apply hidden #{!important};
+      }
+    }
+  }
   // TEACHER STUDENTS GROUPS OVERVIEW // LIST OF STUDENTS IN A GROUP
   &#page-blocks-mygroups-overview {
     .controls {
@@ -1263,7 +1275,7 @@ body {
             .container-fluid {
               @apply p-0 flex h-fit justify-center #{!important};
               [data-region="grading-navigation"] {
-                @apply p-4 bg-gray-925 flex h-fit items-center w-full #{!important};
+                @apply py-2 px-4 bg-gray-925 flex grow h-fit items-center m-0 #{!important};
                 [data-region="assignment-info"] {
                   @apply p-0 #{!important};
                 }
@@ -1274,7 +1286,7 @@ body {
                     a {
                       @apply flex items-center gap-3 #{!important};
                       img {
-                        @apply w-12 h-1/2 rounded-full m-0 #{!important};
+                        @apply w-10 h-10 rounded-full m-0 #{!important};
                       }
                       em {
                         @apply hidden #{!important};
@@ -1285,7 +1297,7 @@ body {
                 [data-region="user-selector"] {
                   @apply p-0 flex #{!important};
                   .alignment {
-                    @apply m-0 grid grid-cols-[min-content_1fr_min-content] gap-2 flex-1 #{!important};
+                    @apply m-0 grid grid-cols-[min-content_1fr_min-content] gap-2 flex-1 relative #{!important};
                     br,
                     select {
                       @apply hidden #{!important};
@@ -1308,6 +1320,10 @@ body {
                     }
                     [data-region="user-count"] {
                       @apply col-start-2 flex items-center justify-center #{!important};
+                    }
+                    // Filters popup position.
+                    [data-region="configure-filters"] {
+                      @apply top-full -translate-y-1/3 right-0 #{!important};
                     }
                     a[data-region="user-filters"] {
                       @apply w-10 h-10 flex items-center justify-center border-2 border-gray-900 hover:border-gray-800 #{!important};
@@ -1336,41 +1352,96 @@ body {
             }
           }
           // Main.
-          // Canvas panel.
+          // Review panel with a canvas.
           [data-region="review-panel"] {
             @apply relative inset-0 overflow-y-auto #{!important};
+            .warningmessages {
+              @apply hidden #{!important};
+            }
             .drawingregion {
-              @apply relative #{!important};
+              @apply relative inset-0 #{!important};
+            }
+            // Editing tools.
+            .pageheader {
+              @apply bg-transparent h-auto border-none p-4 flex-wrap flex items-center gap-2 #{!important};
+              .navigation {
+                @apply h-auto bg-transparent flex m-0 #{!important};
+                select {
+                  @apply h-10 rounded-none #{!important};
+                }
+                .navigate-previous-button,
+                .navigate-next-button {
+                  @apply h-10 w-10 bg-gray-800 rounded-lg hover:[background-image:none] hover:bg-gray-700 flex items-center justify-center #{!important};
+                  img {
+                    @apply m-0 #{!important};
+                  }
+                }
+                .navigate-next-button {
+                  @apply rounded-l-none #{!important};
+                }
+                .navigate-previous-button {
+                  @apply rounded-r-none #{!important};
+                }
+              }
+              .navigation-search,
+              .navigation-expcol {
+                @apply m-0 h-auto bg-transparent #{!important};
+                button {
+                  @apply bg-gray-800 h-10 aspect-square hover:[background-image:none] hover:bg-gray-700 p-0 flex items-center justify-center #{!important};
+                  img {
+                    @apply m-0 p-0 w-4 h-4 #{!important};
+                  }
+                }
+              }
+              .toolbar_group {
+                @apply inline-flex gap-2 #{!important};
+                .toolbar {
+                  @apply m-0 rounded-lg bg-gray-800 flex h-10 #{!important};
+                  button {
+                    @apply hover:[background-image:none] hover:bg-gray-700 aspect-square flex-none h-auto p-0 flex items-center justify-center #{!important};
+                    // Selected tool.
+                    &[aria-pressed="true"] {
+                      @apply [background-image:none] bg-gray-700 pointer-events-none #{!important};
+                    }
+                    img {
+                      @apply m-0 w-4 h-4 p-0 #{!important};
+                    }
+                  }
+                }
+              }
             }
           }
           // Grade panel.
           [data-region="grade-panel"] {
-            @apply relative w-auto p-4 inset-0 overflow-y-auto #{!important};
+            @apply relative w-auto p-4 inset-0 overflow-y-auto bg-gray-900 rounded-lg #{!important};
             [data-region="grade"] {
-              // STUDENT ANSWER
+              // Student's submission.
               > .submissionstatustable {
-                > .assignsubmission {
-                  margin-top: 1rem !important;
+                .assignsubmission {
+                  @apply mt-4 rounded-lg border-2 border-gray-800 #{!important};
+                  > div {
+                    @apply p-2 #{!important};
+                  }
                 }
-                > .latesubmission {
-                  color: crimson !important;
+                .submissionstatussubmitted,
+                .earlysubmission {
+                  @apply py-1 px-2 rounded-lg bg-emerald-500/10 text-emerald-500 my-2 #{!important};
+                }
+                .latesubmission {
+                  @apply py-1 px-2 rounded-lg bg-rose-500/10 text-rose-500 my-2 #{!important};
                 }
               }
-              // TEACHER GRADE INPUT
-              [id="fitem_id_grade"] {
+              // Teacher grade input.
+              #fitem_id_grade {
                 @include card;
-                padding: 1rem !important;
+                @apply p-2 #{!important};
               }
-              [id="fitem_id_currentgrade"] {
+              #fitem_id_currentgrade {
                 @include card;
-                margin-top: 1rem !important;
-                background-color: transparent !important;
-                padding: 1rem !important;
+                @apply bg-transparent p-2 #{!important};
               }
-              [id="fitem_id_assignfeedbackcomments_editor"] {
-                padding: 0 !important;
-                margin-top: 1rem !important;
-                // WHEN OPENED FULL
+              #fitem_id_assignfeedbackcomments_editor {
+                @apply p-0 mt-4 bg-transparent #{!important};
                 &.popout {
                   @include card;
                   @include shadow;
@@ -1382,18 +1453,41 @@ body {
                   background-color: transparent !important;
                 }
               }
+              #id_attemptsettings {
+                @apply text-sm border-2 border-gray-800 rounded-lg p-2 #{!important};
+                legend {
+                  @apply font-medium text-gray-300 m-0 w-fit #{!important};
+                }
+                .fcontainer {
+                  @apply p-0 m-0 text-gray-400 #{!important};
+                }
+              }
             }
           }
           // Bottom panel.
           [data-region="grade-actions-panel"] {
-            @apply bg-gray-925 px-2 col-span-2 relative #{!important};
+            @apply bg-gray-925 col-span-2 relative h-auto #{!important};
             // Align buttons.
             .collapse-buttons {
               display: none !important;
             }
             form {
-              button[name="savechanges"] {
-                margin-left: 1.5rem !important;
+              @apply flex items-center justify-end #{!important};
+              label {
+                @apply flex items-center gap-2 m-0 #{!important};
+                & + a {
+                  @apply ml-2 #{!important};
+                }
+              }
+              button {
+                @apply items-center flex py-2 #{!important};
+                &[name="savechanges"] {
+                  @apply ml-8 #{!important};
+                }
+                &[name="saveandshownext"],
+                &[name="resetbutton"] {
+                  @apply ml-2 #{!important};
+                }
               }
             }
           }
@@ -1511,6 +1605,14 @@ body {
     }
     .moodle-dialogue-bd {
       @apply overflow-auto mt-4 #{!important};
+    }
+  }
+  .modal-content {
+    @apply p-0 bg-transparent #{!important};
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      @apply p-0 #{!important};
     }
   }
 }
@@ -1656,7 +1758,7 @@ div.submissionaction button {
   }
   // Textarea, write a message.
   [data-region="content-messages-footer-container"] {
-    @apply p-0 #{!important};
+    @apply p-0 mt-8 #{!important};
     > :nth-child(1) {
       @apply m-0 #{!important};
       textarea {
@@ -1664,7 +1766,7 @@ div.submissionaction button {
         @apply bg-gray-950 p-2 flex-1 #{!important};
       }
       button[data-action="send-message"] {
-        @apply m-0 ml-2 justify-self-center flex-1 #{!important};
+        @apply m-0 ml-2 justify-self-center flex-1 bg-gray-900 hover:bg-gray-800 #{!important};
       }
     }
   }
@@ -1690,75 +1792,89 @@ div.submissionaction button {
   }
   // Messenger header.
   [class*="header-container"] {
-    [data-region="view-overview"] {
-      @apply flex flex-row flex-wrap p-0 items-center gap-2 #{!important};
-      > :nth-child(1) {
-        @apply flex items-center flex-1 gap-2 #{!important};
-        .input-group.simplesearchform {
-          // Search user icon.
-          .input-group-append {
-            @apply hidden #{!important};
-          }
-        }
-        // Messenger settings button.
-        > :nth-child(2) {
-          @apply m-0 #{!important};
-          a[data-route="view-settings"] {
-            @apply w-10 h-10 bg-gray-900 hover:bg-gray-800 flex items-center justify-center #{!important};
-          }
-        }
-      }
-      > :nth-child(2) {
-        @apply m-0 #{!important};
-        // See contacts list button.
-        a[data-route="view-contacts"] {
-          @include importantButton;
-          @apply gap-4 h-10 #{!important};
-        }
+    [data-route-back],
+    [data-route="view-search"] {
+      @apply w-10 h-10 flex items-center justify-center m-0 border-2 border-gray-900 hover:border-gray-800 border-solid #{!important};
+      i {
+        @apply text-gray-300 hover:text-gray-200 #{!important};
       }
     }
-    // Current chat toolbar.
-    > [data-region="view-conversation"] {
-      @apply p-0 mb-2 #{!important};
-      > [data-region="header-content"] {
-        > div:nth-child(1) {
-          @apply flex gap-4 #{!important};
-          // Favourite contact star.
-          span[data-region="favourite-icon-container"] {
-            @apply text-purple-500 #{!important};
+    div[data-region*="view"] {
+      @apply mb-2 p-0 #{!important};
+      &[data-region="view-overview"] {
+        @apply flex flex-row flex-wrap p-0 items-center gap-2 #{!important};
+        > :nth-child(1) {
+          @apply flex items-center flex-1 gap-2 #{!important};
+          .input-group.simplesearchform {
+            // Search user icon.
+            .input-group-append {
+              @apply hidden #{!important};
+            }
           }
-          // Button back in messenger while the chat is open.
+          // Messenger settings button.
+          > :nth-child(2) {
+            @apply m-0 #{!important};
+            a[data-route="view-settings"] {
+              @apply w-10 h-10 bg-gray-900 hover:bg-gray-800 flex items-center justify-center #{!important};
+            }
+          }
+        }
+        > :nth-child(2) {
+          @apply m-0 #{!important};
+          // See contacts list button.
+          a[data-route="view-contacts"] {
+            @include importantButton;
+            @apply gap-4 h-10 #{!important};
+          }
+        }
+      }
+      // All Contacts toolbar, settings toolbar.
+      &[data-region="view-contacts"],
+      &[data-region="view-settings"] {
+        > :nth-child(1) {
+          @apply gap-4 #{!important};
+          > :nth-child(2) {
+            @apply text-gray-300 #{!important};
+          }
+        }
+      }
+      // Current chat toolbar.
+      &[data-region="view-conversation"] {
+        @apply p-0 mb-2 #{!important};
+        > [data-region="header-content"] {
           > div:nth-child(1) {
-            @apply flex justify-center items-center w-10 h-10 #{!important};
-            a[data-route-back] {
-              @apply w-10 h-10 flex items-center justify-center m-0 border-2 border-gray-900 hover:border-gray-800 border-solid #{!important};
-              i {
-                @apply text-gray-300 hover:text-gray-200 #{!important};
+            @apply flex gap-4 #{!important};
+            // Favourite contact star.
+            span[data-region="favourite-icon-container"] {
+              @apply text-purple-500 #{!important};
+            }
+            // Button back in messenger while the chat is open.
+            > div:nth-child(1) {
+              @apply flex justify-center items-center w-10 h-10 #{!important};
+            }
+            // Person in the messenger header.
+            a[data-action="view-contact"] {
+              @apply flex items-center #{!important};
+              // Profile picture.
+              > :nth-child(1) {
+                @apply w-10 h-10 #{!important};
+                img {
+                  @apply h-auto w-auto #{!important};
+                }
+              }
+              // Name, surname, middlename.
+              > :nth-child(2) {
+                @apply ml-4 font-["Finlandica"] font-normal #{!important};
+                * {
+                  @apply font-[inherit] #{!important};
+                }
               }
             }
-          }
-          // Person in the messenger header.
-          a[data-action="view-contact"] {
-            @apply flex items-center #{!important};
-            // Profile picture.
-            > :nth-child(1) {
-              @apply w-10 h-10 #{!important};
-              img {
-                @apply h-auto w-auto #{!important};
+            // Button more options in the chat.
+            > div:nth-child(3) {
+              button {
+                @apply border-2 w-10 h-10 border-solid border-gray-900 hover:border-gray-800 rounded-lg flex items-center justify-center #{!important};
               }
-            }
-            // Name, surname, middlename.
-            > :nth-child(2) {
-              @apply ml-4 font-["Finlandica"] font-normal #{!important};
-              * {
-                @apply font-[inherit] #{!important};
-              }
-            }
-          }
-          // Button more options in the chat.
-          > div:nth-child(3) {
-            button {
-              @apply border-2 w-10 h-10 border-solid border-gray-900 hover:border-gray-800 rounded-lg flex items-center justify-center #{!important};
             }
           }
         }
@@ -1797,27 +1913,34 @@ div.submissionaction button {
       // MESSAGES CONTAINER
       .content-message-container {
         @apply p-0 #{!important};
-        // EACH DAY IN CHAT
+        // Day in chat.
         [data-region="day-container"] {
           @apply flex flex-col items-center #{!important};
-          // DATE
+          // Date.
           > h6 {
             @apply mx-4 py-1 px-4 text-sm rounded-full outline-2 outline-gray-800 w-fit text-gray-400 #{!important};
           }
           // List of messages during the day.
           > div {
             @apply rounded-lg self-stretch gap-2 #{!important};
-            // Each message.
+            // Every message.
             .message {
               @apply p-2 text-sm m-0 rounded-lg #{!important};
               &.received {
-                @apply bg-gray-900 text-gray-200 #{!important};
+                @apply bg-gray-900 text-gray-200 mr-[15%] #{!important};
               }
               &.send {
-                @apply bg-transparent border-2 border-solid border-gray-800 text-gray-400 #{!important};
+                @apply bg-transparent border-2 ml-[15%] border-solid border-gray-800 text-gray-400 #{!important};
               }
               .time {
                 @apply text-sm text-gray-500 #{!important};
+              }
+              // Text in every message.
+              [data-region="text-container"] {
+                @apply overflow-y-hidden #{!important};
+                p {
+                  @apply mb-[-3lh] #{!important};
+                }
               }
             }
           }

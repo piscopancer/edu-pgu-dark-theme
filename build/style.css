@@ -1197,7 +1197,8 @@ div#goto-top-link > a > i{
 
 table.generaltable:not(.course-box),
 .course-content table,
-table.preference-table{
+table.preference-table,
+table#user-grades{
   overflow: hidden !important;
   border-radius: 0.5rem !important;
   --tw-bg-opacity: 1 !important;
@@ -1207,30 +1208,36 @@ table.preference-table{
 }
 table.generaltable:not(.course-box) > tbody tr:nth-child(odd),
 .course-content table > tbody tr:nth-child(odd),
-table.preference-table > tbody tr:nth-child(odd){
+table.preference-table > tbody tr:nth-child(odd),
+table#user-grades > tbody tr:nth-child(odd){
   background-color: rgb(31 33 39 / 0.5) !important;
 }
 table.generaltable:not(.course-box) th, table.generaltable:not(.course-box) td,
 .course-content table th,
 .course-content table td,
 table.preference-table th,
-table.preference-table td {
+table.preference-table td,
+table#user-grades th,
+table#user-grades td {
   padding: 0.75rem !important;
 }
 table.generaltable:not(.course-box) *,
 .course-content table *,
-table.preference-table * {
+table.preference-table *,
+table#user-grades * {
   background-color: transparent !important;
   color: #a2a8b1 !important;
 }
 table.generaltable:not(.course-box) a,
 .course-content table a,
-table.preference-table a {
+table.preference-table a,
+table#user-grades a {
   color: #d1d5db !important;
 }
 table.generaltable:not(.course-box) a:hover,
 .course-content table a:hover,
-table.preference-table a:hover {
+table.preference-table a:hover,
+table#user-grades a:hover {
   color: #a2a8b1 !important;
 }
 
@@ -1428,8 +1435,7 @@ button.btn-submit{
 }
 
 textarea,
-#id_assignfeedbackcomments_editoreditable,
-#id_onlinetext_editoreditable{
+[id*=editoreditable]{
   border-radius: 0.5rem !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
@@ -1443,25 +1449,20 @@ textarea,
 }
 
 textarea:focus,
-#id_assignfeedbackcomments_editoreditable:focus,
-#id_onlinetext_editoreditable:focus{
+[id*=editoreditable]:focus{
   outline-width: 2px !important;
 }
 
 textarea:active,
-#id_assignfeedbackcomments_editoreditable:active,
-#id_onlinetext_editoreditable:active{
+[id*=editoreditable]:active{
   outline-width: 2px !important;
 }
 textarea h1,
 textarea h2,
 textarea h3,
-#id_assignfeedbackcomments_editoreditable h1,
-#id_assignfeedbackcomments_editoreditable h2,
-#id_assignfeedbackcomments_editoreditable h3,
-#id_onlinetext_editoreditable h1,
-#id_onlinetext_editoreditable h2,
-#id_onlinetext_editoreditable h3{
+[id*=editoreditable] h1,
+[id*=editoreditable] h2,
+[id*=editoreditable] h3{
   margin-bottom: 2rem !important;
   margin-top: 3rem !important;
   font-weight: 500 !important;
@@ -1471,18 +1472,14 @@ textarea h3,
 textarea h1 *,
 textarea h2 *,
 textarea h3 *,
-#id_assignfeedbackcomments_editoreditable h1 *,
-#id_assignfeedbackcomments_editoreditable h2 *,
-#id_assignfeedbackcomments_editoreditable h3 *,
-#id_onlinetext_editoreditable h1 *,
-#id_onlinetext_editoreditable h2 *,
-#id_onlinetext_editoreditable h3 *{
+[id*=editoreditable] h1 *,
+[id*=editoreditable] h2 *,
+[id*=editoreditable] h3 *{
   font-size: 1.25rem !important;
   line-height: 1.75rem !important;
 }
 textarea a[href],
-#id_assignfeedbackcomments_editoreditable a[href],
-#id_onlinetext_editoreditable a[href]{
+[id*=editoreditable] a[href]{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -1498,19 +1495,16 @@ textarea a[href],
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 textarea a[href]:hover,
-#id_assignfeedbackcomments_editoreditable a[href]:hover,
-#id_onlinetext_editoreditable a[href]:hover{
+[id*=editoreditable] a[href]:hover{
   --tw-brightness: brightness(1.25) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
 textarea a[href].rounded,
-#id_assignfeedbackcomments_editoreditable a[href].rounded,
-#id_onlinetext_editoreditable a[href].rounded{
+[id*=editoreditable] a[href].rounded{
   border-radius: 0.5rem !important;
 }
 textarea a[href]::before,
-#id_assignfeedbackcomments_editoreditable a[href]::before,
-#id_onlinetext_editoreditable a[href]::before{
+[id*=editoreditable] a[href]::before{
   margin-right: 0.25rem !important;
   aspect-ratio: 1 / 1 !important;
   height: 100% !important;
@@ -1518,8 +1512,7 @@ textarea a[href]::before,
   content: var(--tw-content) !important;
 }
 textarea pre,
-#id_assignfeedbackcomments_editoreditable pre,
-#id_onlinetext_editoreditable pre{
+[id*=editoreditable] pre{
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
@@ -1529,8 +1522,7 @@ textarea pre,
   color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
 textarea table,
-#id_assignfeedbackcomments_editoreditable table,
-#id_onlinetext_editoreditable table{
+[id*=editoreditable] table{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -1541,42 +1533,33 @@ textarea table,
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
 }
 textarea table.rounded,
-#id_assignfeedbackcomments_editoreditable table.rounded,
-#id_onlinetext_editoreditable table.rounded{
+[id*=editoreditable] table.rounded{
   border-radius: 0.5rem !important;
 }
 textarea table thead,
-#id_assignfeedbackcomments_editoreditable table thead,
-#id_onlinetext_editoreditable table thead{
+[id*=editoreditable] table thead{
   --tw-bg-opacity: 1 !important;
   background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 textarea table th,
 textarea table td,
-#id_assignfeedbackcomments_editoreditable table th,
-#id_assignfeedbackcomments_editoreditable table td,
-#id_onlinetext_editoreditable table th,
-#id_onlinetext_editoreditable table td{
+[id*=editoreditable] table th,
+[id*=editoreditable] table td{
   padding: 0.5rem !important;
 }
 textarea .contentwithoutlink,
 textarea .mod-indent-outer,
 textarea .img-text,
 textarea .summary,
-#id_assignfeedbackcomments_editoreditable .contentwithoutlink,
-#id_assignfeedbackcomments_editoreditable .mod-indent-outer,
-#id_assignfeedbackcomments_editoreditable .img-text,
-#id_assignfeedbackcomments_editoreditable .summary,
-#id_onlinetext_editoreditable .contentwithoutlink,
-#id_onlinetext_editoreditable .mod-indent-outer,
-#id_onlinetext_editoreditable .img-text,
-#id_onlinetext_editoreditable .summary{
+[id*=editoreditable] .contentwithoutlink,
+[id*=editoreditable] .mod-indent-outer,
+[id*=editoreditable] .img-text,
+[id*=editoreditable] .summary{
   margin: 0px !important;
   padding: 0px !important;
 }
 textarea.bg-light,
-#id_assignfeedbackcomments_editoreditable.bg-light,
-#id_onlinetext_editoreditable.bg-light{
+[id*=editoreditable].bg-light{
   border-color: inherit !important;
   background-color: inherit !important;
 }
@@ -2690,6 +2673,13 @@ body#page-calendar-view [data-type=event] .calendar_event_course{
   --tw-text-opacity: 1 !important;
   color: rgb(244 63 94 / var(--tw-text-opacity)) !important;
 }
+body#page-grade-report-grader-index .gradeparent{
+  display: grid !important;
+  overflow-x: auto !important;
+}
+body#page-grade-report-grader-index .gradeparent > [role=presentation]{
+  display: none !important;
+}
 body#page-blocks-mygroups-overview .controls {
   display: flex !important;
   align-items: center !important;
@@ -2902,14 +2892,18 @@ body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading
   padding: 0px !important;
 }
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation]{
+  margin: 0px !important;
   display: flex !important;
   height: -moz-fit-content !important;
   height: fit-content !important;
-  width: 100% !important;
+  flex-grow: 1 !important;
   align-items: center !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  padding: 1rem !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=assignment-info]{
   padding: 0px !important;
@@ -2930,8 +2924,8 @@ body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading
 }
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a img{
   margin: 0px !important;
-  height: 50% !important;
-  width: 3rem !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
   border-radius: 9999px !important;
 }
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-info] > h4 a em{
@@ -2942,6 +2936,7 @@ body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading
   padding: 0px !important;
 }
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment{
+  position: relative !important;
   margin: 0px !important;
   display: grid !important;
   flex: 1 1 0% !important;
@@ -3005,6 +3000,12 @@ body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment [data-region=configure-filters]{
+  top: 100% !important;
+  right: 0px !important;
+  --tw-translate-y: -33.333333% !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
 }
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grading-navigation-panel] .container-fluid [data-region=grading-navigation] [data-region=user-selector] .alignment a[data-region=user-filters]{
   display: flex !important;
@@ -3083,53 +3084,213 @@ body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-
   inset: 0px !important;
   overflow-y: auto !important;
 }
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .warningmessages{
+  display: none !important;
+}
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .drawingregion{
   position: relative !important;
+  inset: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader{
+  display: flex !important;
+  height: auto !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  border-style: none !important;
+  background-color: transparent !important;
+  padding: 1rem !important;
+}
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) body.d-flex#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader.align-items-center{
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
+}
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) body.d-flex#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader.align-items-center .form-group{
+  margin: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation{
+  margin: 0px !important;
+  display: flex !important;
+  height: auto !important;
+  background-color: transparent !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation select{
+  height: 2.5rem !important;
+  border-radius: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation .navigate-previous-button,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation .navigate-next-button{
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation .navigate-previous-button:hover,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation .navigate-next-button:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(60 65 74 / var(--tw-bg-opacity)) !important;
+  background-image: none !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation .navigate-previous-button img,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation .navigate-next-button img{
+  margin: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation .navigate-next-button{
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation .navigate-previous-button{
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation-search,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation-expcol{
+  margin: 0px !important;
+  height: auto !important;
+  background-color: transparent !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation-search button,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation-expcol button{
+  display: flex !important;
+  aspect-ratio: 1 / 1 !important;
+  height: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+  padding: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation-search button:hover,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation-expcol button:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(60 65 74 / var(--tw-bg-opacity)) !important;
+  background-image: none !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation-search button img,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .navigation-expcol button img{
+  margin: 0px !important;
+  height: 1rem !important;
+  width: 1rem !important;
+  padding: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .toolbar_group{
+  display: inline-flex !important;
+  gap: 0.5rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .toolbar_group .toolbar{
+  margin: 0px !important;
+  display: flex !important;
+  height: 2.5rem !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .toolbar_group .toolbar button{
+  display: flex !important;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  flex: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0px !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .toolbar_group .toolbar button:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(60 65 74 / var(--tw-bg-opacity)) !important;
+  background-image: none !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .toolbar_group .toolbar button[aria-pressed=true]{
+  pointer-events: none !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(60 65 74 / var(--tw-bg-opacity)) !important;
+  background-image: none !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=review-panel] .pageheader .toolbar_group .toolbar button img{
+  margin: 0px !important;
+  height: 1rem !important;
+  width: 1rem !important;
+  padding: 0px !important;
 }
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel]{
   position: relative !important;
   inset: 0px !important;
   width: auto !important;
   overflow-y: auto !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
   padding: 1rem !important;
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable > .assignsubmission {
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable .assignsubmission{
   margin-top: 1rem !important;
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable > .latesubmission {
-  color: crimson !important;
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable .assignsubmission > div{
+  padding: 0.5rem !important;
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_grade]{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable .submissionstatussubmitted,
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable .earlysubmission{
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  border-radius: 0.5rem !important;
+  background-color: rgb(16 185 129 / 0.1) !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(16 185 129 / var(--tw-text-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] > .submissionstatustable .latesubmission{
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  border-radius: 0.5rem !important;
+  background-color: rgb(244 63 94 / 0.1) !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(244 63 94 / var(--tw-text-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #fitem_id_grade{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  padding: 1rem !important;
+  padding: 0.5rem !important;
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_grade].rounded{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #fitem_id_grade.rounded{
   border-radius: 0.5rem !important;
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_currentgrade]{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #fitem_id_currentgrade{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+  background-color: transparent !important;
+  padding: 0.5rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #fitem_id_currentgrade.rounded{
+  border-radius: 0.5rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #fitem_id_assignfeedbackcomments_editor{
   margin-top: 1rem !important;
   background-color: transparent !important;
-  padding: 1rem !important;
+  padding: 0px !important;
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_currentgrade].rounded{
-  border-radius: 0.5rem !important;
-}
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] {
-  padding: 0 !important;
-  margin-top: 1rem !important;
-}
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor].popout{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #fitem_id_assignfeedbackcomments_editor.popout{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -3140,7 +3301,7 @@ body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-p
   animation: smoothAppear 0.1s ease-in-out;
   padding: 1rem !important;
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor].popout.rounded{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #fitem_id_assignfeedbackcomments_editor.popout.rounded{
   border-radius: 0.5rem !important;
 }
 @keyframes smoothAppear {
@@ -3153,7 +3314,7 @@ body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-p
     translate: 0 0;
   }
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] [data-fieldtype=editor]{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #fitem_id_assignfeedbackcomments_editor [data-fieldtype=editor]{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
@@ -3162,22 +3323,67 @@ body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-p
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   background-color: transparent !important;
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] [id=fitem_id_assignfeedbackcomments_editor] [data-fieldtype=editor].rounded{
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #fitem_id_assignfeedbackcomments_editor [data-fieldtype=editor].rounded{
   border-radius: 0.5rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #id_attemptsettings{
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+  padding: 0.5rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #id_attemptsettings legend{
+  margin: 0px !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  font-weight: 500 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-panel] [data-region=grade] #id_attemptsettings .fcontainer{
+  margin: 0px !important;
+  padding: 0px !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel]{
   position: relative !important;
   grid-column: span 2 / span 2 !important;
+  height: auto !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
 }
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] .collapse-buttons {
   display: none !important;
 }
-body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form button[name=savechanges] {
-  margin-left: 1.5rem !important;
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form label{
+  margin: 0px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form label + a{
+  margin-left: 0.5rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form button{
+  display: flex !important;
+  align-items: center !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form button[name=savechanges]{
+  margin-left: 2rem !important;
+}
+body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form button[name=saveandshownext], body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form button[name=resetbutton]{
+  margin-left: 0.5rem !important;
 }
 body section.block_mygroups div:has(> .course-group-box) {
   display: flex !important;
@@ -3361,6 +3567,27 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
 .modal-dialog [role=dialog].moodle-dialogue-content .moodle-dialogue-bd{
   margin-top: 1rem !important;
   overflow: auto !important;
+}
+.yui3-widget.yui3-panel .modal-content,
+.moodle-dialogue .modal-content,
+.yui3-widget-modal .modal-content,
+.modal-dialog .modal-content{
+  background-color: transparent !important;
+  padding: 0px !important;
+}
+.yui3-widget.yui3-panel .modal-content .modal-header,
+.yui3-widget.yui3-panel .modal-content .modal-body,
+.yui3-widget.yui3-panel .modal-content .modal-footer,
+.moodle-dialogue .modal-content .modal-header,
+.moodle-dialogue .modal-content .modal-body,
+.moodle-dialogue .modal-content .modal-footer,
+.yui3-widget-modal .modal-content .modal-header,
+.yui3-widget-modal .modal-content .modal-body,
+.yui3-widget-modal .modal-content .modal-footer,
+.modal-dialog .modal-content .modal-header,
+.modal-dialog .modal-content .modal-body,
+.modal-dialog .modal-content .modal-footer{
+  padding: 0px !important;
 }
 
 .filemanager{
@@ -3636,6 +3863,7 @@ div.submissionaction button:is(:hover, :focus, :active) {
 }
 .message-app [data-region=content-messages-footer-container],
 .message-app.bg-light [data-region=content-messages-footer-container]{
+  margin-top: 2rem !important;
   padding: 0px !important;
 }
 .message-app [data-region=content-messages-footer-container] > :nth-child(1),
@@ -3664,6 +3892,13 @@ div.submissionaction button:is(:hover, :focus, :active) {
   margin-left: 0.5rem !important;
   flex: 1 1 0% !important;
   justify-self: center !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+}
+.message-app [data-region=content-messages-footer-container] > :nth-child(1) button[data-action=send-message]:hover,
+.message-app.bg-light [data-region=content-messages-footer-container] > :nth-child(1) button[data-action=send-message]:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 .message-app .container-fluid,
 .message-app.bg-light .container-fluid{
@@ -3697,8 +3932,49 @@ div.submissionaction button:is(:hover, :focus, :active) {
   flex: 1 1 0% !important;
   gap: 0.5rem !important;
 }
-.message-app [class*=header-container] [data-region=view-overview],
-.message-app.bg-light [class*=header-container] [data-region=view-overview]{
+.message-app [class*=header-container] [data-route-back],
+.message-app [class*=header-container] [data-route=view-search],
+.message-app.bg-light [class*=header-container] [data-route-back],
+.message-app.bg-light [class*=header-container] [data-route=view-search]{
+  margin: 0px !important;
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+}
+.message-app [class*=header-container] [data-route-back]:hover,
+.message-app [class*=header-container] [data-route=view-search]:hover,
+.message-app.bg-light [class*=header-container] [data-route-back]:hover,
+.message-app.bg-light [class*=header-container] [data-route=view-search]:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+}
+.message-app [class*=header-container] [data-route-back] i,
+.message-app [class*=header-container] [data-route=view-search] i,
+.message-app.bg-light [class*=header-container] [data-route-back] i,
+.message-app.bg-light [class*=header-container] [data-route=view-search] i{
+  --tw-text-opacity: 1 !important;
+  color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
+}
+.message-app [class*=header-container] [data-route-back] i:hover,
+.message-app [class*=header-container] [data-route=view-search] i:hover,
+.message-app.bg-light [class*=header-container] [data-route-back] i:hover,
+.message-app.bg-light [class*=header-container] [data-route=view-search] i:hover{
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+.message-app [class*=header-container] div[data-region*=view],
+.message-app.bg-light [class*=header-container] div[data-region*=view]{
+  margin-bottom: 0.5rem !important;
+  padding: 0px !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview]{
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
@@ -3706,32 +3982,32 @@ div.submissionaction button:is(:hover, :focus, :active) {
   gap: 0.5rem !important;
   padding: 0px !important;
 }
-form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.message-app [class*=header-container] [data-region=view-overview].align-items-center,form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex
-.message-app.bg-light [class*=header-container] [data-region=view-overview].align-items-center{
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.message-app [class*=header-container] div[data-region*=view][data-region=view-overview].align-items-center,form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview].align-items-center{
   flex-wrap: nowrap !important;
   gap: 0.5rem !important;
 }
-form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.message-app [class*=header-container] [data-region=view-overview].align-items-center .form-group,form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex
-.message-app.bg-light [class*=header-container] [data-region=view-overview].align-items-center .form-group{
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.message-app [class*=header-container] div[data-region*=view][data-region=view-overview].align-items-center .form-group,form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview].align-items-center .form-group{
   margin: 0px !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1){
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1){
   display: flex !important;
   flex: 1 1 0% !important;
   align-items: center !important;
   gap: 0.5rem !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1) .input-group.simplesearchform .input-group-append,
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1) .input-group.simplesearchform .input-group-append{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1) .input-group.simplesearchform .input-group-append,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1) .input-group.simplesearchform .input-group-append{
   display: none !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2){
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1) > :nth-child(2),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1) > :nth-child(2){
   margin: 0px !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings],
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings]{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings]{
   display: flex !important;
   height: 2.5rem !important;
   width: 2.5rem !important;
@@ -3740,17 +4016,17 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   --tw-bg-opacity: 1 !important;
   background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings]:hover,
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings]:hover{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings]:hover,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(1) > :nth-child(2) a[data-route=view-settings]:hover{
   --tw-bg-opacity: 1 !important;
   background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > :nth-child(2),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(2){
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2){
   margin: 0px !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > :nth-child(2) a[data-route=view-contacts],
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]{
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -3764,88 +4040,71 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   height: 2.5rem !important;
   gap: 1rem !important;
 }
-.message-app [class*=header-container] [data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:is(:hover, :focus, :active),
-.message-app.bg-light [class*=header-container] [data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:is(:hover, :focus, :active) {
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:is(:hover, :focus, :active),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:is(:hover, :focus, :active) {
   background-color: #272a30 !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation],
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation]{
-  margin-bottom: 0.5rem !important;
-  padding: 0px !important;
-}
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1),
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1){
-  display: flex !important;
+.message-app [class*=header-container] div[data-region*=view][data-region=view-contacts] > :nth-child(1), .message-app [class*=header-container] div[data-region*=view][data-region=view-settings] > :nth-child(1),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-contacts] > :nth-child(1),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-settings] > :nth-child(1){
   gap: 1rem !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) span[data-region=favourite-icon-container],
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) span[data-region=favourite-icon-container]{
-  --tw-text-opacity: 1 !important;
-  color: rgb(168 85 247 / var(--tw-text-opacity)) !important;
-}
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1),
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1){
-  display: flex !important;
-  height: 2.5rem !important;
-  width: 2.5rem !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back],
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back]{
-  margin: 0px !important;
-  display: flex !important;
-  height: 2.5rem !important;
-  width: 2.5rem !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-width: 2px !important;
-  border-style: solid !important;
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-}
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back]:hover,
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back]:hover{
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
-}
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back] i,
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back] i{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-contacts] > :nth-child(1) > :nth-child(2), .message-app [class*=header-container] div[data-region*=view][data-region=view-settings] > :nth-child(1) > :nth-child(2),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-contacts] > :nth-child(1) > :nth-child(2),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-settings] > :nth-child(1) > :nth-child(2){
   --tw-text-opacity: 1 !important;
   color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back] i:hover,
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1) a[data-route-back] i:hover{
-  --tw-text-opacity: 1 !important;
-  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation]{
+  margin-bottom: 0.5rem !important;
+  padding: 0px !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact],
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact]{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1){
+  display: flex !important;
+  gap: 1rem !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) span[data-region=favourite-icon-container],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) span[data-region=favourite-icon-container]{
+  --tw-text-opacity: 1 !important;
+  color: rgb(168 85 247 / var(--tw-text-opacity)) !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1){
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact]{
   display: flex !important;
   align-items: center !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1),
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1){
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1){
   height: 2.5rem !important;
   width: 2.5rem !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1) img,
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1) img{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1) img,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(1) img{
   height: auto !important;
   width: auto !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2),
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2){
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2){
   margin-left: 1rem !important;
   font-family: "Finlandica" !important;
   font-weight: 400 !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *,
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *{
   font-family: inherit !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button,
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button{
   display: flex !important;
   height: 2.5rem !important;
   width: 2.5rem !important;
@@ -3857,8 +4116,8 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   --tw-border-opacity: 1 !important;
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
 }
-.message-app [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button:hover,
-.message-app.bg-light [class*=header-container] > [data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button:hover{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button:hover,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button:hover{
   --tw-border-opacity: 1 !important;
   border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
@@ -3965,6 +4224,7 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
 }
 .message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.received,
 .message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.received{
+  margin-right: 15% !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
   --tw-text-opacity: 1 !important;
@@ -3972,6 +4232,7 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
 }
 .message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.send,
 .message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message.send{
+  margin-left: 15% !important;
   border-width: 2px !important;
   border-style: solid !important;
   --tw-border-opacity: 1 !important;
@@ -3986,6 +4247,14 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   line-height: 1.25rem !important;
   --tw-text-opacity: 1 !important;
   color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
+}
+.message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message [data-region=text-container],
+.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message [data-region=text-container]{
+  overflow-y: hidden !important;
+}
+.message-app [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message [data-region=text-container] p,
+.message-app.bg-light [class*=body-container] [data-region=view-conversation] .content-message-container [data-region=day-container] > div .message [data-region=text-container] p{
+  margin-bottom: -3lh !important;
 }
 .message-app [class*=body-container] [data-region=view-conversation] [data-region=content-placeholder],
 .message-app.bg-light [class*=body-container] [data-region=view-conversation] [data-region=content-placeholder] {
