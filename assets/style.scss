@@ -1844,14 +1844,6 @@ div.submissionaction button {
         > [data-region="header-content"] {
           > div:nth-child(1) {
             @apply flex gap-4 #{!important};
-            // Favourite contact star.
-            span[data-region="favourite-icon-container"] {
-              @apply text-purple-500 #{!important};
-            }
-            // Button back in messenger while the chat is open.
-            > div:nth-child(1) {
-              @apply flex justify-center items-center w-10 h-10 #{!important};
-            }
             // Person in the messenger header.
             a[data-action="view-contact"] {
               @apply flex items-center #{!important};
@@ -1862,10 +1854,14 @@ div.submissionaction button {
                   @apply h-auto w-auto #{!important};
                 }
               }
+              // Favourite contact star.
+              span[data-region="favourite-icon-container"] {
+                @apply text-purple-500 #{!important};
+              }
               // Name, surname, middlename.
               > :nth-child(2) {
                 @apply ml-4 font-["Finlandica"] font-normal #{!important};
-                * {
+                *:not(.fa-star) {
                   @apply font-[inherit] #{!important};
                 }
               }

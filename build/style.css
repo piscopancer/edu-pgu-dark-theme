@@ -4065,19 +4065,6 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   display: flex !important;
   gap: 1rem !important;
 }
-.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) span[data-region=favourite-icon-container],
-.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) span[data-region=favourite-icon-container]{
-  --tw-text-opacity: 1 !important;
-  color: rgb(168 85 247 / var(--tw-text-opacity)) !important;
-}
-.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1),
-.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(1){
-  display: flex !important;
-  height: 2.5rem !important;
-  width: 2.5rem !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
 .message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact],
 .message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact]{
   display: flex !important;
@@ -4093,14 +4080,19 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   height: auto !important;
   width: auto !important;
 }
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] span[data-region=favourite-icon-container],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] span[data-region=favourite-icon-container]{
+  --tw-text-opacity: 1 !important;
+  color: rgb(168 85 247 / var(--tw-text-opacity)) !important;
+}
 .message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2),
 .message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2){
   margin-left: 1rem !important;
   font-family: "Finlandica" !important;
   font-weight: 400 !important;
 }
-.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *,
-.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *{
+.message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *:not(.fa-star),
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) a[data-action=view-contact] > :nth-child(2) *:not(.fa-star){
   font-family: inherit !important;
 }
 .message-app [class*=header-container] div[data-region*=view][data-region=view-conversation] > [data-region=header-content] > div:nth-child(1) > div:nth-child(3) button,
