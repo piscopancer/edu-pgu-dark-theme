@@ -471,14 +471,14 @@ footer#page-footer{
 
 ::-moz-selection{
   --tw-bg-opacity: 1 !important;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
+  background-color: rgb(60 65 74 / var(--tw-bg-opacity)) !important;
   --tw-text-opacity: 1 !important;
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 
 ::selection{
   --tw-bg-opacity: 1 !important;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
+  background-color: rgb(60 65 74 / var(--tw-bg-opacity)) !important;
   --tw-text-opacity: 1 !important;
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
@@ -584,20 +584,21 @@ section.block_online_users ul > li > .user > a{
   padding-left: 0.5rem !important;
   padding-right: 0.5rem !important;
 }
-section.block_online_users ul > li > .message {
-  margin: 0 !important;
+section.block_online_users ul > li > .message{
+  margin: 0px !important;
 }
-section.block_online_users ul > li > .message > a {
+section.block_online_users ul > li > .message > a{
   padding: 0.25rem !important;
 }
-section.block_online_users ul > li > .message > a:hover, section.block_online_users ul > li > .message > a:focus, section.block_online_users ul > li > .message > a:active {
+section.block_online_users ul > li > .message > a:hover, section.block_online_users ul > li > .message > a:focus, section.block_online_users ul > li > .message > a:active{
   background-color: transparent !important;
 }
-section.block_online_users ul > li > .message > a:hover > i::before, section.block_online_users ul > li > .message > a:focus > i::before, section.block_online_users ul > li > .message > a:active > i::before {
-  color: #a2a8b1 !important;
+section.block_online_users ul > li > .message > a:hover > i::before, section.block_online_users ul > li > .message > a:focus > i::before, section.block_online_users ul > li > .message > a:active > i::before{
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
-section.block_online_users ul > li > .message > a > i {
-  margin: 0 !important;
+section.block_online_users ul > li > .message > a > i{
+  margin: 0px !important;
 }
 section.block_activity_modules ul{
   display: flex !important;
@@ -690,11 +691,10 @@ i.fa-exclamation-circle.text-danger,
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   animation: smoothAppear 0.1s ease-in-out;
-  background-color: #0a0c11 !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
   padding: 0.5rem !important;
 }
 .popover-region-container.rounded{
@@ -1107,19 +1107,19 @@ a:focus-visible{
 }
 button:disabled, button.page-link,
 a:disabled,
-a.page-link {
+a.page-link{
   background-color: transparent !important;
 }
 button i.icon.text-info,
-a i.icon.text-info {
-  color: hsl(270, 50%, 45%) !important;
-  margin: 0 !important;
+a i.icon.text-info{
+  margin: 0px !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(168 85 247 / var(--tw-text-opacity)) !important;
 }
-button i.icon.text-info:hover, button i.icon.text-info:active, button i.icon.text-info:focus,
-a i.icon.text-info:hover,
-a i.icon.text-info:active,
-a i.icon.text-info:focus {
-  color: hsl(275, 75%, 60%) !important;
+button i.icon.text-info:hover,
+a i.icon.text-info:hover{
+  --tw-text-opacity: 1 !important;
+  color: rgb(192 132 252 / var(--tw-text-opacity)) !important;
 }
 
 select{
@@ -1218,27 +1218,30 @@ table.generaltable:not(.course-box) th, table.generaltable:not(.course-box) td,
 table.preference-table th,
 table.preference-table td,
 table#user-grades th,
-table#user-grades td {
+table#user-grades td{
   padding: 0.75rem !important;
 }
 table.generaltable:not(.course-box) *,
 .course-content table *,
 table.preference-table *,
-table#user-grades * {
+table#user-grades *{
   background-color: transparent !important;
-  color: #a2a8b1 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
 table.generaltable:not(.course-box) a,
 .course-content table a,
 table.preference-table a,
-table#user-grades a {
-  color: #d1d5db !important;
+table#user-grades a{
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
 table.generaltable:not(.course-box) a:hover,
 .course-content table a:hover,
 table.preference-table a:hover,
-table#user-grades a:hover {
-  color: #a2a8b1 !important;
+table#user-grades a:hover{
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 
 [class*=assignsubmission_onlinetext]:has(> .no-overflow){
@@ -1254,9 +1257,9 @@ table#user-grades a:hover {
 [class*=assignsubmission_onlinetext]:has(> .no-overflow).rounded{
   border-radius: 0.5rem !important;
 }
-[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow {
-  overflow: visible !important;
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow{
   margin-top: 1rem !important;
+  overflow: visible !important;
 }
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow h1,
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow h2,
@@ -1594,6 +1597,23 @@ textarea.bg-light,
 }
 .editor_atto_wrap .editor_atto .editor_atto_content_wrap{
   background-color: transparent !important;
+}
+.editor_atto_wrap .editor_atto_notification{
+  margin-top: 0.5rem !important;
+}
+.editor_atto_wrap .editor_atto_notification .atto_info{
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
 }
 
 /* RECENTLY ADDED COURSES */
@@ -1974,42 +1994,6 @@ td.hasevent a:hover{
 .card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2){
   margin: 0px !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2) > .bar-frame, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2) > .bar-frame{
-  height: 0.5rem !important;
-  overflow: hidden !important;
-  border-radius: 0.125rem !important;
-  background-color: rgb(168 85 247 / 0.2) !important;
-}
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill{
-  position: relative !important;
-  overflow: hidden !important;
-  background-color: rgb(168 85 247 / 0.5) !important;
-}
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill::after, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2) > .bar-frame > .bar-fill::after {
-  animation: glare 5s infinite forwards linear !important;
-  left: 50%;
-  position: absolute !important;
-  top: 50% !important;
-  height: 5rem !important;
-  width: 5rem !important;
-  --tw-translate-x: -50% !important;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
-  border-radius: 9999px !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(168 85 247 / var(--tw-bg-opacity)) !important;
-  --tw-blur: blur(1rem) !important;
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
-  --tw-content: "" !important;
-  content: var(--tw-content) !important;
-}
-@keyframes glare {
-  0% {
-    left: calc(0% - 5rem) !important;
-  }
-  100% {
-    left: calc(100% + 5rem) !important;
-  }
-}
 .card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(3), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(3) {
   display: flex !important;
   flex-direction: row !important;
@@ -2062,8 +2046,9 @@ body#page-login-index button#loginbtn{
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-body#page-login-index button#loginbtn:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+body#page-login-index button#loginbtn:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 body#page-login-index .forgetpass a{
   display: block !important;
@@ -2213,6 +2198,33 @@ body#page-mod-assign-view .activity-navigation, body#page-mod-assign-editsubmiss
   margin-top: 2rem !important;
   padding: 0px !important;
 }
+body#page-mod-assign-view .activity-navigation > :nth-child(1), body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1), body#page-mod-quiz-view .activity-navigation > :nth-child(1){
+  margin: 0px !important;
+  flex-wrap: nowrap !important;
+}
+@media not all and (min-width: 768px){
+  body#page-mod-assign-view .activity-navigation > :nth-child(1), body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1), body#page-mod-quiz-view .activity-navigation > :nth-child(1){
+    display: block !important;
+  }
+}
+body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4, body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4, body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4{
+  width: auto !important;
+  max-width: none !important;
+  flex: 1 !important;
+  padding: 0px !important;
+}
+body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4 > :nth-child(1), body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4 > :nth-child(1), body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4 > :nth-child(1){
+  float: none !important;
+}
+body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a, body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a, body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a{
+  text-align: start !important;
+}
+body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:has(select), body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:has(select), body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:has(select){
+  flex: 2 !important;
+}
+body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a, body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a, body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a{
+  text-align: end !important;
+}
 body#page-mod-assign-view .activity-navigation #prev-activity-link,
 body#page-mod-assign-view .activity-navigation #next-activity-link, body#page-mod-assign-editsubmission .activity-navigation #prev-activity-link,
 body#page-mod-assign-editsubmission .activity-navigation #next-activity-link, body#page-mod-quiz-view .activity-navigation #prev-activity-link,
@@ -2231,6 +2243,42 @@ body#page-mod-quiz-view .activity-navigation #next-activity-link:hover{
   --tw-text-opacity: 1 !important;
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
+body#page-mod-assign-view .activity-navigation select, body#page-mod-assign-editsubmission .activity-navigation select, body#page-mod-quiz-view .activity-navigation select{
+  width: auto !important;
+}
+body#page-mod-assign-editsubmission .editsubmissionform form{
+  margin: 0px !important;
+  padding: 0px !important;
+}
+body#page-mod-assign-editsubmission .editsubmissionform form .form-group{
+  margin: 0px !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start !important;
+  gap: 1rem !important;
+}
+@media not all and (min-width: 768px){
+  body#page-mod-assign-editsubmission .editsubmissionform form .form-group{
+    display: block !important;
+  }
+}
+body#page-mod-assign-editsubmission .editsubmissionform form .form-group .col-form-label{
+  padding: 0px !important;
+}
+@media not all and (min-width: 768px){
+  body#page-mod-assign-editsubmission .editsubmissionform form .form-group .col-form-label{
+    margin-bottom: 1rem !important;
+  }
+}
+body#page-mod-assign-editsubmission .editsubmissionform form .form-group .form-inline{
+  flex: 1 1 auto !important;
+  padding: 0px !important;
+}
+body#page-mod-assign-editsubmission .editsubmissionform form .btn-cancel{
+  margin-left: 0.5rem !important;
+}
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main {
   box-shadow: 0px 0px 2rem hsla(0, 0%, 0%, 0.1) !important;
   border-radius: 0.5rem !important;
@@ -2239,6 +2287,11 @@ body:not(#page-login-index, #page-my-index) div#region-main-box > section#region
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+}
+@media not all and (min-width: 768px){
+  body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main{
+    padding: 1rem !important;
+  }
 }
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main.rounded{
   border-radius: 0.5rem !important;
@@ -2409,8 +2462,9 @@ body#page-user-profile .userprofile .page-context-header .header-button-group > 
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-body#page-user-profile .userprofile .page-context-header .header-button-group > a:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+body#page-user-profile .userprofile .page-context-header .header-button-group > a:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 body#page-user-profile .userprofile .profile_tree a[href*="user/edit"]{
   display: flex !important;
@@ -2425,8 +2479,9 @@ body#page-user-profile .userprofile .profile_tree a[href*="user/edit"]{
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-body#page-user-profile .userprofile .profile_tree a[href*="user/edit"]:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+body#page-user-profile .userprofile .profile_tree a[href*="user/edit"]:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 body#page-user-profile .userprofile .profile_tree a[href*=mailto]{
   border-radius: 0.5rem !important;
@@ -2570,6 +2625,7 @@ body#page-enrol-single-index form > :nth-child(2){
 }
 body#page-enrol-single-index form input[type=submit]{
   display: flex !important;
+  height: 3rem !important;
   align-items: center !important;
   justify-content: center !important;
   border-width: 2px !important;
@@ -2579,13 +2635,16 @@ body#page-enrol-single-index form input[type=submit]{
   background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
+}
+body#page-enrol-single-index form input[type=submit]:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+body#page-enrol-single-index form input[type=submit]{
   display: inline-flex !important;
   height: 2.5rem !important;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
-}
-body#page-enrol-single-index form input[type=submit]:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
 }
 body#page-enrol-single-index form a[href=""]{
   display: inline-flex !important;
@@ -2680,27 +2739,27 @@ body#page-grade-report-grader-index .gradeparent{
 body#page-grade-report-grader-index .gradeparent > [role=presentation]{
   display: none !important;
 }
-body#page-blocks-mygroups-overview .controls {
+body#page-blocks-mygroups-overview .controls{
   display: flex !important;
   align-items: center !important;
   gap: 0.5rem !important;
 }
-body#page-blocks-mygroups-overview .controls > .pix-box {
+body#page-blocks-mygroups-overview .controls > .pix-box{
   display: flex !important;
   flex-direction: row !important;
   gap: 0.5rem !important;
 }
-body#page-blocks-mygroups-overview .controls > .pix-box > a {
-  padding: 0 !important;
+body#page-blocks-mygroups-overview .controls > .pix-box > a{
+  padding: 0px !important;
 }
-body#page-blocks-mygroups-overview .controls > .pix-box > a > img {
+body#page-blocks-mygroups-overview .controls > .pix-box > a > img{
   display: none !important;
 }
-body#page-blocks-mygroups-overview .legend-box {
+body#page-blocks-mygroups-overview .legend-box{
   display: none !important;
 }
-body#page-blocks-mygroups-overview table#group-overview td.c0 > a > img {
-  margin: 0 !important;
+body#page-blocks-mygroups-overview table#group-overview td.c0 > a > img{
+  margin: 0px !important;
 }
 body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2){
   border-radius: 0.5rem !important;
@@ -2709,34 +2768,39 @@ body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2){
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  background-color: transparent !important;
+  margin-top: 0.5rem !important;
   display: flex !important;
-  margin-top: 0.5rem;
+  background-color: transparent !important;
 }
 body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2).rounded{
   border-radius: 0.5rem !important;
 }
-body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a {
+body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a{
+  position: relative !important;
   height: 2rem !important;
   width: 2rem !important;
-  position: relative !important;
 }
-body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a:is(:hover, :focus, :active)::after {
-  background-color: #a2a8b1;
+body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a:is(:hover, :focus, :active)::after{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(159 166 180 / var(--tw-bg-opacity)) !important;
 }
 body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a > img,
-body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a > i {
+body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a > i{
   display: none !important;
 }
-body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  width: 1rem;
-  height: 1rem;
-  background-color: #d1d5db;
+body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a::after{
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  height: 1rem !important;
+  width: 1rem !important;
+  --tw-translate-x: -50% !important;
+  --tw-translate-y: -50% !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(159 166 180 / var(--tw-bg-opacity)) !important;
+  --tw-content: "" !important;
+  content: var(--tw-content) !important;
 }
 body#page-blocks-mygroups-overview table#group-overview td.c0 > :nth-child(2) > a[href*=message]::after {
   -webkit-mask: url("chrome-extension://__MSG_@@extension_id__/assets/comment-solid.svg");
@@ -3442,35 +3506,40 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   display: none !important;
 }
 
-.bar-frame {
-  background-color: hsl(265, 50%, 20%) !important;
-  border-radius: 0.5rem !important;
+.bar-frame{
+  height: 0.5rem !important;
   overflow: hidden !important;
+  border-radius: 0.125rem !important;
+  background-color: rgb(168 85 247 / 0.2) !important;
 }
-.bar-frame > .bar-fill {
+.bar-frame > .bar-fill{
   position: relative !important;
-  background-color: hsl(270, 50%, 45%) !important;
   overflow: hidden !important;
+  background-color: rgb(168 85 247 / 0.5) !important;
 }
 .bar-frame > .bar-fill::after {
-  content: "";
-  position: absolute;
-  background-color: hsl(275, 75%, 60%);
-  filter: blur(1rem);
-  width: 5rem;
-  height: 5rem;
-  border-radius: 50%;
-  top: 50%;
+  animation: glare 5s infinite forwards linear !important;
   left: 50%;
-  translate: -50% -50%;
-  animation: glare 5s infinite forwards linear;
+  position: absolute !important;
+  top: 50% !important;
+  height: 5rem !important;
+  width: 5rem !important;
+  --tw-translate-x: -50% !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+  border-radius: 9999px !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(168 85 247 / var(--tw-bg-opacity)) !important;
+  --tw-blur: blur(1rem) !important;
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
+  --tw-content: "" !important;
+  content: var(--tw-content) !important;
 }
 @keyframes glare {
   0% {
-    left: calc(0% - 5rem);
+    left: calc(0% - 5rem) !important;
   }
   100% {
-    left: calc(100% + 5rem);
+    left: calc(100% + 5rem) !important;
   }
 }
 
@@ -3605,45 +3674,67 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
 .filemanager.rounded{
   border-radius: 0.5rem !important;
 }
-.filemanager .filemanager-container,
-.filemanager .card{
+.filemanager .fp-restrictions *{
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
+}
+.filemanager .fp-navbar{
+  display: none !important;
+}
+.filemanager .filemanager-container{
+  height: 12rem !important;
   overflow: visible !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
   --tw-shadow: 0 0 #0000 !important;
   --tw-shadow-colored: 0 0 #0000 !important;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
   outline: 2px solid transparent !important;
   outline-offset: 2px !important;
+  transition-duration: 100ms !important;
 }
-.filemanager .filemanager-container .fm-empty-container,
-.filemanager .card .fm-empty-container{
-  border-radius: 0.5rem !important;
-  border-width: 2px !important;
+.filemanager .filemanager-container:hover{
   --tw-border-opacity: 1 !important;
-  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  position: relative !important;
-  inset: 0px !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
-  padding: 1rem !important;
+  border-color: rgb(168 85 247 / var(--tw-border-opacity)) !important;
 }
-.filemanager .filemanager-container .fm-empty-container.rounded,
-.filemanager .card .fm-empty-container.rounded{
+.filemanager .filemanager-container .fm-empty-container{
+  inset: 0px !important;
+  top: 0.75rem !important;
+  padding: 0px !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+.filemanager .filemanager-container .fm-empty-container .dndupload-message{
+  display: block !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+section.filemanager .filemanager-container .fm-empty-container .dndupload-message{
+  overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
-.filemanager .filemanager-container .fm-empty-container .dndupload-message,
-.filemanager .card .fm-empty-container .dndupload-message{
-  height: 30rem !important;
-}
-.filemanager .filemanager-container .fm-empty-container .dndupload-message .dndupload-arrow,
-.filemanager .card .fm-empty-container .dndupload-message .dndupload-arrow {
-  animation: file 1s infinite alternate ease-in-out;
-  position: relative !important;
+.filemanager .filemanager-container .fm-empty-container .dndupload-message .dndupload-arrow{
   inset: 0px !important;
-  margin-bottom: 1rem !important;
+  display: flex !important;
+  height: auto !important;
   cursor: pointer !important;
-  background-image: url(https://imgur.com/cYYJ8OG.png) !important;
-  background-size: contain !important;
+  align-items: center !important;
+  justify-content: center !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  background-image: none !important;
+}
+.filemanager .filemanager-container .fm-empty-container .dndupload-message .dndupload-arrow::after {
+  animation: file 1s infinite alternate ease-in-out;
+  height: 5rem !important;
+  width: 5rem !important;
+  background-image: url(https://imgur.com/jDaGVzD.png) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  --tw-content: "" !important;
+  content: var(--tw-content) !important;
 }
 @keyframes file {
   from {
@@ -3651,25 +3742,27 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
     opacity: 1;
   }
   to {
-    translate: 0 0.5rem;
+    translate: 0 0.2rem;
     opacity: 0.5;
   }
 }
-.filemanager .filemanager-container.dndupload-over .fm-empty-container,
-.filemanager .card.dndupload-over .fm-empty-container {
-  outline: 0.1rem solid hsl(275, 75%, 60%) !important;
+.filemanager .filemanager-container.dndupload-over .fm-empty-container{
+  outline-style: solid !important;
+  outline-width: 2px !important;
+  outline-color: #a855f7 !important;
 }
-.filemanager .filemanager-container .dndupload-target,
-.filemanager .card .dndupload-target {
+.filemanager .filemanager-container .dndupload-target{
   display: none !important;
 }
 .filemanager .filemanager-container .fp-upload-form input,
-.filemanager .filemanager-container .fp-upload-form div,
-.filemanager .card .fp-upload-form input,
-.filemanager .card .fp-upload-form div {
-  background-color: #0a0c11 !important;
-  padding: 0.75rem 2rem !important;
+.filemanager .filemanager-container .fp-upload-form div{
   border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 .moodle-dialogue.filepicker .col-md-9{
@@ -3734,13 +3827,13 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   flex-direction: column !important;
   align-items: flex-start !important;
 }
-.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) {
-  padding: 0 !important;
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2){
+  padding: 0px !important;
 }
 .moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) input {
+  animation: pulse 1s infinite alternate ease-in-out;
   width: 100% !important;
   padding: 1rem !important;
-  animation: pulse 1s infinite alternate ease-in-out;
 }
 @keyframes pulse {
   0% {
@@ -3750,10 +3843,10 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
     opacity: 1;
   }
 }
-.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) input::-webkit-file-upload-button {
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) input::-webkit-file-upload-button{
   display: none !important;
 }
-.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) input:hover {
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-file div:nth-child(2) input:hover{
   cursor: pointer !important;
 }
 .moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-upload-btn{
@@ -3769,19 +3862,22 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-upload-btn:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+.moodle-dialogue.filepicker .moodle-dialogue-bd .container .file-picker.fp-generallayout .fp-repo-items .fp-upload-btn:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 
 .submissionsummarytable table .submissionnotgraded,
-.submissionstatustable .submissionnotgraded {
-  color: #d1d5db !important;
-  font-weight: bold !important;
+.submissionstatustable .submissionnotgraded{
+  font-weight: 700 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 .submissionsummarytable table .submissiongraded,
-.submissionstatustable .submissiongraded {
-  color: hsl(80, 100%, 40%) !important;
-  font-weight: bold !important;
+.submissionstatustable .submissiongraded{
+  font-weight: 700 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(16 185 129 / var(--tw-text-opacity)) !important;
 }
 .submissionsummarytable table .comment-area,
 .submissionstatustable .comment-area{
@@ -3791,9 +3887,10 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+  margin: 0px !important;
+  margin-top: 1rem !important;
   background-color: transparent !important;
   padding: 0.5rem !important;
-  margin: 1rem 0 0 0 !important;
 }
 .submissionsummarytable table .comment-area.rounded,
 .submissionstatustable .comment-area.rounded{
@@ -3813,8 +3910,10 @@ div.submissionaction button{
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-div.submissionaction button:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+
+div.submissionaction button:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 
 .message-app,
@@ -3940,6 +4039,7 @@ div.submissionaction button:is(:hover, :focus, :active) {
   display: flex !important;
   height: 2.5rem !important;
   width: 2.5rem !important;
+  flex-shrink: 0 !important;
   align-items: center !important;
   justify-content: center !important;
   border-radius: 0.5rem !important;
@@ -4029,6 +4129,7 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
 .message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts],
 .message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]{
   display: flex !important;
+  height: 3rem !important;
   align-items: center !important;
   justify-content: center !important;
   border-width: 2px !important;
@@ -4038,12 +4139,16 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:hover,
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts],
+.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]{
   height: 2.5rem !important;
   gap: 1rem !important;
-}
-.message-app [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:is(:hover, :focus, :active),
-.message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-overview] > :nth-child(2) a[data-route=view-contacts]:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
 }
 .message-app [class*=header-container] div[data-region*=view][data-region=view-contacts] > :nth-child(1), .message-app [class*=header-container] div[data-region*=view][data-region=view-settings] > :nth-child(1),
 .message-app.bg-light [class*=header-container] div[data-region*=view][data-region=view-contacts] > :nth-child(1),
@@ -4344,9 +4449,10 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-.message-app [class*=body-container] [data-region=view-conversation] [data-region=confirm-dialogue] button:is(:hover, :focus, :active),
-.message-app.bg-light [class*=body-container] [data-region=view-conversation] [data-region=confirm-dialogue] button:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+.message-app [class*=body-container] [data-region=view-conversation] [data-region=confirm-dialogue] button:hover,
+.message-app.bg-light [class*=body-container] [data-region=view-conversation] [data-region=confirm-dialogue] button:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts],
 .message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] {
@@ -4392,8 +4498,9 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content,
-.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content {
-  background-color: #0a0c11 !important;
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a,
 .message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a {
@@ -4434,8 +4541,10 @@ div.qn_buttons a.qnbutton:hover{
   --tw-brightness: brightness(1.25) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
-div.qn_buttons a.qnbutton.thispage {
-  outline: 0.1rem solid #272a30 !important;
+div.qn_buttons a.qnbutton.thispage{
+  outline-style: solid !important;
+  outline-width: 2px !important;
+  outline-color: #272a30 !important;
 }
 div.qn_buttons a.qnbutton.notyetanswered .trafficlight{
   background-color: transparent !important;
@@ -4467,9 +4576,10 @@ div.qn_buttons a.qnbutton.incorrect {
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-.othernav a.endtestlink:is(:hover, :focus, :active),
-.othernav a.mod_quiz-next-nav:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+.othernav a.endtestlink:hover,
+.othernav a.mod_quiz-next-nav:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 
 div.quizattempt button{
@@ -4485,8 +4595,10 @@ div.quizattempt button{
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-div.quizattempt button:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+
+div.quizattempt button:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 
 form#mod_quiz_preflight_form {
@@ -4597,20 +4709,23 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
 [id*=question] .formulation .ablock .answer.rounded{
   border-radius: 0.5rem !important;
 }
-[id*=question] .formulation .ablock .answer > tbody > tr:first-child > td {
+[id*=question] .formulation .ablock .answer > tbody > tr:first-child > td{
   padding-top: 1rem !important;
 }
-[id*=question] .formulation .ablock .answer > tbody > tr:last-child > td {
+[id*=question] .formulation .ablock .answer > tbody > tr:last-child > td{
   padding-bottom: 1rem !important;
 }
-[id*=question] .formulation .ablock .answer > tbody > tr > td {
-  padding: 0.5rem 1rem !important;
+[id*=question] .formulation .ablock .answer > tbody > tr > td{
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
-[id*=question] .formulation .ablock .answer > tbody > tr > td p {
-  margin: 0 !important;
+[id*=question] .formulation .ablock .answer > tbody > tr > td p{
+  margin: 0px !important;
 }
 [id*=question] .formulation .ablock .answer input[type=radio],
-[id*=question] .formulation .ablock .answer input[type=checkbox] {
+[id*=question] .formulation .ablock .answer input[type=checkbox]{
   display: none !important;
 }
 [id*=question] .formulation .ablock .answer > div{
@@ -4633,9 +4748,10 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   --tw-text-opacity: 1 !important;
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
-[id*=question] .formulation .ablock .answer > div:has(input:checked) label {
-  color: #d1d5db !important;
-  flex: 1 !important;
+[id*=question] .formulation .ablock .answer > div:has(input:checked) label{
+  flex: 1 1 0% !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
 [id*=question] .formulation .ablock .answer > div div[data-region=answer-label],
 [id*=question] .formulation .ablock .answer > div label{
@@ -4689,9 +4805,10 @@ div.submitbtns a{
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-div.submitbtns button:is(:hover, :focus, :active),
-div.submitbtns a:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+div.submitbtns button:hover,
+div.submitbtns a:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 
 table.quizattemptsummary a[title^=Просмотр]{
@@ -4707,38 +4824,43 @@ table.quizattemptsummary a[title^=Просмотр]{
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-table.quizattemptsummary a[title^=Просмотр]:is(:hover, :focus, :active) {
-  background-color: #272a30 !important;
+
+table.quizattemptsummary a[title^=Просмотр]:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
 }
 
-form[action*=review] i {
+form[action*=review] i{
   margin: 0.5rem !important;
 }
-form[action*=review] table.answer * {
-  margin: 0 !important;
+form[action*=review] table.answer *{
+  margin: 0px !important;
 }
-form[action*=review] table.answer td {
-  padding: 0.5rem 1rem !important;
+form[action*=review] table.answer td{
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
-form[action*=review] table.answer td.control {
+form[action*=review] table.answer td.control{
   display: flex !important;
-  align-items: center !important;
   flex-wrap: nowrap !important;
+  align-items: center !important;
   gap: 1rem !important;
 }
-form[action*=review] .form-inline {
+form[action*=review] .form-inline{
   align-items: flex-start !important;
 }
-form[action*=review] .form-inline > label {
+form[action*=review] .form-inline > label{
   display: inline-flex !important;
   gap: 1rem !important;
 }
-form[action*=review] .form-inline > label span.answer {
+form[action*=review] .form-inline > label span.answer{
   display: inline-flex !important;
   width: -moz-fit-content !important;
   width: fit-content !important;
 }
-form[action*=review] .form-inline > label span.answer input {
+form[action*=review] .form-inline > label span.answer input{
   width: 10rem !important;
 }
 
