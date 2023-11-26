@@ -346,10 +346,10 @@ i.fa-exclamation-circle.text-danger,
   }
   // NAVBAR
   > nav.navbar.fixed-top {
-    @apply bg-transparent relative flex items-center pt-12 pr-8 pl-8 shadow-none max-h-[initial] #{!important};
+    @apply bg-transparent relative flex items-center my-10 mx-4 p-0 shadow-none max-h-[initial] #{!important};
     // LEFT HAMBURGER
     [data-region="drawer-toggle"] {
-      @apply w-8 h-8 bg-gray-900 rounded-lg mr-6 #{!important};
+      @apply w-8 h-8 rounded-lg mr-6 border-2 border-gray-900 hover:border-gray-800 #{!important};
       button:has(i.fa-bars) {
         @apply flex p-0 h-full aspect-square justify-center items-center text-gray-400 hover:text-gray-200 m-0 #{!important};
         i {
@@ -823,6 +823,9 @@ td.hasevent {
 
 // MAIN BLOCK / SUBJECTS / SUBJECT PAGE
 
+#page {
+  @apply my-0 p-0 px-4 #{!important};
+}
 body {
   // LOGIN
   &#page-login-index {
@@ -876,20 +879,20 @@ body {
     .activity-navigation {
       @apply mx-0 mb-0 mt-8 p-0 #{!important};
       > :nth-child(1) {
-        @apply max-md:block m-0 flex-nowrap #{!important};
+        @apply max-md:block m-0 flex-nowrap gap-4 #{!important};
         .col-md-4 {
           @apply p-0 w-auto flex-[1] max-w-none #{!important};
           > :nth-child(1) {
             @apply float-none #{!important};
           }
           &:nth-child(1) a {
-            @apply text-start #{!important};
+            @apply text-start block #{!important};
           }
           &:has(select) {
             @apply flex-[2] #{!important};
           }
           &:nth-child(3) a {
-            @apply text-end #{!important};
+            @apply text-end block #{!important};
           }
         }
       }

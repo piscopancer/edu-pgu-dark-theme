@@ -740,13 +740,15 @@ i.fa-exclamation-circle.text-danger,
 }
 #page-wrapper > nav.navbar.fixed-top{
   position: relative !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
   display: flex !important;
   max-height: initial !important;
   align-items: center !important;
   background-color: transparent !important;
-  padding-top: 3rem !important;
-  padding-right: 2rem !important;
-  padding-left: 2rem !important;
+  padding: 0px !important;
   --tw-shadow: 0 0 #0000 !important;
   --tw-shadow-colored: 0 0 #0000 !important;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
@@ -756,8 +758,13 @@ i.fa-exclamation-circle.text-danger,
   height: 2rem !important;
   width: 2rem !important;
   border-radius: 0.5rem !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+}
+#page-wrapper > nav.navbar.fixed-top [data-region=drawer-toggle]:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
 #page-wrapper > nav.navbar.fixed-top [data-region=drawer-toggle] button:has(i.fa-bars){
   margin: 0px !important;
@@ -2014,6 +2021,14 @@ td.hasevent a:hover{
   display: none !important;
 }
 
+#page{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  padding: 0px !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
 body#page-login-index section#region-main{
   background-image: none !important;
   --tw-shadow: 0 0 #0000 !important;
@@ -2201,6 +2216,7 @@ body#page-mod-assign-view .activity-navigation, body#page-mod-assign-editsubmiss
 body#page-mod-assign-view .activity-navigation > :nth-child(1), body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1), body#page-mod-quiz-view .activity-navigation > :nth-child(1){
   margin: 0px !important;
   flex-wrap: nowrap !important;
+  gap: 1rem !important;
 }
 @media not all and (min-width: 768px){
   body#page-mod-assign-view .activity-navigation > :nth-child(1), body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1), body#page-mod-quiz-view .activity-navigation > :nth-child(1){
@@ -2217,13 +2233,23 @@ body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4 > :nth-
   float: none !important;
 }
 body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a, body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a, body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a{
+  display: block !important;
   text-align: start !important;
+}
+sectionbody#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a,section body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a,section body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a{
+  overflow: hidden !important;
+  border-radius: 0.5rem !important;
 }
 body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:has(select), body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:has(select), body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:has(select){
   flex: 2 !important;
 }
 body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a, body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a, body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a{
+  display: block !important;
   text-align: end !important;
+}
+sectionbody#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a,section body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a,section body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a{
+  overflow: hidden !important;
+  border-radius: 0.5rem !important;
 }
 body#page-mod-assign-view .activity-navigation #prev-activity-link,
 body#page-mod-assign-view .activity-navigation #next-activity-link, body#page-mod-assign-editsubmission .activity-navigation #prev-activity-link,
