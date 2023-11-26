@@ -1268,14 +1268,22 @@ table#user-grades a:hover{
   margin-top: 1rem !important;
   overflow: visible !important;
 }
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow,
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow *{
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow strong,
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow b{
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow h1,
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow h2,
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow h3{
   margin-bottom: 2rem !important;
   margin-top: 3rem !important;
   font-weight: 500 !important;
-  --tw-text-opacity: 1 !important;
-  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow h1 *,
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow h2 *,
@@ -1321,26 +1329,64 @@ table#user-grades a:hover{
   --tw-text-opacity: 1 !important;
   color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow ul,
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow ol{
+  list-style-position: inside !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow ul *,
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow ol *{
+  background-color: transparent !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow ul{
+  list-style-type: disc !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow ol{
+  list-style-type: decimal !important;
+}
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table{
+  margin-bottom: 1rem !important;
+  border-collapse: separate !important;
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
-  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  margin-bottom: 1rem !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
-[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table.rounded{
-  border-radius: 0.5rem !important;
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table caption{
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  padding: 0px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 400 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
-[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table thead{
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table th:first-of-type{
+  border-top-left-radius: 0.375rem !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table th:last-of-type{
+  border-top-right-radius: 0.375rem !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table tr:last-of-type td:first-of-type{
+  border-bottom-left-radius: 0.375rem !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table tr:last-of-type td:last-of-type{
+  border-bottom-right-radius: 0.375rem !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table thead th{
   --tw-bg-opacity: 1 !important;
-  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  font-weight: 500 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table th,
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table td{
   padding: 0.5rem !important;
+}
+[class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow table tbody tr:nth-child(odd){
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow .contentwithoutlink,
 [class*=assignsubmission_onlinetext]:has(> .no-overflow) > .no-overflow .mod-indent-outer,
@@ -1467,6 +1513,20 @@ textarea:active,
 [id*=editoreditable]:active{
   outline-width: 2px !important;
 }
+textarea,
+textarea *,
+[id*=editoreditable],
+[id*=editoreditable] *{
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
+}
+textarea strong,
+textarea b,
+[id*=editoreditable] strong,
+[id*=editoreditable] b{
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
 textarea h1,
 textarea h2,
 textarea h3,
@@ -1476,8 +1536,6 @@ textarea h3,
   margin-bottom: 2rem !important;
   margin-top: 3rem !important;
   font-weight: 500 !important;
-  --tw-text-opacity: 1 !important;
-  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 textarea h1 *,
 textarea h2 *,
@@ -1531,31 +1589,80 @@ textarea pre,
   --tw-text-opacity: 1 !important;
   color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
+textarea ul,
+textarea ol,
+[id*=editoreditable] ul,
+[id*=editoreditable] ol{
+  list-style-position: inside !important;
+}
+textarea ul *,
+textarea ol *,
+[id*=editoreditable] ul *,
+[id*=editoreditable] ol *{
+  background-color: transparent !important;
+}
+textarea ul,
+[id*=editoreditable] ul{
+  list-style-type: disc !important;
+}
+textarea ol,
+[id*=editoreditable] ol{
+  list-style-type: decimal !important;
+}
 textarea table,
 [id*=editoreditable] table{
+  margin-bottom: 1rem !important;
+  border-collapse: separate !important;
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
-  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  margin-bottom: 1rem !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
-textarea table.rounded,
-[id*=editoreditable] table.rounded{
-  border-radius: 0.5rem !important;
+textarea table caption,
+[id*=editoreditable] table caption{
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  padding: 0px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 400 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
-textarea table thead,
-[id*=editoreditable] table thead{
+textarea table th:first-of-type,
+[id*=editoreditable] table th:first-of-type{
+  border-top-left-radius: 0.375rem !important;
+}
+textarea table th:last-of-type,
+[id*=editoreditable] table th:last-of-type{
+  border-top-right-radius: 0.375rem !important;
+}
+textarea table tr:last-of-type td:first-of-type,
+[id*=editoreditable] table tr:last-of-type td:first-of-type{
+  border-bottom-left-radius: 0.375rem !important;
+}
+textarea table tr:last-of-type td:last-of-type,
+[id*=editoreditable] table tr:last-of-type td:last-of-type{
+  border-bottom-right-radius: 0.375rem !important;
+}
+textarea table thead th,
+[id*=editoreditable] table thead th{
   --tw-bg-opacity: 1 !important;
-  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  font-weight: 500 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 textarea table th,
 textarea table td,
 [id*=editoreditable] table th,
 [id*=editoreditable] table td{
   padding: 0.5rem !important;
+}
+textarea table tbody tr:nth-child(odd),
+[id*=editoreditable] table tbody tr:nth-child(odd){
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
 textarea .contentwithoutlink,
 textarea .mod-indent-outer,
@@ -1604,6 +1711,9 @@ textarea.bg-light,
 }
 .editor_atto_wrap .editor_atto .editor_atto_content_wrap{
   background-color: transparent !important;
+}
+.editor_atto_wrap .editor_atto .editor_atto_content_wrap .editor_atto_content{
+  padding: 0.75rem !important;
 }
 .editor_atto_wrap .editor_atto_notification{
   margin-top: 0.5rem !important;
@@ -2094,6 +2204,20 @@ body#page-mod-assign-view [role=main] > h2, body#page-mod-assign-editsubmission 
   --tw-text-opacity: 1 !important;
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
+body#page-mod-assign-view [role=main] #intro,
+body#page-mod-assign-view [role=main] #intro *, body#page-mod-assign-editsubmission [role=main] #intro,
+body#page-mod-assign-editsubmission [role=main] #intro *, body#page-mod-quiz-view [role=main] #intro,
+body#page-mod-quiz-view [role=main] #intro *{
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
+}
+body#page-mod-assign-view [role=main] #intro strong,
+body#page-mod-assign-view [role=main] #intro b, body#page-mod-assign-editsubmission [role=main] #intro strong,
+body#page-mod-assign-editsubmission [role=main] #intro b, body#page-mod-quiz-view [role=main] #intro strong,
+body#page-mod-quiz-view [role=main] #intro b{
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
 body#page-mod-assign-view [role=main] #intro h1,
 body#page-mod-assign-view [role=main] #intro h2,
 body#page-mod-assign-view [role=main] #intro h3, body#page-mod-assign-editsubmission [role=main] #intro h1,
@@ -2104,8 +2228,6 @@ body#page-mod-quiz-view [role=main] #intro h3{
   margin-bottom: 2rem !important;
   margin-top: 3rem !important;
   font-weight: 500 !important;
-  --tw-text-opacity: 1 !important;
-  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 body#page-mod-assign-view [role=main] #intro h1 *,
 body#page-mod-assign-view [role=main] #intro h2 *,
@@ -2155,28 +2277,70 @@ body#page-mod-assign-view [role=main] #intro pre, body#page-mod-assign-editsubmi
   --tw-text-opacity: 1 !important;
   color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
+body#page-mod-assign-view [role=main] #intro ul,
+body#page-mod-assign-view [role=main] #intro ol, body#page-mod-assign-editsubmission [role=main] #intro ul,
+body#page-mod-assign-editsubmission [role=main] #intro ol, body#page-mod-quiz-view [role=main] #intro ul,
+body#page-mod-quiz-view [role=main] #intro ol{
+  list-style-position: inside !important;
+}
+body#page-mod-assign-view [role=main] #intro ul *,
+body#page-mod-assign-view [role=main] #intro ol *, body#page-mod-assign-editsubmission [role=main] #intro ul *,
+body#page-mod-assign-editsubmission [role=main] #intro ol *, body#page-mod-quiz-view [role=main] #intro ul *,
+body#page-mod-quiz-view [role=main] #intro ol *{
+  background-color: transparent !important;
+}
+body#page-mod-assign-view [role=main] #intro ul, body#page-mod-assign-editsubmission [role=main] #intro ul, body#page-mod-quiz-view [role=main] #intro ul{
+  list-style-type: disc !important;
+}
+body#page-mod-assign-view [role=main] #intro ol, body#page-mod-assign-editsubmission [role=main] #intro ol, body#page-mod-quiz-view [role=main] #intro ol{
+  list-style-type: decimal !important;
+}
 body#page-mod-assign-view [role=main] #intro table, body#page-mod-assign-editsubmission [role=main] #intro table, body#page-mod-quiz-view [role=main] #intro table{
+  margin-bottom: 1rem !important;
+  border-collapse: separate !important;
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
-  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  margin-bottom: 1rem !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
-body#page-mod-assign-view [role=main] #intro table.rounded, body#page-mod-assign-editsubmission [role=main] #intro table.rounded, body#page-mod-quiz-view [role=main] #intro table.rounded{
-  border-radius: 0.5rem !important;
+body#page-mod-assign-view [role=main] #intro table caption, body#page-mod-assign-editsubmission [role=main] #intro table caption, body#page-mod-quiz-view [role=main] #intro table caption{
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  padding: 0px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 400 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
-body#page-mod-assign-view [role=main] #intro table thead, body#page-mod-assign-editsubmission [role=main] #intro table thead, body#page-mod-quiz-view [role=main] #intro table thead{
+body#page-mod-assign-view [role=main] #intro table th:first-of-type, body#page-mod-assign-editsubmission [role=main] #intro table th:first-of-type, body#page-mod-quiz-view [role=main] #intro table th:first-of-type{
+  border-top-left-radius: 0.375rem !important;
+}
+body#page-mod-assign-view [role=main] #intro table th:last-of-type, body#page-mod-assign-editsubmission [role=main] #intro table th:last-of-type, body#page-mod-quiz-view [role=main] #intro table th:last-of-type{
+  border-top-right-radius: 0.375rem !important;
+}
+body#page-mod-assign-view [role=main] #intro table tr:last-of-type td:first-of-type, body#page-mod-assign-editsubmission [role=main] #intro table tr:last-of-type td:first-of-type, body#page-mod-quiz-view [role=main] #intro table tr:last-of-type td:first-of-type{
+  border-bottom-left-radius: 0.375rem !important;
+}
+body#page-mod-assign-view [role=main] #intro table tr:last-of-type td:last-of-type, body#page-mod-assign-editsubmission [role=main] #intro table tr:last-of-type td:last-of-type, body#page-mod-quiz-view [role=main] #intro table tr:last-of-type td:last-of-type{
+  border-bottom-right-radius: 0.375rem !important;
+}
+body#page-mod-assign-view [role=main] #intro table thead th, body#page-mod-assign-editsubmission [role=main] #intro table thead th, body#page-mod-quiz-view [role=main] #intro table thead th{
   --tw-bg-opacity: 1 !important;
-  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  font-weight: 500 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 body#page-mod-assign-view [role=main] #intro table th,
 body#page-mod-assign-view [role=main] #intro table td, body#page-mod-assign-editsubmission [role=main] #intro table th,
 body#page-mod-assign-editsubmission [role=main] #intro table td, body#page-mod-quiz-view [role=main] #intro table th,
 body#page-mod-quiz-view [role=main] #intro table td{
   padding: 0.5rem !important;
+}
+body#page-mod-assign-view [role=main] #intro table tbody tr:nth-child(odd), body#page-mod-assign-editsubmission [role=main] #intro table tbody tr:nth-child(odd), body#page-mod-quiz-view [role=main] #intro table tbody tr:nth-child(odd){
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
 body#page-mod-assign-view [role=main] #intro .contentwithoutlink,
 body#page-mod-assign-view [role=main] #intro .mod-indent-outer,
@@ -2325,14 +2489,22 @@ body:not(#page-login-index, #page-my-index) div#region-main-box > section#region
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main span#maincontent {
   display: none !important;
 }
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content,
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content *{
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content strong,
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content b{
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content h1,
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content h2,
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content h3{
   margin-bottom: 2rem !important;
   margin-top: 3rem !important;
   font-weight: 500 !important;
-  --tw-text-opacity: 1 !important;
-  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content h1 *,
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content h2 *,
@@ -2378,26 +2550,64 @@ body:not(#page-login-index, #page-my-index) div#region-main-box > section#region
   --tw-text-opacity: 1 !important;
   color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content ul,
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content ol{
+  list-style-position: inside !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content ul *,
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content ol *{
+  background-color: transparent !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content ul{
+  list-style-type: disc !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content ol{
+  list-style-type: decimal !important;
+}
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table{
+  margin-bottom: 1rem !important;
+  border-collapse: separate !important;
   border-radius: 0.5rem !important;
   border-width: 2px !important;
   --tw-border-opacity: 1 !important;
-  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  margin-bottom: 1rem !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
 }
-body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table.rounded{
-  border-radius: 0.5rem !important;
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table caption{
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  padding: 0px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 400 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
 }
-body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table thead{
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table th:first-of-type{
+  border-top-left-radius: 0.375rem !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table th:last-of-type{
+  border-top-right-radius: 0.375rem !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table tr:last-of-type td:first-of-type{
+  border-bottom-left-radius: 0.375rem !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table tr:last-of-type td:last-of-type{
+  border-bottom-right-radius: 0.375rem !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table thead th{
   --tw-bg-opacity: 1 !important;
-  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  font-weight: 500 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table th,
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table td{
   padding: 0.5rem !important;
+}
+body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content table tbody tr:nth-child(odd){
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content .contentwithoutlink,
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content .mod-indent-outer,
@@ -4341,24 +4551,61 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   outline: 2px solid transparent !important;
   outline-offset: 2px !important;
 }
-.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] .collapsed-icon-container,
-.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] .expanded-icon-container,
-.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] .collapsed-icon-container,
-.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] .expanded-icon-container{
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card button[data-toggle=collapse] .collapsed-icon-container,
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card button[data-toggle=collapse] .expanded-icon-container,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card button[data-toggle=collapse] .collapsed-icon-container,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card button[data-toggle=collapse] .expanded-icon-container{
   width: 0.5rem !important;
   text-align: center !important;
   --tw-text-opacity: 1 !important;
   color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
 }
-.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] > :nth-child(3),
-.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] > :nth-child(3){
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card button[data-toggle=collapse] > :nth-child(3),
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card button[data-toggle=collapse] > :nth-child(3){
   margin-left: 0.5rem !important;
 }
-.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] small,
-.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] button[data-toggle=collapse] small{
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card button[data-toggle=collapse] small,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card button[data-toggle=collapse] small{
   margin-left: 0.5rem !important;
   --tw-text-opacity: 1 !important;
   color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
+}
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id],
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id]{
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+}
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id]:hover,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id]:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] img,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] img{
+  margin: 0px !important;
+  aspect-ratio: 1 / 1 !important;
+  height: 3rem !important;
+}
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] :nth-child(2),
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] :nth-child(2){
+  margin: 0px !important;
+  margin-left: 0.75rem !important;
+}
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] :nth-child(2) .last-message,
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] :nth-child(2) .last-message{
+  margin: 0px !important;
+}
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] [data-region=last-message-date],
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] [data-region=last-message-date]{
+  top: 0.5rem !important;
+  right: 0.5rem !important;
+  padding: 0px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+.message-app [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] :has(> .dir-rtl-hide, > .dir-ltr-hide),
+.message-app.bg-light [class*=body-container] [class*=view-overview-body] [id*=message-drawer-view-overview-container] .section.card a[data-user-id] :has(> .dir-rtl-hide, > .dir-ltr-hide){
+  display: none !important;
 }
 .message-app [class*=body-container] [data-region=view-conversation],
 .message-app.bg-light [class*=body-container] [data-region=view-conversation]{
@@ -4529,9 +4776,20 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a,
-.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a {
-  border-radius: 0 !important;
-  padding: 0.75rem !important;
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a{
+  align-items: center !important;
+  gap: 0.75rem !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+}
+.message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a:hover,
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+.message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a h6,
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a h6{
+  margin: 0px !important;
 }
 .message-app *,
 .message-app *[class*=border],

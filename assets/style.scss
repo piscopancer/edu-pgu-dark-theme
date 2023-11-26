@@ -139,10 +139,18 @@
   }
 }
 @mixin prettyMarkdown {
+  &,
+  * {
+    @apply text-gray-400 #{!important};
+  }
+  strong,
+  b {
+    @apply text-gray-200 #{!important};
+  }
   h1,
   h2,
   h3 {
-    @apply text-gray-200 mb-8 mt-12 font-medium #{!important};
+    @apply mb-8 mt-12 font-medium #{!important};
     * {
       @apply text-xl #{!important};
     }
@@ -153,15 +161,49 @@
   pre {
     @apply bg-gray-950 p-4 font-mono font-medium text-gray-400 #{!important};
   }
+  ul,
+  ol {
+    @apply list-inside #{!important};
+    * {
+      @apply bg-transparent #{!important};
+    }
+  }
+  ul {
+    @apply list-disc #{!important};
+  }
+  ol {
+    @apply list-decimal #{!important};
+  }
   table {
-    @include card;
-    @apply bg-gray-950 mb-4 #{!important};
+    @apply mb-4 border-2 rounded-lg border-gray-800 border-separate #{!important};
+    caption {
+      @apply text-gray-400 font-normal text-sm p-0 my-2 #{!important};
+    }
+    th:first-of-type {
+      @apply rounded-tl-md #{!important};
+    }
+    th:last-of-type {
+      @apply rounded-tr-md #{!important};
+    }
+    tr:last-of-type td:first-of-type {
+      @apply rounded-bl-md #{!important};
+    }
+    tr:last-of-type td:last-of-type {
+      @apply rounded-br-md #{!important};
+    }
     thead {
-      @apply bg-gray-800 #{!important};
+      th {
+        @apply bg-gray-900 font-medium text-gray-200 #{!important};
+      }
     }
     th,
     td {
       @apply p-2 #{!important};
+    }
+    tbody {
+      tr:nth-child(odd) {
+        @apply bg-gray-925 #{!important};
+      }
     }
   }
   .contentwithoutlink,
@@ -620,6 +662,9 @@ textarea,
     }
     .editor_atto_content_wrap {
       @apply bg-transparent #{!important};
+      .editor_atto_content {
+        @apply p-3 #{!important};
+      }
     }
   }
   .editor_atto_notification {
@@ -1878,7 +1923,7 @@ div.submissionaction button {
       }
     }
   }
-  // Contacts groups in the messenger menu.
+  // Contacts, contact groups in the messenger menu.
   [class*="body-container"] {
     overflow: visible !important;
     [class*="view-overview-body"] {
@@ -1886,20 +1931,40 @@ div.submissionaction button {
       [id*="message-drawer-view-overview-container"] {
         @include card;
         @apply bg-gray-950 flex flex-col flex-nowrap overflow-visible p-2 #{!important};
+        // Contacts group
         .section.card {
           @apply bg-none shadow-none outline-none #{!important};
-        }
-        button[data-toggle="collapse"] {
-          .collapsed-icon-container,
-          .expanded-icon-container {
-            @apply text-gray-500 w-2 text-center #{!important};
+          button[data-toggle="collapse"] {
+            .collapsed-icon-container,
+            .expanded-icon-container {
+              @apply text-gray-500 w-2 text-center #{!important};
+            }
+            // Group name.
+            > :nth-child(3) {
+              @apply ml-2 #{!important};
+            }
+            small {
+              @apply ml-2 text-gray-500 #{!important};
+            }
           }
-          // Group name.
-          > :nth-child(3) {
-            @apply ml-2 #{!important};
-          }
-          small {
-            @apply ml-2 text-gray-500 #{!important};
+          // Contact button, open chat with a contact.
+          a[data-user-id] {
+            @apply p-2 rounded-lg hover:bg-gray-800 #{!important};
+            img {
+              @apply m-0 aspect-square h-12 #{!important};
+            }
+            :nth-child(2) {
+              @apply m-0 ml-3 #{!important};
+              .last-message {
+                @apply m-0 #{!important};
+              }
+            }
+            [data-region="last-message-date"] {
+              @apply p-0 top-2 right-2 text-sm #{!important};
+            }
+            :has(> .dir-rtl-hide, > .dir-ltr-hide) {
+              @apply hidden #{!important};
+            }
           }
         }
       }
@@ -1986,8 +2051,10 @@ div.submissionaction button {
             // CONTANTS
             .list-group[data-region="content-container"] {
               > a {
-                border-radius: 0 !important;
-                padding: 0.75rem !important;
+                @apply rounded-lg p-2 gap-3 hover:bg-gray-800 items-center #{!important};
+                h6 {
+                  @apply m-0 #{!important};
+                }
               }
             }
           }
