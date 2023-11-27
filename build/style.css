@@ -2436,6 +2436,46 @@ body#page-mod-quiz-view .activity-navigation #next-activity-link:hover{
 body#page-mod-assign-view .activity-navigation select, body#page-mod-assign-editsubmission .activity-navigation select, body#page-mod-quiz-view .activity-navigation select{
   width: auto !important;
 }
+body#page-mod-assign-submit .submitforgrading{
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(168 85 247 / var(--tw-border-opacity)) !important;
+  padding: 1rem !important;
+}
+body#page-mod-assign-submit .submitforgrading h3{
+  margin-bottom: 0.75rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+body#page-mod-assign-submit .submitforgrading form{
+  padding: 0px !important;
+}
+body#page-mod-assign-submit .submitforgrading form .form-group{
+  margin: 0px !important;
+}
+body#page-mod-assign-submit .submitforgrading form .col-md-9{
+  max-width: none !important;
+  flex: 1 1 auto !important;
+  padding: 0px !important;
+}
+body#page-mod-assign-submit .submitforgrading form #fitem_id_confirmmessage{
+  margin-bottom: 0.75rem !important;
+  flex-wrap: nowrap !important;
+}
+body#page-mod-assign-submit .submitforgrading form #fitem_id_confirmmessage > :nth-child(1){
+  display: none !important;
+}
+body#page-mod-assign-submit .submitforgrading form #fgroup_id_buttonar > :nth-child(1){
+  display: none !important;
+}
+body#page-mod-assign-submit .submitforgrading form #fgroup_id_buttonar :has(> .form-group){
+  justify-content: flex-end !important;
+  gap: 0.5rem !important;
+}
+body#page-mod-assign-submit .submitforgrading form #fgroup_id_buttonar :has(> .form-group) .form-group{
+  margin: 0px !important;
+}
 body#page-mod-assign-editsubmission .editsubmissionform form{
   margin: 0px !important;
   padding: 0px !important;
@@ -3956,8 +3996,8 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   display: none !important;
 }
 .filemanager .filemanager-container{
-  height: 12rem !important;
-  overflow: visible !important;
+  height: auto !important;
+  overflow: hidden !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(10 12 17 / var(--tw-bg-opacity)) !important;
   --tw-shadow: 0 0 #0000 !important;
@@ -3971,14 +4011,22 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   --tw-border-opacity: 1 !important;
   border-color: rgb(168 85 247 / var(--tw-border-opacity)) !important;
 }
+.filemanager .filemanager-container.dndupload-over{
+  outline-style: solid !important;
+  outline-width: 2px !important;
+  outline-color: #a855f7 !important;
+}
 .filemanager .filemanager-container .fm-empty-container{
+  position: static !important;
   inset: 0px !important;
   top: 0.75rem !important;
+  height: 11rem !important;
   padding: 0px !important;
   --tw-text-opacity: 1 !important;
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
 .filemanager .filemanager-container .fm-empty-container .dndupload-message{
+  margin-top: 0.75rem !important;
   display: block !important;
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
@@ -3996,6 +4044,7 @@ section.filemanager .filemanager-container .fm-empty-container .dndupload-messag
   justify-content: center !important;
   -o-object-fit: contain !important;
      object-fit: contain !important;
+  padding-top: 0.75rem !important;
   background-image: none !important;
 }
 .filemanager .filemanager-container .fm-empty-container .dndupload-message .dndupload-arrow::after {
@@ -4018,10 +4067,73 @@ section.filemanager .filemanager-container .fm-empty-container .dndupload-messag
     opacity: 0.5;
   }
 }
-.filemanager .filemanager-container.dndupload-over .fm-empty-container{
-  outline-style: solid !important;
-  outline-width: 2px !important;
-  outline-color: #a855f7 !important;
+.filemanager .filemanager-container .fm-content-wrapper{
+  height: 100% !important;
+}
+.filemanager .filemanager-container .fm-content-wrapper .fp-content{
+  padding: 0.75rem !important;
+}
+.filemanager .filemanager-container .fm-content-wrapper .fp-content .fp-iconview{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill,minmax(8rem,1fr)) !important;
+  gap: 0.75rem !important;
+}
+.filemanager .filemanager-container .fm-content-wrapper .fp-content .fp-iconview .fp-file{
+  float: none !important;
+  margin: 0px !important;
+  padding: 0.5rem !important;
+}
+.filemanager .filemanager-container .fm-content-wrapper .fp-content .fp-iconview .fp-file:hover .fp-thumbnail{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+.filemanager .filemanager-container .fm-content-wrapper .fp-content .fp-iconview .fp-file:hover .fp-thumbnail img{
+  --tw-scale-x: 1.1 !important;
+  --tw-scale-y: 1.1 !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+}
+.filemanager .filemanager-container .fm-content-wrapper .fp-content .fp-iconview .fp-file .fp-thumbnail{
+  display: flex !important;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  min-height: 0px !important;
+  width: auto !important;
+  min-width: 0px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 9999px !important;
+  border-style: none !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  padding: 0.5rem !important;
+  transition-duration: 100ms !important;
+}
+.filemanager .filemanager-container .fm-content-wrapper .fp-content .fp-iconview .fp-file .fp-thumbnail img{
+  aspect-ratio: 1 / 1 !important;
+  height: 50% !important;
+  max-height: none !important;
+  min-height: 0px !important;
+  min-width: 0px !important;
+  max-width: none !important;
+  border-radius: 0.5rem !important;
+  border-style: none !important;
+  padding: 0px !important;
+  transition-duration: 200ms !important;
+}
+.filemanager .filemanager-container .fm-content-wrapper .fp-content .fp-iconview .fp-file .fp-filename-field{
+  position: static !important;
+  margin: 0px !important;
+  margin-top: 0.5rem !important;
+  height: auto !important;
+  overflow: auto !important;
+}
+.filemanager .filemanager-container .fm-content-wrapper .fp-content .fp-iconview .fp-file .fp-filename-field .fp-filename{
+  width: auto !important;
+  min-width: 0px !important;
+  background-color: transparent !important;
+  padding: 0px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
 }
 .filemanager .filemanager-container .dndupload-target{
   display: none !important;
