@@ -3894,6 +3894,42 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
 .modal-dialog .modal-content .modal-footer{
   padding: 0px !important;
 }
+.yui3-widget.yui3-panel .modal-content .modal-header h5,
+.moodle-dialogue .modal-content .modal-header h5,
+.yui3-widget-modal .modal-content .modal-header h5,
+.modal-dialog .modal-content .modal-header h5{
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+.yui3-widget.yui3-panel .modal-content .modal-header button.closebutton,
+.moodle-dialogue .modal-content .modal-header button.closebutton,
+.yui3-widget-modal .modal-content .modal-header button.closebutton,
+.modal-dialog .modal-content .modal-header button.closebutton{
+  margin: 0px !important;
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
+  padding: 0px !important;
+}
+.yui3-widget.yui3-panel .modal-content .modal-header button.closebutton span,
+.moodle-dialogue .modal-content .modal-header button.closebutton span,
+.yui3-widget-modal .modal-content .modal-header button.closebutton span,
+.modal-dialog .modal-content .modal-header button.closebutton span{
+  display: none !important;
+}
+.yui3-widget.yui3-panel .modal-content .modal-header button.closebutton::after,
+.moodle-dialogue .modal-content .modal-header button.closebutton::after,
+.yui3-widget-modal .modal-content .modal-header button.closebutton::after,
+.modal-dialog .modal-content .modal-header button.closebutton::after{
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+}
 
 .filemanager{
   border-radius: 0.5rem !important;
@@ -4754,6 +4790,7 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
   margin: 0px !important;
   display: flex !important;
   flex-wrap: nowrap !important;
+  background-color: transparent !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li,
 .message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li{
@@ -4761,19 +4798,34 @@ form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) .d-flex.
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a,
 .message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a{
+  margin: 0px !important;
   border-radius: 0px !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+  background-color: transparent !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:hover,
 .message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a:hover{
   --tw-bg-opacity: 1 !important;
   background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
 }
+.message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a.active,
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li > a.active{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+.message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li:first-child a,
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li:first-child a{
+  border-top-left-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+}
+.message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li:last-child a,
+.message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) div:has(> ul) > ul > li:last-child a{
+  border-top-right-radius: 0.5rem !important;
+  border-bottom-right-radius: 0.5rem !important;
+}
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content,
 .message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content{
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
+  margin-top: 1rem !important;
+  background-color: transparent !important;
 }
 .message-app [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a,
 .message-app.bg-light [class*=body-container].body-container:has([data-region=view-contacts]:not([aria-hidden=true])) [data-region=view-contacts] > div:nth-child(1) .tab-content .list-group[data-region=content-container] > a{

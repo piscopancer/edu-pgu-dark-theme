@@ -1634,6 +1634,20 @@ body {
     .modal-footer {
       @apply p-0 #{!important};
     }
+    .modal-header {
+      h5 {
+        @apply text-gray-200 #{!important};
+      }
+      button.closebutton {
+        @apply p-0 w-10 h-10 m-0 border-gray-900 border-2 rounded-lg flex items-center justify-center #{!important};
+        span {
+          @apply hidden #{!important};
+        }
+        &::after {
+          @apply text-2xl #{!important};
+        }
+      }
+    }
   }
 }
 // UPLOAD FILE FORM BLOCK (NOT MODAL)
@@ -2025,30 +2039,39 @@ div.submissionaction button {
         }
       }
     }
-    // CONTACTS AND REQUESTS TAB
+    // Contacts and requests tab.
     &.body-container:has([data-region="view-contacts"]:not([aria-hidden="true"])) {
       [data-region="view-contacts"] {
         overflow: visible !important;
         > div:nth-child(1) {
           @include card;
           overflow: hidden !important;
-          // CONTANTS AND REQUESTS BUTTONS
+          // Contants and requests tab buttons.
           div:has(> ul) {
             @apply p-0 #{!important};
             > ul {
-              @apply flex flex-nowrap m-0 #{!important};
+              @apply flex flex-nowrap m-0 bg-transparent #{!important};
               > li {
                 @apply flex-1 #{!important};
                 > a {
-                  @apply bg-gray-925 rounded-none hover:bg-gray-900 #{!important};
+                  @apply bg-transparent rounded-none m-0 hover:bg-gray-900 #{!important};
+                  &.active {
+                    @apply bg-gray-800 #{!important};
+                  }
+                }
+                &:first-child a {
+                  @apply rounded-l-lg #{!important};
+                }
+                &:last-child a {
+                  @apply rounded-r-lg #{!important};
                 }
               }
             }
           }
-          // CONTANTS LIST
+          // Contacts list.
           .tab-content {
-            @apply bg-gray-925 #{!important};
-            // CONTANTS
+            @apply bg-transparent mt-4 #{!important};
+            // Contacts.
             .list-group[data-region="content-container"] {
               > a {
                 @apply rounded-lg p-2 gap-3 hover:bg-gray-800 items-center #{!important};
