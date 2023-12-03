@@ -496,7 +496,6 @@ header#page-header {
 }
 
 section.block{
-  overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
 section.block_mycourses{
@@ -889,7 +888,6 @@ i.fa-exclamation-circle.text-danger,
   background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
 }
 section#page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container a.see-all-link{
-  overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
 #page-wrapper > nav.navbar.fixed-top .nav.usernav #nav-notification-popover-container .popover-region-container a.see-all-link:hover{
@@ -1733,12 +1731,6 @@ textarea.bg-light,
   line-height: 1.25rem !important;
 }
 
-/* RECENTLY ADDED COURSES */
-div.block-recentlyaccessedcourses div.one-row > div {
-  overflow: hidden !important;
-  border-radius: 0.5rem !important;
-}
-
 .popover{
   border-radius: 0.5rem !important;
   border-width: 2px !important;
@@ -1783,7 +1775,7 @@ div.block-recentlyaccessedcourses div.one-row > div {
   line-height: 1.25rem !important;
 }
 .popover div::after,
-.popover div::before {
+.popover div::before{
   display: none !important;
 }
 
@@ -2111,17 +2103,17 @@ td.hasevent a:hover{
 .card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(2), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(2){
   margin: 0px !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(3), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(3) {
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(3), .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(3){
   display: flex !important;
   flex-direction: row !important;
   gap: 0.5rem !important;
 }
-.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(3) > *, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(3) > * {
-  padding: 0 !important;
+.card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(3) > *, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(3) > *{
+  padding: 0px !important;
 }
 .card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(3) span > img,
 .card-text.content > div:has(table.course-box) .course-box:has(.group-box) .group-box > .group-completion-box > :nth-child(3) a[href*=message] > img, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(3) span > img,
-.card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(3) a[href*=message] > img {
+.card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) .group-box > .group-completion-box > :nth-child(3) a[href*=message] > img{
   display: none !important;
 }
 .card-text.content > div:has(table.course-box) .course-box:has(.group-box) a:has(> img[src$=group]) > img, .card-text.content > div:has(table.course-box) .course-box td:has(> :last-child:nth-child(4)) a:has(> img[src$=group]) > img {
@@ -2191,12 +2183,197 @@ body#page-login-index .forgetpass a{
   text-inset: 0 !important;
 }
 sectionbody#page-login-index .forgetpass a{
-  overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
 body#page-login-index .forgetpass + div{
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content{
+  margin: 0px !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=loading-placeholder]{
+  margin-top: 3.5rem !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=loading-placeholder] .card-deck{
+  display: flex !important;
+  height: auto !important;
+  justify-content: center !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=loading-placeholder] .card-deck .card{
+  margin: 0px !important;
+  height: 11rem !important;
+  width: auto !important;
+  flex-grow: 1 !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=loading-placeholder] .card-deck .card:not(:nth-child(1)){
+  display: none !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=loading-placeholder] .card-deck .card .card-img-top{
+  height: 100% !important;
+}
+@keyframes pulse{
+  50%{
+    opacity: .5;
+  }
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=loading-placeholder] .card-deck .card .card-img-top{
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=loading-placeholder] .card-deck .card .card-body{
+  display: none !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .paging-bar-container ul{
+  gap: 0.5rem !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .paging-bar-container ul li.disabled{
+  opacity: 0.5 !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .paging-bar-container ul li a.page-link{
+  display: flex !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .paging-bar-container ul li a.page-link:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .card-deck{
+  gap: 1rem !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .card-deck .card{
+  margin: 0px !important;
+  display: flex !important;
+  height: 11rem !important;
+  width: auto !important;
+  flex-grow: 1 !important;
+  flex-direction: column !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .card-deck .card a{
+  height: auto !important;
+  flex-grow: 1 !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .card-deck .card a .card-img{
+  height: 100% !important;
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .card-deck .card .card-body{
+  min-height: 0px !important;
+  flex: none !important;
+  padding: 0.75rem !important;
+}
+body#page-my-index section.block_recentlyaccessedcourses .card-text.content [data-region=view-content] .card-deck .card .card-body .text-truncate > :nth-child(1){
+  margin: 0px !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] > :nth-child(1){
+  border-width: 0px !important;
+  padding: 0px !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] > :nth-child(1) button{
+  border-radius: 0.375rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] > :nth-child(1) button:hover{
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(39 42 48 / var(--tw-bg-opacity)) !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=event-list-loading-placeholder]{
+  margin-top: 1rem !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=event-list-loading-placeholder] ul{
+  gap: 0.5rem !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=event-list-loading-placeholder] ul li{
+  height: 3rem !important;
+}
+@keyframes pulse{
+  50%{
+    opacity: .5;
+  }
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=event-list-loading-placeholder] ul li{
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=event-list-loading-placeholder] ul li *{
+  display: none !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=event-list-loading-placeholder] > :nth-child(2){
+  display: none !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1){
+  border-width: 0px !important;
+  padding: 0px !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1) h5{
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(244 63 94 / var(--tw-text-opacity)) !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1) .list-group{
+  gap: 0.5rem !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1) .list-group .list-group-item{
+  border-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(31 33 39 / var(--tw-bg-opacity)) !important;
+  padding: 0.75rem !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1) .list-group .list-group-item > :nth-child(1){
+  gap: 0.5rem !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1) .list-group .list-group-item > :nth-child(1) a h6{
+  font-weight: 500 !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(159 166 180 / var(--tw-text-opacity)) !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1) .list-group .list-group-item > :nth-child(1) a h6:hover{
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1) .list-group .list-group-item > :nth-child(1) small{
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(105 110 122 / var(--tw-text-opacity)) !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1) .list-group .list-group-item > :nth-child(1) a[href*=editsubmission]{
+  display: flex !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  border-radius: 0.375rem !important;
+  border-width: 2px !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+body#page-my-index section.block_timeline [data-region=timeline] [data-region=paged-content-page] > :nth-child(1) .list-group .list-group-item > :nth-child(1) a[href*=editsubmission]:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(60 65 74 / var(--tw-border-opacity)) !important;
 }
 body#page-mod-assign-view [role=main] > h2, body#page-mod-assign-editsubmission [role=main] > h2, body#page-mod-quiz-view [role=main] > h2{
   font-size: 1.125rem !important;
@@ -2401,7 +2578,6 @@ body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-chi
   text-align: start !important;
 }
 sectionbody#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a,section body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a,section body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(1) a{
-  overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
 body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:has(select), body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:has(select), body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:has(select){
@@ -2412,7 +2588,6 @@ body#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-chi
   text-align: end !important;
 }
 sectionbody#page-mod-assign-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a,section body#page-mod-assign-editsubmission .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a,section body#page-mod-quiz-view .activity-navigation > :nth-child(1) .col-md-4:nth-child(3) a{
-  overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
 body#page-mod-assign-view .activity-navigation #prev-activity-link,
@@ -2660,39 +2835,10 @@ body:not(#page-login-index, #page-my-index) div#region-main-box > section#region
   overflow: visible !important;
 }
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a.aalink{
-  border-radius: 0.5rem !important;
-  border-width: 2px !important;
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  padding-top: 0.25rem !important;
-  padding-bottom: 0.25rem !important;
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-  font-weight: 500 !important;
-  --tw-text-opacity: 1 !important;
-  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
-}
-body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a.aalink:hover{
-  --tw-brightness: brightness(1.25) !important;
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
-}
-body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a.aalink{
   display: flex !important;
   align-items: center !important;
   gap: 0.5rem !important;
   text-indent: 0 !important;
-}
-body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a.aalink.rounded{
-  border-radius: 0.5rem !important;
-}
-body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a.aalink::before{
-  margin-right: 0.25rem !important;
-  aspect-ratio: 1 / 1 !important;
-  height: 100% !important;
-  --tw-content: "🔗" !important;
-  content: var(--tw-content) !important;
 }
 body:not(#page-login-index, #page-my-index) div#region-main-box > section#region-main .course-content a.aalink img{
   aspect-ratio: 1 / 1 !important;
@@ -2700,27 +2846,34 @@ body:not(#page-login-index, #page-my-index) div#region-main-box > section#region
   width: 2rem !important;
   padding: 0.25rem !important;
 }
-body#page-user-profile .userprofile .page-context-header {
-  display: inline-flex !important;
-  padding: 0 !important;
+body#page-user-profile .userprofile .page-context-header{
   margin-bottom: 1rem !important;
-  gap: 1rem !important;
+  display: inline-flex !important;
   flex-wrap: wrap !important;
   align-items: center !important;
+  gap: 1rem !important;
+  padding: 0px !important;
 }
-body#page-user-profile .userprofile .page-context-header .page-header-image {
-  margin: 0 !important;
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) body.d-flex#page-user-profile .userprofile .page-context-header.align-items-center{
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
 }
-body#page-user-profile .userprofile .page-context-header .page-header-image img.userpicture {
-  margin: 0 !important;
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) body.d-flex#page-user-profile .userprofile .page-context-header.align-items-center .form-group{
+  margin: 0px !important;
+}
+body#page-user-profile .userprofile .page-context-header .page-header-image{
+  margin: 0px !important;
+}
+body#page-user-profile .userprofile .page-context-header .page-header-image img.userpicture{
+  margin: 0px !important;
 }
 body#page-user-profile .userprofile .page-context-header .page-header-headings {
   display: inline-flex !important;
 }
-body#page-user-profile .userprofile .page-context-header .page-header-headings > h2 {
-  margin: 0 !important;
+body#page-user-profile .userprofile .page-context-header .page-header-headings > h2{
+  margin: 0px !important;
 }
-body#page-user-profile .userprofile .page-context-header .header-button-group {
+body#page-user-profile .userprofile .page-context-header .header-button-group{
   display: inline-flex !important;
   flex-wrap: nowrap !important;
   gap: 1rem !important;
@@ -2778,9 +2931,9 @@ body#page-user-profile .userprofile .profile_tree a[href*=mailto]:hover{
   --tw-brightness: brightness(1.25) !important;
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
-body#page-user-profile .userprofile .profile_tree a[href*=mailto] {
-  display: flex !important;
+body#page-user-profile .userprofile .profile_tree a[href*=mailto]{
   margin-top: 1rem !important;
+  display: flex !important;
 }
 body#page-user-profile .userprofile .profile_tree a[href*=mailto].rounded{
   border-radius: 0.5rem !important;
@@ -2792,23 +2945,30 @@ body#page-user-profile .userprofile .profile_tree a[href*=mailto]::before{
   --tw-content: "🔗" !important;
   content: var(--tw-content) !important;
 }
-body#page-user-profile .userprofile .profile_tree a {
-  padding: 0.5rem 0.5rem !important;
+body#page-user-profile .userprofile .profile_tree a{
+  padding: 0.5rem !important;
 }
-body#page-user-profile .userprofile .profile_tree ul {
+body#page-user-profile .userprofile .profile_tree ul{
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.1rem !important;
+  gap: 0.25rem !important;
 }
-body#page-user-profile .userprofile .profile_tree ul.inline-list {
+body#page-user-profile .userprofile .profile_tree ul.inline-list{
   display: inline-flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
 }
-body#page-user-profile .userprofile .profile_tree ul li {
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) body.d-flex#page-user-profile .userprofile .profile_tree ul.inline-list.align-items-center{
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
+}
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) body.d-flex#page-user-profile .userprofile .profile_tree ul.inline-list.align-items-center .form-group{
+  margin: 0px !important;
+}
+body#page-user-profile .userprofile .profile_tree ul li{
   display: flex !important;
 }
-body#page-user-profile .userprofile .profile_tree ul li span {
+body#page-user-profile .userprofile .profile_tree ul li span{
   display: flex !important;
 }
 body#page-user-preferences [role=main] .card {
@@ -2877,7 +3037,6 @@ body#page-enrol-single-index form > :nth-child(2):not(script){
 }
 sectionbody#page-enrol-single-index form > :nth-child(1),section
 body#page-enrol-single-index form > :nth-child(2):not(script){
-  overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
 body#page-enrol-single-index form > :nth-child(1) label,
@@ -2890,7 +3049,6 @@ body#page-enrol-single-index form > :nth-child(2):not(script) input{
 }
 sectionbody#page-enrol-single-index form > :nth-child(1) input,section
 body#page-enrol-single-index form > :nth-child(2):not(script) input{
-  overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
 body#page-enrol-single-index form > :nth-child(1){
@@ -3725,12 +3883,19 @@ body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-a
 body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form button[name=saveandshownext], body#page-mod-assign-grader #page #page-content [role=main] [data-region=grade-actions-panel] form button[name=resetbutton]{
   margin-left: 0.5rem !important;
 }
-body section.block_mygroups div:has(> .course-group-box) {
+body section.block_mygroups div:has(> .course-group-box){
   display: flex !important;
-  gap: 1rem !important;
   flex-wrap: wrap !important;
+  gap: 1rem !important;
 }
-body section.block_mygroups div:has(> .course-group-box) > .title {
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) body.d-flex section.block_mygroups div:has(> .course-group-box).align-items-center{
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
+}
+form#mod_quiz_preflight_form div[id=fgroup_id_buttonar] > :nth-child(2) body.d-flex section.block_mygroups div:has(> .course-group-box).align-items-center .form-group{
+  margin: 0px !important;
+}
+body section.block_mygroups div:has(> .course-group-box) > .title{
   display: none !important;
 }
 body section.block_mygroups div:has(> .course-group-box) > .course-group-box{
@@ -3740,45 +3905,44 @@ body section.block_mygroups div:has(> .course-group-box) > .course-group-box{
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
   --tw-bg-opacity: 1 !important;
   background-color: rgb(18 21 27 / var(--tw-bg-opacity)) !important;
-  background-color: transparent !important;
-  display: flex !important;
-  flex-direction: column !important;
-  margin: 0 !important;
-  padding: 0.5rem !important;
-  gap: 0.5rem !important;
+  margin: 0px !important;
   width: 100% !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+  background-color: transparent !important;
+  padding: 0.5rem !important;
 }
 body section.block_mygroups div:has(> .course-group-box) > .course-group-box.rounded{
   border-radius: 0.5rem !important;
 }
-body section.block_mygroups div:has(> .course-group-box) > .course-group-box > * {
-  margin: 0 !important;
+body section.block_mygroups div:has(> .course-group-box) > .course-group-box > *{
+  margin: 0px !important;
 }
-body section.block_mygroups div:has(> .course-group-box) > .course-group-box > .group-completeness {
+body section.block_mygroups div:has(> .course-group-box) > .course-group-box > .group-completeness{
+  margin: 0px !important;
   display: flex !important;
   flex-wrap: nowrap !important;
-  gap: 0.5rem !important;
   align-items: center !important;
-  margin: 0 !important;
+  gap: 0.5rem !important;
 }
-body section.block_mygroups div:has(> .course-group-box) > .course-group-box > .group-completeness > .completeness-value {
+body section.block_mygroups div:has(> .course-group-box) > .course-group-box > .group-completeness > .completeness-value{
   width: 4rem !important;
   text-align: center !important;
 }
-body section.block_mygroups div:has(> .course-group-box) > .course-group-box > .group-completeness > .group-completion-bar-box {
-  margin: 0 !important;
+body section.block_mygroups div:has(> .course-group-box) > .course-group-box > .group-completeness > .group-completion-bar-box{
+  margin: 0px !important;
   flex-grow: 1 !important;
 }
-body section.block_mygroups div:has(> .course-group-box) > div:has(> a) {
+body section.block_mygroups div:has(> .course-group-box) > div:has(> a){
+  margin: 0px !important;
   display: inline-flex !important;
-  margin: 0 !important;
   width: -moz-fit-content !important;
   width: fit-content !important;
 }
-body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a {
-  margin: 0 !important;
+body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a{
+  margin: 0px !important;
 }
-body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > img {
+body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > img{
   display: none !important;
 }
 
@@ -3941,34 +4105,44 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   --tw-text-opacity: 1 !important;
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
 }
-.yui3-widget.yui3-panel .modal-content .modal-header button.closebutton,
-.moodle-dialogue .modal-content .modal-header button.closebutton,
-.yui3-widget-modal .modal-content .modal-header button.closebutton,
-.modal-dialog .modal-content .modal-header button.closebutton{
-  margin: 0px !important;
+.yui3-widget.yui3-panel .modal-content .modal-header button.close,
+.moodle-dialogue .modal-content .modal-header button.close,
+.yui3-widget-modal .modal-content .modal-header button.close,
+.modal-dialog .modal-content .modal-header button.close{
   display: flex !important;
   height: 2.5rem !important;
   width: 2.5rem !important;
   align-items: center !important;
   justify-content: center !important;
-  border-radius: 0.5rem !important;
   border-width: 2px !important;
+  border-style: solid !important;
   --tw-border-opacity: 1 !important;
   border-color: rgb(31 33 39 / var(--tw-border-opacity)) !important;
-  padding: 0px !important;
+  font-weight: 400 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
 }
-.yui3-widget.yui3-panel .modal-content .modal-header button.closebutton span,
-.moodle-dialogue .modal-content .modal-header button.closebutton span,
-.yui3-widget-modal .modal-content .modal-header button.closebutton span,
-.modal-dialog .modal-content .modal-header button.closebutton span{
+.yui3-widget.yui3-panel .modal-content .modal-header button.close:hover,
+.moodle-dialogue .modal-content .modal-header button.close:hover,
+.yui3-widget-modal .modal-content .modal-header button.close:hover,
+.modal-dialog .modal-content .modal-header button.close:hover{
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(39 42 48 / var(--tw-border-opacity)) !important;
+}
+.yui3-widget.yui3-panel .modal-content .modal-header button.close span,
+.moodle-dialogue .modal-content .modal-header button.close span,
+.yui3-widget-modal .modal-content .modal-header button.close span,
+.modal-dialog .modal-content .modal-header button.close span{
   display: none !important;
 }
-.yui3-widget.yui3-panel .modal-content .modal-header button.closebutton::after,
-.moodle-dialogue .modal-content .modal-header button.closebutton::after,
-.yui3-widget-modal .modal-content .modal-header button.closebutton::after,
-.modal-dialog .modal-content .modal-header button.closebutton::after{
-  font-size: 1.5rem !important;
-  line-height: 2rem !important;
+.yui3-widget.yui3-panel .modal-content .modal-header button.close::after,
+.moodle-dialogue .modal-content .modal-header button.close::after,
+.yui3-widget-modal .modal-content .modal-header button.close::after,
+.modal-dialog .modal-content .modal-header button.close::after{
+  --tw-text-opacity: 1 !important;
+  color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
+  --tw-content: "╳" !important;
+  content: var(--tw-content) !important;
 }
 
 .filemanager{
@@ -4032,7 +4206,6 @@ body section.block_mygroups div:has(> .course-group-box) > div:has(> a) > a > im
   line-height: 1.25rem !important;
 }
 section.filemanager .filemanager-container .fm-empty-container .dndupload-message{
-  overflow: hidden !important;
   border-radius: 0.5rem !important;
 }
 .filemanager .filemanager-container .fm-empty-container .dndupload-message .dndupload-arrow{
